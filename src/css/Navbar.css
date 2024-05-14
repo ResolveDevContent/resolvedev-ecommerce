@@ -1,14 +1,30 @@
 
-
 .navbar {
-    width: 100%;
-    position: relative;
-    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: white;
+    width: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 32;
 }
 
-.navbar ul {
+.navbar-list {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 2em;
+    width: 100%;
+}
+
+.navbar-items,
+.navbar .buttons ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
 }
