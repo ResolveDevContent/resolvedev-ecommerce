@@ -1,8 +1,9 @@
 import '../css/Navbar.css'
+import { User, Search, Favorite, Cart } from '../icons/Icons'
 
 export const Navbar = () => {
     return (
-        <header>
+        <header className='navbar'>
             <ul>
                 <div className='logo'>
                     <a href="#">Logo</a>
@@ -24,16 +25,16 @@ export const Navbar = () => {
                 <div className='buttons'>
                     <ul>
                         <li>
-                            <a href="#">Login</a>
+                            <User />
                         </li>
                         <li>
-                            <a href="#">Buscar</a>
+                            <Search />
                         </li>
                         <li>
-                            <a href="#">Favoritos</a>
+                            <Favorite />
                         </li>
                         <li>
-                            <a href="#">Cart</a>
+                            <Cart />
                         </li>
                     </ul>
                 </div>
