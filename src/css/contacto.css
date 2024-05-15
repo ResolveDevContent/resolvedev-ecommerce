@@ -29,38 +29,38 @@
 #contacto > article > div {
     width: 40%;
 }
-#contacto > article > div > ul > li {
+#contacto .item {
     display: flex;
     align-items: start;
 }
-#contacto > article > div > ul > li + li {
+#contacto .item + .item {
     margin-top: 2em;
 }
-#contacto > article > div > ul > li > svg{
+#contacto .item > svg{
     display: flex;
     width: 3em;
     height: 2em;
 }
-#contacto > article > div > ul > li > div {
+#contacto .item > div {
     display: flex;
     flex-direction: column;
     margin-left: 1em;
 }
-#contacto > article > div > ul > li > div > em {
+#contacto .item > div > em {
     font-size: 1.5em;
     font-weight: 600;
 }
-#contacto > article > div > ul > li > div > span {
+#contacto .item > div > span {
     font-weight: 400;
 }
 #contacto > article > form {
     flex: 1;
     margin: 0 2em;
 }
-#contacto > article > form > ul > li + li {
+#contacto .ul-form > li + li {
     margin-top: 2.25em;
 }
-#contacto > article > form > ul > li > button {
+#contacto .ul-form > li > button {
     border: 0;
     border-radius: .5em;
     background-color: #B88E2F;

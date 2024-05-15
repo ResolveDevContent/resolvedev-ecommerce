@@ -18,14 +18,14 @@ export const Contacto = () => {
                 <article>
                     <div>
                         <ul>
-                            <li>
+                            <li className="item">
                                 <Location />
                                 <div>
                                     <em>Adress</em>
                                     <span>236 5th SE Avenue, New York NY10000, United States</span>
                                 </div>
                             </li>
-                            <li>
+                            <li className="item">
                                 <Phone />
                                 <div>
                                     <em>Phone</em>
@@ -36,7 +36,7 @@ export const Contacto = () => {
                                     </span>
                                 </div>
                             </li>
-                            <li>
+                            <li className="item">
                                 <Clock />
                                 <div>
                                     <em>Working time</em>
@@ -50,7 +50,7 @@ export const Contacto = () => {
                         </ul>
                     </div>
                     <form>
-                        <ul>
+                        <ul className="ul-form">
                             <li>
                                 <div className="input">
                                     <label>Your name</label>

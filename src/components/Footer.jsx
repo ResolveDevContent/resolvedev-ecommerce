@@ -1,4 +1,5 @@
 import '../css/Footer.css'
+import { ArrowRight } from '../icons/Icons'
 
 export const Footer = () => {
     return (
@@ -46,7 +47,7 @@ export const Footer = () => {
                         <li>
                             <input type="text" placeholder="Ingresá tu email" />
                             <a href="#" target="_blank">
-                                Suscribite
+                                <ArrowRight />
                             </a>
                         </li>
                     </ul>
