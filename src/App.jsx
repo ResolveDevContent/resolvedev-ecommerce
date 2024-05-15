@@ -5,6 +5,7 @@ import { Router, Route } from 'resolvedev-router'
 import { Navbar } from './components/Navbar'
 import { Listado } from './components/Listado'
 import { Contacto } from './components/Contacto'
+import { Product } from './components/Product'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" component={Home} />
         <Route path="/tienda" component={Listado} />
         <Route path="/contacto" component={Contacto} />
+        <Route path="/producto" component={Product} />
       </Router>
       <Footer />
     </>

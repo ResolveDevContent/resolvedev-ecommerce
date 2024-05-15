@@ -1,0 +1,26 @@
+
+
+.product-page {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 4em;
+
+    padding-top: 5em;
+}
+
+.product-images,
+.product-details {
+    padding-top: 2em;
+    width: 50%;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-details header {
+    display: flex;
+    flex-direction: column;
+}

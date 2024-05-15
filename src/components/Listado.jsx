@@ -18,7 +18,7 @@ export const Listado = ({isInHome}) => {
                 <ul>
                     <li className="producto">
                         <article>
-                            <Link to="producto" >
+                            <Link to="/producto" >
                                 <span className='loader'></span>
                                 <ul className='imagenes'>
                                     <li>
@@ -44,7 +44,7 @@ export const Listado = ({isInHome}) => {
                     </li>
                     <li className="producto">
                         <article>
-                            <Link to="producto" >
+                            <Link to="/producto" >
                                 <span className='loader'></span>
                                 <ul className='imagenes'>
                                     <li>
@@ -67,7 +67,7 @@ export const Listado = ({isInHome}) => {
                     </li>
                     <li className="producto">
                         <article>
-                            <Link to="producto" >
+                            <Link to="/producto" >
                                 <span className='loader'></span>
                                 <ul className='imagenes'>
                                     <li>
@@ -90,7 +90,7 @@ export const Listado = ({isInHome}) => {
                     </li>
                     <li className="producto">
                         <article>
-                            <Link to="producto" >
+                            <Link to="/producto" >
                                 <span className='loader'></span>
                                 <ul className='imagenes'>
                                     <li>
