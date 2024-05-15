@@ -1,0 +1,28 @@
+#contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 6em 2em 2em 2em;
+}
+#contacto > header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 40em;
+    text-align: center;
+}
+#contacto > header > h1 {
+    font-size: 2.5em;
+}
+#contacto > header > p {
+    color: #9F9F9F;
+    font-weight: 400;
+}
+#contacto > article {
+    padding: 2em;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    margin-top: 4em;
+}

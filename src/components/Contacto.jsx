@@ -1,12 +1,13 @@
 import { Breadcumb } from "./Breadcumb"
 import { Filtros } from "./Filtros"
 import Tienda from '../images/tienda.png'
+import { Location, Phone, Clock } from "../icons/Icons"
+import '../css/contacto.css'
 
 export const Contacto = () => {
     return (
         <>
             <Breadcumb titulo={"Contacto"} imagen={Tienda} breadcumb={"Home > Contacto"}/>
-            <Filtros />
             <section id="contacto">
                 <header>
                     <h1>Get in touch with us</h1>
@@ -18,14 +19,14 @@ export const Contacto = () => {
                     <div>
                         <ul>
                             <li>
-                                <i></i>
+                                <Location />
                                 <div>
                                     <em>Adress</em>
                                     <span>236 5th SE Avenue, New York NY10000, United States</span>
                                 </div>
                             </li>
                             <li>
-                                <i></i>
+                                <Phone />
                                 <div>
                                     <em>Phone</em>
                                     <span>
@@ -36,7 +37,7 @@ export const Contacto = () => {
                                 </div>
                             </li>
                             <li>
-                                <i></i>
+                                <Clock />
                                 <div>
                                     <em>Working time</em>
                                     <span>
