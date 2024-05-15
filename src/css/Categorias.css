@@ -1,0 +1,42 @@
+.categorias {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    
+    padding: 2em 5em;
+}
+
+.categorias > header {
+    text-align: center;
+}
+
+.categorias > ul {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.categorias-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.categorias-item figure{
+    width: 20em;
+    height: 25em;
+}
+
+.categorias-item figure img {
+    border-radius: 1em;
+}
+
+.categorias-item figcaption {
+    text-align: center;
+}

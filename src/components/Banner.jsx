@@ -1,15 +1,15 @@
-
+import '../css/Banner.css'
 
 export const Banner = () => {
     return (
-            <section id="inicio">
+        <section className="banners">
             <ul>
                 <li>
                     <figure>
-                        <figcaption>
+                        <img src="https://images.unsplash.com/photo-1533673662755-98c661c601a1?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="logo" /> 
+                        {/* <figcaption>
                             <article>
                                 <div className="home-text">
-                                    <img src="" alt="logo" /> 
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit
                                     </p>
@@ -18,7 +18,7 @@ export const Banner = () => {
                                     <a href="#servicios">¡Comencemos!</a>
                                 </footer>
                             </article>
-                        </figcaption>
+                        </figcaption> */}
                     </figure>
                 </li>
             </ul>
