@@ -4,6 +4,7 @@ import { Footer } from './components/Footer'
 import { Router, Route } from 'resolvedev-router'
 import { Navbar } from './components/Navbar'
 import { Listado } from './components/Listado'
+import { Contacto } from './components/Contacto'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Router>
         <Route path="/" component={Home} />
         <Route path="/tienda" component={Listado} />
+        <Route path="/contacto" component={Contacto} />
       </Router>
       <Footer />
     </>
