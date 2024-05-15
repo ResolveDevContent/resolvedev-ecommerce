@@ -110,6 +110,7 @@ textarea {
 
 .carousel-item figure{
     width: 20em;
+    position: relative;
 }
 
 .carousel-item figure img {
@@ -118,6 +119,15 @@ textarea {
 
 .carousel-item figcaption {
     text-align: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin-bottom: 3em;
+}
+
+.carousel-item figcaption > strong {
+    font-size: 1.325em;
 }
 
 .carousel-arrow {
@@ -140,4 +150,7 @@ textarea {
     background-color: #B88E2F;
     padding: .25em .325em;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
