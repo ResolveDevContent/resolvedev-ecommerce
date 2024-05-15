@@ -37,6 +37,20 @@
     flex: 1;
     aspect-ratio: auto;
 }
+.producto > article::after {
+    content: '%30';
+    padding: .325em 1.5em;
+    background-color: red;
+    color: black;
+    position: absolute;
+    top: .75em;
+    right: 0;
+    z-index: 5;
+    border-radius: .25em 0 0 .25em;
+    font-size: 1.125em;
+    font-weight: bolder;
+    opacity: .7;
+}
 .producto > article > a {
     display: block;
     width: 100%;
@@ -67,6 +81,12 @@
 .producto > footer > strong {
     font-size: 1.5em;
     font-weight: 600;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    line-height: 1;
+    overflow-wrap: anywhere;
 }
 .producto > footer > span {
     font-weight: 500;
@@ -75,7 +95,7 @@
 .producto .price {
     display: flex;
     flex-direction: column;
-    margin-top: .5em;
+    margin-top: 1em;
 }
 .producto .price > em {
     font-size: 1.25em;
