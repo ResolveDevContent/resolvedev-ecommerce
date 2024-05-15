@@ -108,23 +108,6 @@
     font-weight: 400;
     color: #B0B0B0;
 }
-.producto .btn-carrito {
-    display: flex;
-    justify-content: center;
-}
-.producto .btn-carrito > button {
-    border: none;
-    color: #B88E2F;
-    font-weight: 600;
-    padding: 1em 2em;
-    background-color: #eee7d6;
-    margin-top: 1em;
-    cursor: pointer;
-    border-radius: .5em;
-}
-.producto .btn-carrito > button:hover {
-    background-color: #f1efe8;
-}
 
 @keyframes rotation {
     0% {
