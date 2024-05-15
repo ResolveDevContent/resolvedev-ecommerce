@@ -2,6 +2,7 @@ import './prod.css'
 import { Link } from 'resolvedev-router'
 import { Breadcumb } from './Breadcumb'
 import { Filtros } from './Filtros'
+import { Paginator } from './Paginator'
 import Tienda from '../images/tienda.png'
 
 export const Listado = ({isInHome}) => {
@@ -112,6 +113,11 @@ export const Listado = ({isInHome}) => {
                     </li>
                 </ul>
             </section>
+            {!isInHome ? (
+                <Paginator />
+            ) : (
+                <Link to="/tienda">Ver más</Link>
+            )}
         </>
     )
 }
