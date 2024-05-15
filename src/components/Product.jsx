@@ -44,13 +44,13 @@ export const Product = () => {
                             </ul>
                         </div>
                     </header>
-                    <ul>
+                    <ul className='product-actions'>
                         <li>
                             <div className='input'>
                                 <button>
                                     <Minus />
                                 </button>
-                                <input type="number" />
+                                <input type="number"/>
                                 <button>
                                     <Plus />   
                                 </button>
@@ -72,6 +72,7 @@ export const Product = () => {
                 </article>
             </section>
             <div className="product-description">
+                <strong>Descripci&oacute;n</strong>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Assumenda, facere dolorum eligendi voluptatem ex similique placeat qui. 
