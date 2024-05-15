@@ -3,14 +3,13 @@ import { Link } from 'resolvedev-router'
 import { Breadcumb } from './Breadcumb'
 import { Filtros } from './Filtros'
 import { Paginator } from './Paginator'
-import Tienda from '../images/tienda.png'
 
 export const Listado = ({isInHome}) => {
     return (
         <>
             {!isInHome ? (
                 <>
-                    <Breadcumb titulo={"Tienda"} imagen={Tienda} breadcumb={"Home > Tienda"}/>
+                    <Breadcumb titulo={"Tienda"} breadcumb={"Home > Tienda"}/>
                     <Filtros />
                 </>
             ) : null}

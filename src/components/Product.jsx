@@ -2,10 +2,12 @@ import '../css/Product.css'
 import { Plus, Minus, Share } from '../icons/Icons'
 import Img from '../images/img.png'
 import { ProductsRelated } from './ProductsRelated'
+import { Breadcumb } from './Breadcumb'
 
 export const Product = () => {
     return (
         <>
+            <Breadcumb titulo={"Producto"}/>
             <section className="product-page">
                 <aside className="product-images">
                     <figure>

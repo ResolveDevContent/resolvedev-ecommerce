@@ -1,13 +1,14 @@
 import '../css/Breadcumb.css'
+import Tienda from '../images/tienda.png'
 
-export const Breadcumb = ({titulo, imagen, breadcumb}) => {
+export const Breadcumb = ({titulo, breadcumb}) => {
 
     return (
         <section className="breadcumbs">
             <ul>
                 <li>
                     <figure>
-                        <img src={imagen} alt={titulo + " - " + "imagen"} /> 
+                        <img src={Tienda} alt={titulo + " - " + "imagen"} /> 
                         <figcaption>
                             <article>
                                 <strong>{titulo}</strong>
