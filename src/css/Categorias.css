@@ -38,7 +38,7 @@
 /*---- CAROUSE ----*/
 
 .carousel {
-    width: 80%;
+    width: 100%;
     position: relative;
 }
 
@@ -71,4 +71,8 @@
 
 .carousel-arrow button {
     margin: -3em;
+    border: none;
+    border-radius: 50%;
+    background-color: #B88E2F;
+    padding: .25em .325em;
 }

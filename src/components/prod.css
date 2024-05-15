@@ -30,6 +30,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    border-radius: .5em;
 }
 .producto > article {
     position: relative;
@@ -38,7 +39,7 @@
     aspect-ratio: auto;
 }
 .producto > article::after {
-    content: '%30';
+    content: '30%';
     padding: .325em 1.5em;
     background-color: red;
     color: black;
@@ -72,6 +73,7 @@
 .producto .imagenes > li > img {
     position: relative;
     z-index: 2;
+    border-radius: .5em .5em 0 0;
 }
 .producto > footer {
     padding: 1em;
@@ -118,6 +120,7 @@
     background-color: #eee7d6;
     margin-top: 1em;
     cursor: pointer;
+    border-radius: .5em;
 }
 .producto .btn-carrito > button:hover {
     background-color: #f1efe8;
