@@ -26,3 +26,46 @@
     justify-content: space-between;
     margin-top: 4em;
 }
+#contacto > article > div {
+    width: 40%;
+}
+#contacto > article > div > ul > li {
+    display: flex;
+    align-items: start;
+}
+#contacto > article > div > ul > li + li {
+    margin-top: 2em;
+}
+#contacto > article > div > ul > li > svg{
+    display: flex;
+    width: 3em;
+    height: 2em;
+}
+#contacto > article > div > ul > li > div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1em;
+}
+#contacto > article > div > ul > li > div > em {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+#contacto > article > div > ul > li > div > span {
+    font-weight: 400;
+}
+#contacto > article > form {
+    flex: 1;
+    margin: 0 2em;
+}
+#contacto > article > form > ul > li + li {
+    margin-top: 2.25em;
+}
+#contacto > article > form > ul > li > button {
+    border: 0;
+    border-radius: .5em;
+    background-color: #B88E2F;
+    color: white;
+    padding: 1.5em 1em;
+    width: 20em;
+    font-weight: 500;
+}

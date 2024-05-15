@@ -52,20 +52,28 @@ export const Contacto = () => {
                     <form>
                         <ul>
                             <li>
-                                <label htmlFor="">Your name</label>
-                                <input type="text" />
+                                <div className="input">
+                                    <label>Your name</label>
+                                    <input type="text" placeholder="Abc"/>
+                                </div>
                             </li>
                             <li>
-                                <label htmlFor="">Your email</label>
-                                <input type="text" />
+                                <div className="input">
+                                    <label>Your email</label>
+                                    <input type="text" placeholder="Abc@def.com"/>
+                                </div>
                             </li>
                             <li>
-                                <label htmlFor="">Subject</label>
-                                <input type="text" />
+                                <div className="input">
+                                    <label>Subject</label>
+                                    <input type="text" placeholder="This is an optional"/>
+                                </div>
                             </li>
                             <li>
-                                <label htmlFor="">Message</label>
-                                <textarea></textarea>
+                                <div className="input">
+                                    <label>Message</label>
+                                    <textarea placeholder="Hi! i’d like to ask about"></textarea>
+                                </div>
                             </li>
                             <li>
                                 <button>Submit</button>

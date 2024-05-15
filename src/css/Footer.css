@@ -25,6 +25,10 @@
     width: 10em;
 }
 
+.footer .footer-brand > span {
+    width: 15em;
+}
+
 .footer .footer-links{
     display: flex;
     justify-content: space-between;
