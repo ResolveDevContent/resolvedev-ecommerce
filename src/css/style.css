@@ -39,7 +39,8 @@ textarea {
     display: flex;
     justify-content: center;
 }
-.btn-carrito > button {
+.btn-carrito > button,
+.btn-carrito > a {
     border: none;
     color: #B88E2F;
     font-weight: 600;
@@ -48,7 +49,8 @@ textarea {
     cursor: pointer;
     border-radius: .5em;
 }
-.btn-carrito > button:hover {
+.btn-carrito > button:hover,
+.btn-carrito > a {
     background-color: #f1efe8;
 }
 

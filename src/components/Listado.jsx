@@ -116,7 +116,11 @@ export const Listado = ({isInHome}) => {
             {!isInHome ? (
                 <Paginator />
             ) : (
-                <Link to="/tienda">Ver más</Link>
+                <footer className='paginator'>
+                    <div className='btn-carrito'>
+                        <Link to="/tienda" className="btn-carrito">Ver más</Link>
+                    </div>
+                </footer>
             )}
         </>
     )
