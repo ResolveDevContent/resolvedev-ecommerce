@@ -6,21 +6,24 @@ export const Listado = () => {
         <section id="listado">
             <ul>
                 <li className="producto">
-                    <Link to="producto" >
-                        <article>
+                    <article>
+                        <Link to="producto" >
                             <span className='loader'></span>
-                            <ul>
+                            <ul className='imagenes'>
                                 <li>
                                     <img src="src/images/Lunes.png" alt="" />
                                 </li>
+                                <li>
+                                    <img src="" alt="" />
+                                </li>
                             </ul>
-                        </article>
-                    </Link>
+                        </Link>
+                    </article>
                     <footer>
                         <strong>Lunes a la mañana</strong>
                         <span>Muy cansador</span>
                         <div className='price'>
-                            <span className="without-discount">$1.000.000</span>
+                            <del className="without-discount">$1.000.000</del>
                             <em>$2.000.000</em>
                         </div>
                         <div className='btn-carrito'>
@@ -29,21 +32,21 @@ export const Listado = () => {
                     </footer>
                 </li>
                 <li className="producto">
-                    <Link to="producto" >
-                        <article>
+                    <article>
+                        <Link to="producto" >
                             <span className='loader'></span>
-                            <ul>
+                            <ul className='imagenes'>
                                 <li>
                                     <img src="src/images/Lunes.png" alt="" />
                                 </li>
                             </ul>
-                        </article>
-                    </Link>
+                        </Link>
+                    </article>
                     <footer>
                         <strong>Lunes a la mañana</strong>
                         <span>Muy cansador</span>
                         <div className='price'>
-                            <span className="without-discount">$1.000.000</span>
+                            <del className="without-discount">$1.000.000</del>
                             <em>$2.000.000</em>
                         </div>
                         <div className='btn-carrito'>
@@ -52,21 +55,21 @@ export const Listado = () => {
                     </footer>
                 </li>
                 <li className="producto">
-                    <Link to="producto" >
-                        <article>
+                    <article>
+                        <Link to="producto" >
                             <span className='loader'></span>
-                            <ul>
+                            <ul className='imagenes'>
                                 <li>
                                     <img src="src/images/Lunes.png" alt="" />
                                 </li>
                             </ul>
-                        </article>
-                    </Link>
+                        </Link>
+                    </article>
                     <footer>
                         <strong>Lunes a la mañana</strong>
                         <span>Muy cansador</span>
                         <div className='price'>
-                            <span className="without-discount">$1.000.000</span>
+                            <del className="without-discount">$1.000.000</del>
                             <em>$2.000.000</em>
                         </div>
                         <div className='btn-carrito'>
@@ -75,21 +78,21 @@ export const Listado = () => {
                     </footer>
                 </li>
                 <li className="producto">
-                    <Link to="producto" >
-                        <article>
+                    <article>
+                        <Link to="producto" >
                             <span className='loader'></span>
-                            <ul>
+                            <ul className='imagenes'>
                                 <li>
                                     <img src="src/images/Lunes.png" alt="" />
                                 </li>
                             </ul>
-                        </article>
-                    </Link>
+                        </Link>
+                    </article>
                     <footer>
                         <strong>Lunes a la mañana</strong>
                         <span>Muy cansador</span>
                         <div className='price'>
-                            <span className="without-discount">$1.000.000</span>
+                            <del className="without-discount">$1.000.000</del>
                             <em>$2.000.000</em>
                         </div>
                         <div className='btn-carrito'>
