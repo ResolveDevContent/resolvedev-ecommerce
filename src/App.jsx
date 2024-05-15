@@ -1,6 +1,7 @@
 import './css/style.css' 
 import { Home } from "./pages/Home"
 import { Listado } from "./components/Listado"
+import { Footer } from './components/Footer'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <>
       <Home />
       <Listado />
+      <Footer />
     </>
   )
 }

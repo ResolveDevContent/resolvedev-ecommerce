@@ -26,10 +26,10 @@ export const Navbar = () => {
                     <div className='buttons'>
                         <ul>
                             <li>
-                                <User />
+                                <Search />
                             </li>
                             <li>
-                                <Search />
+                                <User />
                             </li>
                             <li>
                                 <Favorite />
