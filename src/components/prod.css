@@ -2,41 +2,20 @@
     margin: 3em 3em 0 3em;
 }
 #listado > ul {
-    padding: 3em;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2em;
-    background-color: #8d8d8d;
-}
-.loader {
-    width: 3em;
-    height: 3em;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    z-index: 1;
-    border: .3125em solid #313131;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 1em;
 }
 .producto {
     background-color: #F4F5F7;
     position: relative;
-    display: flex;
-    flex-direction: column;
     border-radius: .5em;
 }
 .producto > article {
     position: relative;
     overflow: hidden;
-    flex: 1;
     aspect-ratio: auto;
+    height: 18em;
 }
 .producto > article::after {
     content: '30%';
@@ -107,13 +86,4 @@
 .producto .price > del {
     font-weight: 400;
     color: #B0B0B0;
-}
-
-@keyframes rotation {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
 }
