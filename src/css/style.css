@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
 }
 
 ul {
@@ -19,4 +20,8 @@ img {
     max-width: 100%;
     height: 100%;
     display: block;
+}
+
+.breadcumbs {
+    padding-top: 5em;
 }

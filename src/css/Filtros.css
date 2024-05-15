@@ -1,0 +1,50 @@
+
+
+.filtros {
+    position: relative;
+    padding: 2em 3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffa91e45;
+}
+
+.filtros .filter ul {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.filtros .filter button {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    font-size: 1.125em;
+    cursor: pointer;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+.filtros .filter button:hover {
+    background-color: #ffa91e45;
+}
+
+.filtros .filter span {
+    font-weight: 300;
+    color: #494949;
+    font-size: 0.85em;
+}
+
+.filtros .sort li {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.filtros .sort li select {
+    border: none;
+    padding: 0.5em;
+    border-radius: .5em;
+    color: #888888;
+}

@@ -1,13 +1,13 @@
-import { Navbar } from '../components/Navbar'
 import { Banner } from '../components/Banner'
 import { Categorias } from '../components/Categorias'
+import { Listado } from "../components/Listado"
 
 export const Home = () => {
     return (
         <>
-            <Navbar />
             <Banner />
             <Categorias />
+            <Listado isInHome={true} />
         </>
     )
 }

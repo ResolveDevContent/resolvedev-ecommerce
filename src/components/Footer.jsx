@@ -30,7 +30,7 @@ export const Footer = () => {
                         </li>
                     </ul>
                 </div>
-                <div className="footer-socials">
+                <div className="footer-links">
                     <em>Redes sociales</em>
                     <ul>
                         <li>
@@ -40,9 +40,9 @@ export const Footer = () => {
                         </li>
                     </ul>
                 </div>
-                <div className="footer-socials">
+                <div className="footer-links">
                     <em>Newsletter</em>
-                    <ul>
+                    <ul className='newsletter'>
                         <li>
                             <input type="text" placeholder="Ingresá tu email" />
                             <a href="#" target="_blank">

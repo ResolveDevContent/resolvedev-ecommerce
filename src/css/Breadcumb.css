@@ -1,0 +1,27 @@
+.breadcumbs {
+    position: relative;
+}
+
+.breadcumbs figure {
+    width: 100%;
+    position: relative;
+}
+
+.breadcumbs figcaption {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.breadcumbs figcaption article {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.breadcumbs figcaption article strong {
+    font-size: 3em;
+}
