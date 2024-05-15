@@ -75,4 +75,67 @@ textarea {
     color: #9F9F9F;
 }
 
-/* ------------------------- */
+/* CAROUSEL ----------------------- */
+
+.carousel {
+    width: 100%;
+    position: relative;
+}
+
+.carousel > ul {
+    width: 100%;
+    display: flex;
+    gap: 2em;
+    overflow-y: hidden;
+    overflow-x: auto;
+    padding-bottom: 2em;
+    z-index: 16;
+    position: relative;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+
+    scroll-snap-align: center;
+}
+
+.carousel-item figure{
+    width: 20em;
+}
+
+.carousel-item figure img {
+    border-radius: 1em;
+}
+
+.carousel-item figcaption {
+    text-align: center;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    z-index: 1;
+    width: 100%;
+}
+
+.carousel-arrow button {
+    margin: -3em;
+    border: none;
+    border-radius: 50%;
+    background-color: #B88E2F;
+    padding: .25em .325em;
+    cursor: pointer;
+}

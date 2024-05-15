@@ -1,15 +1,14 @@
-import '../css/Categorias.css'
+import '../css/Product.css'
 import { useRef } from 'react'
 import { Arrows } from './Arrows';
 
-export const Categorias = () => {
+export const ProductsRelated = ({titulo}) => {
     const scrollable = useRef();
 
     return (
         <section className="categorias">
             <header>
-                <h2>Categorias</h2> 
-                <p>Descubrí todas nuestras categorias</p>
+                <h2>{titulo}</h2> 
             </header>
             <div className='carousel'>
                 <Arrows scrollable={scrollable}/>

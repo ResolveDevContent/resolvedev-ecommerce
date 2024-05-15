@@ -97,6 +97,7 @@
     border: none;
     background-color: transparent;
     padding: 0.5em;
+    cursor: pointer;
 }
 
 .product-details .product-actions li .input svg {

@@ -1,6 +1,7 @@
 import '../css/Product.css'
 import { Plus, Minus, Share } from '../icons/Icons'
 import Img from '../images/img.png'
+import { ProductsRelated } from './ProductsRelated'
 
 export const Product = () => {
     return (
@@ -79,6 +80,7 @@ export const Product = () => {
                     Amet ipsam quas deserunt, nam aperiam excepturi, omnis dolores aliquid reprehenderit, pariatur rerum!
                 </p>
             </div>
+            <ProductsRelated titulo={"Productos Relacionados"}/>
         </>
     )
 }
