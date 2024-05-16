@@ -56,14 +56,25 @@
     color: black;
     transition: all 0.5s;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
 }
 
 .footer .footer-links .newsletter li{
     display: flex;
     align-items: center;
-    background-color: #B88E2F;
-    border-radius: .5em;
     width: 100%;
+}
+
+.footer .footer-links .newsletter li > a {
+    padding: .575em .25em;
+    background-color: #B88E2F;
+    border-radius: 0 .5em .5em 0;
+}
+
+.footer .footer-links .newsletter li > a:hover {
+    background-color: #ffa91e;
 }
 
 .footer .footer-links .newsletter li > input {

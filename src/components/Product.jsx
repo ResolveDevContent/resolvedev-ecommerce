@@ -1,13 +1,14 @@
 import '../css/Product.css'
 import { Plus, Minus, Share } from '../icons/Icons'
 import Img from '../images/img.png'
-import { ProductsRelated } from './ProductsRelated'
-import { Breadcumb } from './Breadcumb'
+import { Promociones } from './Promociones'
 
 export const Product = () => {
     return (
         <>
-            <Breadcumb titulo={"Producto"}/>
+            <header className="product-header filtros">
+                <span>Home / Nombre Producto</span>
+            </header>
             <section className="product-page">
                 <aside className="product-images">
                     <figure>
@@ -33,7 +34,7 @@ export const Product = () => {
                 </aside>
                 <article className="product-details">
                     <header>
-                        <strong>Titulo</strong>
+                        <strong>Nombre Producto</strong>
                         <del>$1.000.000</del>
                         <em>$ 3.000.000</em>
                         <div className="caracteristicas">
@@ -82,7 +83,7 @@ export const Product = () => {
                     Amet ipsam quas deserunt, nam aperiam excepturi, omnis dolores aliquid reprehenderit, pariatur rerum!
                 </p>
             </div>
-            <ProductsRelated titulo={"Productos Relacionados"}/>
+            <Promociones titulo={"Productos Relacionados"}/>
         </>
     )
 }

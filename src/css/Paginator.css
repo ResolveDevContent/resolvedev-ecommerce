@@ -17,6 +17,7 @@
     border: 1px solid #000;
     border-radius: 0.5em;
     padding: 0.5em;
+    cursor: default;
 }
 
 .paginator ul li button {
@@ -28,8 +29,11 @@
     cursor: pointer;
     padding: 0.5em;
     border-radius: 0.5em;
+    color: #B88E2F;
+    font-weight: 500;
 }
 
 .paginator ul li button:hover {
     background-color: #ffa91e;
+    color: #000;
 }

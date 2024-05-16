@@ -28,3 +28,14 @@
     align-items: center;
     gap: 2em;
 }
+
+.navbar-items > li > a {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar .buttons ul > li > svg {
+    cursor: pointer;
+}

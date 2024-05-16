@@ -52,7 +52,8 @@ textarea {
 }
 .btn-carrito > button:hover,
 .btn-carrito > a {
-    background-color: #f1efe8;
+    background-color: #ffa91e;
+    color: black;
 }
 
 /* INPUTS ------------------------- */
@@ -97,6 +98,10 @@ textarea {
     scroll-behavior: smooth;
     scrollbar-width: none;
     scroll-snap-type: x mandatory;
+}
+
+.carousel .producto {
+    min-width: 18em;
 }
 
 .carousel-item {
@@ -154,6 +159,29 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* LINKS-HOVER-ANIMATION ----------------------- */
+
+.navbar-items > li > a::after,
+.navbar .buttons ul > li > svg::after,
+.footer .footer-links ul li a::after {
+    content: "";
+    width: 0.5em;
+    height: 0.125em;
+    background-color: transparent;
+    transition: all 0.5s;
+    display: block;
+}
+
+.navbar-items > li > a:hover::after,
+.navbar .buttons ul > li > svg:hover::after,
+.footer .footer-links ul li a:hover::after {
+    content: "";
+    width: 1.5em;
+    height: 0.125em;
+    background-color: #B88E2F;
+    display: block;
 }
 
 /* IMG-LOADER ----------------------- */
