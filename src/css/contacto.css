@@ -39,12 +39,15 @@
 #contacto .item > svg{
     display: flex;
     width: 3em;
+    min-width: 3em;
     height: 2em;
+    min-height: 2em;
 }
 #contacto .item > div {
     display: flex;
     flex-direction: column;
     margin-left: 1em;
+    max-width: 80%;
 }
 #contacto .item > div > em {
     font-size: 1.5em;

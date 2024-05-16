@@ -1,5 +1,4 @@
 import { Breadcumb } from "./Breadcumb"
-import { Filtros } from "./Filtros"
 import Tienda from '../images/tienda.png'
 import { Location, Phone, Clock } from "../icons/Icons"
 import '../css/contacto.css'

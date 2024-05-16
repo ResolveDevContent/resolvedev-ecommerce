@@ -2,6 +2,11 @@
     margin-top: 5em;
 }
 
+.product-header > span {
+    color: #B0B0B0;
+    cursor: default;
+}
+
 .product-page {
     display: flex;
     align-items: start;

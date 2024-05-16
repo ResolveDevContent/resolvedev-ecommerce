@@ -2,12 +2,13 @@ import '../css/Product.css'
 import { Plus, Minus, Share } from '../icons/Icons'
 import Img from '../images/img.png'
 import { Promociones } from './Promociones'
+import { Features } from './Features'
 
 export const Product = () => {
     return (
         <>
             <header className="product-header filtros">
-                <span>Home / Nombre Producto</span>
+                <span>Home <span style={{color: "black"}}>&gt;</span> Tienda <span style={{color: "black", marginLeft: ".5em"}}>/ Nombre Producto</span></span>
             </header>
             <section className="product-page">
                 <aside className="product-images">
@@ -84,6 +85,7 @@ export const Product = () => {
                 </p>
             </div>
             <Promociones titulo={"Productos Relacionados"}/>
+            <Features />
         </>
     )
 }

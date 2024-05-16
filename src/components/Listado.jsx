@@ -3,6 +3,8 @@ import { Breadcumb } from './Breadcumb'
 import { Filtros } from './Filtros'
 import { Paginator } from './Paginator'
 import { ProductCard } from './ProductCard'
+import { Link } from 'resolvedev-router'
+import { Features } from './Features'
 
 export const Listado = ({isInHome}) => {
     return (
@@ -26,10 +28,11 @@ export const Listado = ({isInHome}) => {
             ) : (
                 <footer className='paginator'>
                     <div className='btn-carrito'>
-                        <Link to="/tienda" className="btn-carrito">Ver más</Link>
+                        <Link to="/tienda">Ver más</Link>
                     </div>
                 </footer>
             )}
+            <Features />
         </>
     )
 }

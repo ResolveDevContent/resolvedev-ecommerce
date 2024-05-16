@@ -1,3 +1,64 @@
+#floating-footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0 .5em 1em 0;
+    z-index: 16;
+}
+
+#floating-footer ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#floating-footer ul li + li{
+    margin-top: .5em;
+}
+
+#floating-footer ul li a {
+    display: flex;
+    align-items: center;
+    background-color: #25d366;
+    border-radius: 3em;
+    border: 0.325em solid #25d366;
+    color: transparent;
+    transition: opacity .5s linear, width .5s linear, color .5s linear;
+    opacity: .5;
+    white-space: nowrap;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+#floating-footer ul li a svg {
+    width: 3em;
+    min-width: 3em;
+    height: 3em;
+    min-height: 3em;
+}
+
+#floating-footer ul li a span {
+    font-size: 1.125em;
+    font-weight: 600;
+    width: 0;
+    opacity: 0;
+    transition: all 0.25s linear;
+    overflow: hidden;
+}
+
+#floating-footer ul li a:hover {
+    color: white;
+    transition: all .5s;
+    width: 20em;
+    opacity: 1;
+}
+
+#floating-footer ul li a:hover span {
+    width: auto;
+    opacity: 1;
+    margin-left: 1.125em;
+}
+
 .footer {
     display: flex;
     align-items: center;

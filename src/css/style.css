@@ -51,7 +51,7 @@ textarea {
     border-radius: .5em;
 }
 .btn-carrito > button:hover,
-.btn-carrito > a {
+.btn-carrito > a:hover {
     background-color: #ffa91e;
     color: black;
 }
@@ -120,7 +120,7 @@ textarea {
 }
 
 .carousel-item figure img {
-    border-radius: 1em;
+    border-radius: .5em;
 }
 
 .carousel-item figcaption {

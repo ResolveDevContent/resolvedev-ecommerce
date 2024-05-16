@@ -1,0 +1,37 @@
+#features {
+    padding: 6.25em 3.325em;
+    background-color: #ffa91e45;
+}
+#features > ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#features > ul > li {
+    display: flex;
+    align-items: center;
+    width: 17em;
+    margin: 1em;
+}
+#features > ul > li > svg {
+    width: 3em;
+    min-width: 3em;
+    height: 3em;
+    min-height: 3em;
+}
+#features > ul > li > div {
+    display: flex;
+    flex-direction: column;
+    margin-left: .25em;
+}
+#features > ul > li > div > em {
+    font-size: 1.25em;
+    font-weight: 600;
+    font-style: normal;
+}
+#features > ul > li > div > span {
+    font-size: .75em;
+    font-weight: 500;
+    color: #898989;
+}
