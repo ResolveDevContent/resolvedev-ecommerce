@@ -1,51 +1,20 @@
+import '../css/Endpoint.css'
 import '../css/Cart.css'
-import { Breadcumb } from "../components/Breadcumb"
-import { CartDetails } from '../components/CartDetails'
 import { CartProducts } from '../components/CartProducts'
+import { CartDetails } from '../components/CartDetails'
 import { CartFeatures } from '../components/CartFeatures'
 
-export const Cart = () => {
-
+export const Endpoint = () => {
     const products = {
         columns: ["Producto", "Precio", "Cantidad", "Subtotal"],
         rows: ["Nombre", "$2.000.000", "1", "$2.000.000"]
     }
 
     return (
-        <>
-            <Breadcumb titulo={"Carrito"} breadcumb={"Home > Carrito"}/>
-            <section className="cart">
-                <article>
-                    <CartProducts products={products}/>
-                    <CartFeatures titulo={"Formas de pago"} id={"pay"}>
-                        <ul>
-                            <li>
-                                <input type="radio" name="pay" id="pay-efectivo" />
-                                <label htmlFor="pay-efectivo">Efectivo</label>
-                            </li>
-                            <li>
-                                <input type="radio" name="pay" id="pay-mp" />
-                                <label htmlFor="pay-mp">Mercado Pago</label>
-                            </li>
-                        </ul>
-                    </CartFeatures>
-                    <CartFeatures titulo={"Formas de envío"} id={"shipping"}>
-                        <ul>
-                            <li>
-                                <input type="radio" name="shipping" id="shipping-sucursal" />
-                                <label htmlFor="shipping-sucursal">A sucursal</label>
-                            </li>
-                            <li>
-                                <input type="radio" name="shipping" id="shipping-domicilio" />
-                                <label htmlFor="shipping-domicilio">A domicilio</label>
-                            </li>
-                            <li>
-                                <input type="radio" name="shipping" id="shipping-local" />
-                                <label htmlFor="shipping-local">Retirar en local</label>
-                            </li>
-                        </ul>
-                    </CartFeatures>
-                    <CartFeatures titulo={"Información de contacto"} id={"info"}>
+        <section className='endpoint'>
+            <article>
+                <CartProducts products={products}/>
+                <CartFeatures titulo={"Información de contacto"} id={"info"} checked={true}>
                         <ul className='info-contacto'>
                             <li>
                                 <div className='input'>
@@ -85,11 +54,10 @@ export const Cart = () => {
                             </li>
                         </ul>
                     </CartFeatures>
-                </article>
-                <aside>
-                    <CartDetails />
-                </aside>    
-            </section>
-        </>
+            </article>
+            <aside>
+                <CartDetails />
+            </aside>
+        </section>
     )
 }

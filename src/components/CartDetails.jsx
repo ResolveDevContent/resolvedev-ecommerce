@@ -20,7 +20,7 @@ export const CartDetails = () => {
                 </li>
                 <li>
                     <span>Envio</span>
-                    <em>$500.000 - A domicilio</em>
+                    <em>A domicilio - $500.000</em>
                 </li>
                 <li>
                     <span>Subtotal</span>

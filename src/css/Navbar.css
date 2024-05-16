@@ -19,6 +19,8 @@
     align-items: center;
     padding: 1.5em 5em;
     width: 100%;
+
+    position: relative;
 }
 
 .navbar-items,
@@ -38,4 +40,54 @@
 
 .navbar .buttons ul > li > svg {
     cursor: pointer;
+}
+
+.navbar .search input[type="checkbox"]{
+    display: none;
+}
+
+.navbar .search .input {
+    display: none;
+
+    right: 0;
+    padding-inline: 5em;
+    width: 30%;
+    transition: all 0.5s;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.navbar .search .input input {
+    border-radius: 0.5em 0 0 0.5em;
+    margin-top: 0;
+}
+
+.navbar .search .input label {
+    display: flex;
+    padding: 1.125em;
+    background-color: white;
+    border-radius: 0 0.5em 0.5em 0;
+    border: 1px solid #9F9F9F;
+}
+
+.navbar .search label {
+    cursor: pointer;
+}
+
+.navbar .search input:checked + .input {
+    display: flex;
+    position: absolute;
+    animation: baja 1s ease;
+}
+
+@keyframes baja {
+    from {
+        transform: translateY(-5em);
+        opacity: .4;
+    }
+    to {
+        transform: translateY(0em);
+        opacity: 1;
+    }
 }

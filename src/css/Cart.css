@@ -1,6 +1,7 @@
 
-.cart {
-    padding-top: 5em;
+.cart,
+.endpoint {
+    padding-block: 5em;
     display: flex;
     align-items: start;
     justify-content: space-between;
@@ -8,40 +9,43 @@
     margin-inline: 4em;
 }
 
-.cart > article{
+.cart > article,
+.endpoint > article{
     width: 60%;
 }
 
-.cart > aside {
+.cart > aside,
+.endpoint > aside {
     flex: 1;
     
     position: sticky;
     top: 4em;
 }
 
-.cart .table {
+.table {
     display: table;
     margin: 1em;
     width: 100%;
 }
 
-.cart .table .row {
+.table .row {
     display: table-row;
 }
 
-.cart .table .columns {
+.table .columns {
     background-color: #ffa91e45;
     border-radius: 0.5em;
 }
 
-.cart .table .row > li {
+.table .row > li {
     color: black;
     padding: 1em;
     text-transform: capitalize;
     display: table-cell;
+    vertical-align: middle;
 }
 
-.cart .table .row > li input {
+.table .row > li input {
     border: none;
     margin: 0;
     padding: 1em;
@@ -50,36 +54,38 @@
     color: #000;
 }
 
-.cart .table .row > li input::-webkit-outer-spin-button,
-.cart .table .row > li input::-webkit-inner-spin-button {
+.table .row > li input::-webkit-outer-spin-button,
+.table .row > li input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-.cart .table .row > li .input {
+.table .row > li .input {
     border: 1px solid #000;
     border-radius: 0.5em;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: max-content;
 }
 
-.cart .table .row > li .input button {
+.table .row > li .input button {
     border: none;
     background-color: transparent;
     padding: 0.5em;
     cursor: pointer;
 }
 
-.cart .table .row > li .input svg {
+.table .row > li .input svg {
     width: 1em;
     height: 1em;
 }
 
-.cart .table .row .product-img {
+.table .row .product-img {
     width: 7em;
 }
 
-.cart .cart-details {
+.cart-details {
     margin: 1em;
     padding: 2em;
     border: 1px solid #000;
@@ -91,11 +97,11 @@
 
 }
 
-.cart .cart-details header strong {
+.cart-details header strong {
     font-size: 1.5em;
 }
 
-.cart .cart-details > ul {
+.cart-details > ul {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -105,38 +111,38 @@
     border-bottom: 1px solid #000;
 }
 
-.cart .cart-details > ul li {
+.cart-details > ul li {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
 
-.cart .cart-details > ul li span {
+.cart-details > ul li span {
     font-weight: bolder;
 }
 
-.cart .cart-details > ul li em {
+.cart-details > ul li em {
     font-style: normal;
     color: #555;
 }
 
-.cart .cart-details .input {
+.cart-details .input {
     width: 100%;
     padding-bottom: 1em;
     border-bottom: 1px solid #000;
 }
 
-.cart .cart-details .input label {
+.cart-details .input label {
     text-align: center;
     margin-top: 0.5em;
 }
 
-.cart .cart-details footer {
+.cart-details footer {
     width: 100%;
 }
 
-.cart .cart-details footer ul {
+.cart-details footer ul {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -144,18 +150,18 @@
     width: 100%;
 }
 
-.cart .cart-details footer ul li {
+.cart-details footer ul li {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
 
-.cart .cart-details footer ul li span {
+.cart-details footer ul li span {
     font-weight: bold;
 }
 
-.cart .cart-details footer ul li em {
+.cart-details footer ul li em {
     font-style: normal;
     font-weight: bolder;
     font-size: 1.25em;
@@ -172,11 +178,12 @@
 
 .cart-features > label {
     width: 100%;
-    display: block;
+    display: flex;
     background-color: #ffa91e45;
-    padding: 1em;
+    padding: 1.5em 1em;
     border-radius: 0.5em;
     cursor: pointer;
+    user-select: none;
 }
 
 .cart-features > input {
@@ -185,11 +192,26 @@
 
 .cart-features .accordeon {
     display: none;
+
+    border: 1px solid #eee7d6;
+    border-radius: 0 0 0.5em 0.5em;
 }
 
-.cart-features > input:checked + .accordeon {
+.cart-features > input:checked + label {
+    border-radius: 0.5em 0.5em 0 0;
+}
+
+.cart-features > input:checked + label + .accordeon {
     display: block;
     padding: 1em;
+}
+
+.cart-features > label > svg {
+    transition: all 0.5s;
+}
+
+.cart-features > input:checked + label > svg {
+    transform: rotate(90deg);
 }
 
 .cart-features .accordeon ul {
@@ -198,7 +220,16 @@
     gap: 1em;
 }
 
+.cart-features .accordeon ul li {
+    display: flex;
+    gap: 0.5em;
+}
+
 .cart-features .accordeon .info-contacto {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+
+.cart-features .accordeon .info-contacto li {
+    display: block;
 }

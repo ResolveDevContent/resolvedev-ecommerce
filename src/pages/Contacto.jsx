@@ -1,4 +1,4 @@
-import { Breadcumb } from "./Breadcumb"
+import { Breadcumb } from "../components/Breadcumb"
 import Tienda from '../images/tienda.png'
 import { Location, Phone, Clock } from "../icons/Icons"
 import '../css/contacto.css'

@@ -26,8 +26,17 @@ export const Navbar = () => {
                     </ul>
                     <div className='buttons'>
                         <ul>
-                            <li>
-                                <Search />
+                            <li className='search'>
+                                <label htmlFor="search">
+                                    <Search />
+                                </label>
+                                <input type="checkbox" id='search' name='search-input'/>
+                                <div className='input'>
+                                    <input type="text" placeholder='Buscar...'/>
+                                    <label htmlFor="search">
+                                        <Close />
+                                    </label>
+                                </div>
                             </li>
                             <li>
                                 <Link to={'/usuario'}>

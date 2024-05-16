@@ -1,0 +1,33 @@
+
+
+.about {
+    display: flex;
+    align-items: start;
+    gap: 3em;
+
+    padding-block: 7em;
+    margin-inline: 5em;
+}
+
+.about article,
+.about aside {
+    width: 50%;
+}
+
+.about aside img{
+    border-radius: 0.5em;
+}
+
+.about article{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.about article header {
+    display: flex;
+    flex-direction: column;
+}
+.about article header strong {
+    font-size: 2em;
+}
