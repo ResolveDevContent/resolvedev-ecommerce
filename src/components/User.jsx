@@ -112,7 +112,7 @@ export const User = () => {
                                     <span>124356789</span>
                                     <em>$1.200.500</em>
                                     <div className='btn-carrito'>
-                                        <Link to={'pedido/id'}>Ver</Link>
+                                        <Link to={'/endpoint'}>Ver</Link>
                                     </div>
                                 </li>
                             </ul>
