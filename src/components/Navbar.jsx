@@ -1,5 +1,6 @@
 import '../css/Navbar.css'
 import { User, Search, Favorite, Cart, Menu, Close } from '../icons/Icons'
+import { NavLink } from './NavLink'
 import { Link } from 'resolvedev-router'
 
 export const Navbar = () => {
@@ -12,16 +13,16 @@ export const Navbar = () => {
                     </div>
                     <ul className='navbar-items'>
                         <li>
-                            <Link to="/">Inicio</Link>
+                            <NavLink to="/">Inicio</NavLink>
                         </li>
                         <li>
-                            <Link to="/tienda">Tienda</Link>
+                            <NavLink to="/tienda">Tienda</NavLink>
                         </li>
                         <li>
-                            <Link to="/nosotros">Nosotros</Link>
+                            <NavLink to="/nosotros">Nosotros</NavLink>
                         </li>
                         <li>
-                            <Link to="/contacto">Contacto</Link>
+                            <NavLink to="/contacto">Contacto</NavLink>
                         </li>
                     </ul>
                     <div className='buttons'>
