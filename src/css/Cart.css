@@ -6,12 +6,11 @@
     align-items: start;
     justify-content: space-between;
     gap: 1em;
-    margin-inline: 4em;
 }
 
 .cart > article,
 .endpoint > article{
-    width: 60%;
+    width: 65%;
 }
 
 .cart > aside,
@@ -74,6 +73,8 @@
     background-color: transparent;
     padding: 0.5em;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .table .row > li .input svg {
@@ -125,6 +126,8 @@
 .cart-details > ul li em {
     font-style: normal;
     color: #555;
+    font-size: .9em;
+    font-weight: 500;
 }
 
 .cart-details .input {
