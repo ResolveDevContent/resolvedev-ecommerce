@@ -10,10 +10,12 @@ export const User = () => {
             <aside>
                 <header>
                     <img src={UserImg} alt="" />
-                    <em>Nombre Usuario</em>
-                    <button>
-                        <Phone />
-                    </button>
+                    <div>
+                        <em>Nombre Usuario</em>
+                        <button>
+                            <Phone />
+                        </button>
+                    </div>
                 </header>
                 <div>
                     <ul>
@@ -38,43 +40,43 @@ export const User = () => {
                                         <li>
                                             <div className='input'>
                                                 <label>Pais</label>
-                                                <input type="text" />
+                                                <input type="text" placeholder='Argentina'/>
                                             </div>    
                                         </li>
                                         <li>
                                             <div className='input'>
                                                 <label>Provincia</label>
-                                                <input type="text" />
+                                                <input type="text" placeholder='Buenos Aires'/>
                                             </div> 
                                         </li>
                                         <li>
                                             <div className='input'>
                                                 <label>Ciudad</label>
-                                                <input type="text" />
+                                                <input type="text" placeholder='Caballito'/>
                                             </div>    
                                         </li>
                                         <li>
                                             <div className='input'>
                                                 <label>Codigo Postal</label>
-                                                <input type="text" />
+                                                <input type="text" placeholder='1234'/>
                                             </div>    
                                         </li>
                                         <li>
                                             <div className='input'>
                                                 <label>Calle</label>
-                                                <input type="text" />
+                                                <input type="text" placeholder='Alberdi'/>
                                             </div>    
                                         </li>
                                         <li>
                                             <div className='input'>
                                                 <label>Numero</label>
-                                                <input type="number" />
+                                                <input type="number" placeholder='536'/>
                                             </div>    
                                         </li>
                                         <li>
                                             <div className='input'>
                                                 <label>Depto.</label>
-                                                <input type="text" />
+                                                <input type="text" placeholder='Numero 3'/>
                                             </div>    
                                         </li>
                                     </ul>
@@ -85,7 +87,7 @@ export const User = () => {
                                         <li>
                                             <div className='input'>
                                                 <label>Contraseña</label>
-                                                <input type="password" />
+                                                <input type="password" placeholder='***'/>
                                             </div>    
                                         </li>    
                                     </ul>    
@@ -107,12 +109,10 @@ export const User = () => {
                             <ul>
                                 <li>
                                     <img src={Img} alt="" />
-                                    <div className='datos-pedido'>
-                                        <span>124356789</span>
-                                        <em>$1.200.500</em>
-                                        <div className='btn-carrito'>
-                                            <Link to={'pedido/id'}>Ver pedido</Link>
-                                        </div>
+                                    <span>124356789</span>
+                                    <em>$1.200.500</em>
+                                    <div className='btn-carrito'>
+                                        <Link to={'pedido/id'}>Ver</Link>
                                     </div>
                                 </li>
                             </ul>

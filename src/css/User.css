@@ -8,7 +8,6 @@
     width: 30%;
     display: flex;
     flex-direction: column;
-    padding: 1em;
     border-right: 1px solid black;
     position: sticky;
     top: 5em;
@@ -17,18 +16,58 @@
 
 #user > aside > header {
     display: flex;
+    align-items: center;
     flex-direction: column;
+    width: 100%;
+    background-color: #ffa91e45;
+    padding: 2em 1em;
 }
 
-#user > aside > header > img {
+#user > aside > header > div {
+    display: flex;
+    align-items: center;
+    margin-top: .5em;
+}
+
+#user > aside > header img {
     width: 5em;
     height: 5em;
     border-radius: 50%;
     border: 2px solid #B88E2F;
 }
 
-#user > aside > header > em {
+#user > aside > header em {
     font-style: normal;
+    margin-right: .25em;
+}
+
+#user > aside > header button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    cursor: pointer;
+}
+
+#user > aside > div {
+    width: 100%;
+    margin-top: 1em;
+    padding: 1em;
+} 
+
+#user > aside > div > ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#user > aside > div > ul > li > label{
+    font-size: 1.325em;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+#user > aside > div > ul > li + li {
+    margin-top: 1em;
 }
 
 #user > article {
@@ -36,7 +75,7 @@
 }
 
 #user > article > ul {
-    padding: 1em;
+    padding: 2em;
     width: 100%;
     height: 100%;
 }
@@ -45,9 +84,9 @@
     display: none;
 }
 
-#user > article > ul li input:checked + section {
+/* #user > article > ul li input:checked + section {
     display: flex;
-}
+} */
 
 #user .datos-personales {
     display: none;
@@ -57,9 +96,9 @@
 #user .datos-personales > form > div {
     padding: 1em;
     border-radius: .5em;
-    background-color: #ffa91e45;
     display: flex;
     flex-direction: column;
+    border: 1px solid #9F9F9F;
 }
 
 #user .datos-personales > form > div + div {
@@ -71,16 +110,14 @@
 }
 
 #user .datos-personales > form > div > ul {
-    display: flex;
-    flex-direction: column;
-}
-
-#user .datos-personales > form > div > ul li + li {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
     margin-top: 1em;
 }
 
 #user .pedidos {
-    display: none;
+    display: flex;
     flex-direction: column;
     padding: 1em;
 }
@@ -92,15 +129,13 @@
 }
 
 #user .pedidos > header > ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 1em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 #user .pedidos > header > ul > li {
     font-weight: 600;
-    font-size: 1.25em;
+    text-align: center;
 }
 
 #user .pedidos > ul {
@@ -109,25 +144,25 @@
 }
 
 #user .pedidos > ul > li {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
     align-items: center;
+    padding: 1em;
+    border-bottom: 1px solid black;
 }
 
 #user .pedidos > ul > li > img {
     width: 6em;
     height: 6em;
+    margin: 0 auto;
 }
 
-#user .pedidos .datos-pedido {
-    display: flex;
-    align-items: center;
-}
-
-#user .pedidos .datos-pedido > span {
+#user .pedidos span {
     font-weight: 500;
 }
 
-#user .pedidos .datos-pedido > em {
+#user .pedidos  em {
     font-weight: 600;
     font-style: normal;
 }
