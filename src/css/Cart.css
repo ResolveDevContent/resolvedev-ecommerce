@@ -81,7 +81,8 @@
 .cart .cart-details {
     margin: 1em;
     padding: 2em;
-    background-color: #ffa91e45;
+    /* background-color: #ffa91e45; */
+    border: 1px solid #000;
     display: flex;
     flex-direction: column;
     gap: 1em;
