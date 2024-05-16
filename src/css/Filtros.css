@@ -15,18 +15,17 @@
     gap: 1em;
 }
 
-.filtros .filter button {
-    border: none;
-    background-color: transparent;
+.filtros .filter .filtros-container > label {
     display: flex;
     align-items: center;
     font-size: 1.125em;
     cursor: pointer;
     padding: 0.5em;
     border-radius: 0.5em;
+    width: max-content;
 }
 
-.filtros .filter button:hover {
+.filtros .filter .filtros-container > label:hover {
     background-color: #ffa91e45;
 }
 
@@ -47,4 +46,39 @@
     padding: 0.5em;
     border-radius: .5em;
     color: #888888;
+}
+
+/*-------------*/
+
+.filtros .filtros-container input[type="checkbox"] {
+    display: none;
+}
+
+.filtros .filtros-container .aside-filtros {
+    display: none;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding-inline: 5em;
+    z-index: 32;
+    background-color: #eee7d6;
+    top: 6.5em;
+}
+
+.filtros .filtros-container .aside-filtros > ul {
+    width: 100%;
+    padding: 2em;
+}
+
+.filtros .filtros-container .aside-filtros label {
+    display: flex;
+    cursor: pointer;
+}
+
+.filtros .filtros-container input[type="checkbox"]:checked + .aside-filtros {
+    display: flex;
+    animation: baja 1s ease;
+    align-items: center;
 }

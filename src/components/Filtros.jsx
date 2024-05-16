@@ -1,16 +1,30 @@
 import '../css/Filtros.css'
-import { Filters } from '../icons/Icons'
+import { Filters, Close } from '../icons/Icons'
 
 export const Filtros = () => {
     return (
         <section className="filtros">
             <div className="filter">
                 <ul>
-                    <li>
-                        <button>
+                    <li className='filtros-container'>
+                        <label htmlFor='filtros'>
                             <Filters />  
                             Filtros
-                        </button>
+                        </label>
+                        <input type="checkbox" id='filtros' name='inpt-filtros' />
+                        <div className='aside-filtros'>
+                            <label htmlFor="filtros">
+                                <Close />
+                            </label>
+                            <ul>
+                                <li>Filtro 1</li>
+                                <li>Filtro 2</li>
+                                <li>Filtro 3</li>
+                                <li>Filtro 4</li>
+                                <li>Filtro 5</li>
+                                <li>Filtro 6</li>
+                            </ul>
+                        </div>
                     </li>
                     <li>
                         <span>
