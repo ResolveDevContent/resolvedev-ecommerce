@@ -205,3 +205,8 @@
     flex-direction: column;
     gap: 1em;
 }
+
+.cart-features .accordeon .info-contacto {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}

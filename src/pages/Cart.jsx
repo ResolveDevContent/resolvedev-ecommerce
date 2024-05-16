@@ -40,7 +40,7 @@ export const Cart = () => {
                         </ul>
                     </CartFeatures>
                     <CartFeatures titulo={"Información de contacto"} id={"info"}>
-                        <ul>
+                        <ul className='info-contacto'>
                             <li>
                                 <div className='input'>
                                     <label>Nombre y apellido</label>
