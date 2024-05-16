@@ -30,13 +30,17 @@ export const Navbar = () => {
                                 <Search />
                             </li>
                             <li>
-                                <User />
+                                <Link to={'/usuario'}>
+                                    <User />
+                                </Link>
                             </li>
                             <li>
                                 <Favorite />
                             </li>
                             <li>
-                                <Cart />
+                                <Link to={'/carrito'}>
+                                    <Cart />
+                                </Link>
                             </li>
                         </ul>
                     </div>

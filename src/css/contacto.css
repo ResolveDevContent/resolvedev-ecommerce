@@ -71,4 +71,8 @@
     padding: 1.5em 1em;
     width: 20em;
     font-weight: 500;
+    cursor: pointer;
+}
+#contacto .ul-form > li > button:hover {
+    background-color: #ffa91e;
 }
