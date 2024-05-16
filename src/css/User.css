@@ -2,7 +2,6 @@
     display: flex;
     align-items: start;
     margin-top: 5em;
-    margin-inline: 4em;
 }
 
 #user > aside {
@@ -65,6 +64,9 @@
     font-size: 1.325em;
     font-weight: 400;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #user > aside > div > ul > li + li {
@@ -85,9 +87,9 @@
     display: none;
 }
 
-/* #user > article > ul li input:checked + section {
+#user > article > ul li input:checked + section {
     display: flex;
-} */
+}
 
 #user .datos-personales {
     display: none;
@@ -118,7 +120,7 @@
 }
 
 #user .pedidos {
-    display: flex;
+    display: none;
     flex-direction: column;
     padding: 1em;
 }

@@ -1,4 +1,4 @@
-import { Phone } from '../icons/Icons'
+import { Exit } from '../icons/Icons'
 import Img  from '../images/Lunes.png'
 import UserImg  from '../images/user.png'
 import { Link } from 'resolvedev-router'
@@ -13,14 +13,14 @@ export const User = () => {
                     <div>
                         <em>Nombre Usuario</em>
                         <button>
-                            <Phone />
+                            <Exit />
                         </button>
                     </div>
                 </header>
                 <div>
                     <ul>
                         <li>
-                            <label htmlFor="profile">Usuario</label>
+                            <label htmlFor="datos">Usuario</label>
                         </li>
                         <li>
                             <label htmlFor="pedidos">Pedidos</label>
@@ -31,7 +31,7 @@ export const User = () => {
             <article>
                 <ul>
                     <li>
-                        <input type="radio" name="pedidos" id="pedidos" defaultChecked={true}/>
+                        <input type="radio" name="usuario" id="datos" defaultChecked={true}/>
                         <section className='datos-personales'>
                             <form>
                                 <div>
@@ -76,7 +76,7 @@ export const User = () => {
                                         <li>
                                             <div className='input'>
                                                 <label>Depto.</label>
-                                                <input type="text" placeholder='Numero 3'/>
+                                                <input type="text" placeholder='Numero 3b'/>
                                             </div>    
                                         </li>
                                     </ul>
@@ -96,7 +96,7 @@ export const User = () => {
                         </section>    
                     </li>
                     <li>
-                        <input type="radio" name="pedidos" id="pedidos" defaultChecked={false}/>
+                        <input type="radio" name="usuario" id="pedidos" defaultChecked={false}/>
                         <section className='pedidos'>
                             <header>
                                 <ul>

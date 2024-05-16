@@ -184,6 +184,15 @@ textarea {
     display: block;
 }
 
+#user > aside > div > ul > li > label::after {
+    content: "";
+    width: 2em;
+    height: 0.125em;
+    background-color: #B88E2F;
+    transition: all 0.5s;
+    display: block;
+}
+
 /* IMG-LOADER ----------------------- */
 
 .loader {
