@@ -1,15 +1,18 @@
 #user {
     display: flex;
-    align-items: center;
+    align-items: start;
     margin-top: 5em;
 }
 
 #user > aside {
-    width: 40%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     padding: 1em;
-    background-color: #ffa91e45;
+    border-right: 1px solid black;
+    position: sticky;
+    top: 5em;
+    height: 100vh;
 }
 
 #user > aside > header {
@@ -38,16 +41,20 @@
     height: 100%;
 }
 
+#user > article > ul li > input {
+    display: none;
+}
+
 #user > article > ul li input:checked + section {
     display: flex;
 }
 
-#user .domicilio {
+#user .datos-personales {
     display: none;
     flex-direction: column;
 }
 
-#user .domicilio > form > div {
+#user .datos-personales > form > div {
     padding: 1em;
     border-radius: .5em;
     background-color: #ffa91e45;
@@ -55,17 +62,21 @@
     flex-direction: column;
 }
 
-#user .domicilio > form > div + div {
+#user .datos-personales > form > div + div {
     margin-top: 1em;
 }
 
-#user .domicilio > form > div > strong {
+#user .datos-personales > form > div > strong {
     font-size: 1.5em;
 }
 
-#user .domicilio > form > div > ul {
+#user .datos-personales > form > div > ul {
     display: flex;
     flex-direction: column;
+}
+
+#user .datos-personales > form > div > ul li + li {
+    margin-top: 1em;
 }
 
 #user .pedidos {

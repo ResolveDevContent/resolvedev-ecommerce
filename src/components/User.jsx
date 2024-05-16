@@ -29,8 +29,8 @@ export const User = () => {
             <article>
                 <ul>
                     <li>
-                        <input type="input" name="pedidos" id="pedidos" defaultChecked={true}/>
-                        <section className='domicilio'>
+                        <input type="radio" name="pedidos" id="pedidos" defaultChecked={true}/>
+                        <section className='datos-personales'>
                             <form>
                                 <div>
                                     <strong>Domicilio</strong>
@@ -94,7 +94,7 @@ export const User = () => {
                         </section>    
                     </li>
                     <li>
-                        <input type="input" name="pedidos" id="pedidos" defaultChecked={false}/>
+                        <input type="radio" name="pedidos" id="pedidos" defaultChecked={false}/>
                         <section className='pedidos'>
                             <header>
                                 <ul>
