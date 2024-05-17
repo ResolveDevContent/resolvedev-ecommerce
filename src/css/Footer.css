@@ -170,4 +170,8 @@
     .footer > section {
         grid-template-columns: auto;
     }
+
+    #floating-footer {
+        bottom: 5em;
+    }
 }
