@@ -12,7 +12,6 @@
     position: sticky;
     top: 5em;
     height: 100vh;
-    background-color: #ffa91e45;
 }
 
 #user > aside > header {
@@ -28,7 +27,7 @@
     width: 15em;
     height: 0.125em;
     background-color: #9F9F9F;
-    margin-top: 2em;
+    margin-top: 1.5em;
 }
 
 #user > aside > header > div {
@@ -104,31 +103,28 @@
 
 #user .datos-personales {
     display: none;
-    flex-direction: column;
 }
 
-#user .datos-personales > form > div {
-    padding: 1em;
-    border-radius: .5em;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #9F9F9F;
-    background-color: white;
+#user .datos-personales > form {
+    width: 100%;
 }
 
 #user .datos-personales > form > div + div {
-    margin-top: 1em;
+    margin-top: 2em;
 }
 
-#user .datos-personales > form > div > strong {
-    font-size: 1.5em;
-}
-
-#user .datos-personales > form > div > ul {
+#user .datos-personales > form > div ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1em;
     margin-top: 1em;
+}
+
+#user .datos-personales .input {
+    width: 100%;
+}
+#user .datos-personales .cart-features {
+    margin: 0;
 }
 
 #user .pedidos {
