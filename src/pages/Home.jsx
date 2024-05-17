@@ -1,6 +1,8 @@
-import { Banner } from '../components/Banner'
-import { Categorias } from '../components/Categorias'
-import { Listado } from "../components/Listado"
+import { lazy } from 'react'
+
+const Listado = lazy(() => { import("../components/Listado")})
+const Categorias = lazy(() => { import("../components/Categorias")})
+const Banner = lazy(() => { import("../components/Banner")})
 
 export const Home = () => {
     return (
