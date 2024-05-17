@@ -68,4 +68,8 @@
     .banners .home-text > div > em {
         font-size: 2.5em;
     }
+    
+    .banners .home-text > footer{
+        text-align: center;
+    }
 }

@@ -247,9 +247,9 @@
 }
 
 @media screen and (max-width: 959px) {
-    .cart, 
-    .endpoint {
+    .cart {
         flex-direction: column;
+        padding: 0;
     }
 
     .cart > article, 
@@ -265,6 +265,7 @@
         gap: 2em;
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
     .cart-features,
@@ -276,5 +277,36 @@
     .cart-features .accordeon .info-contacto {
         grid-template-columns: auto;
     }
+}
 
+@media screen and (max-width: 768px) {
+
+    .table .row.columns {
+        display: none;
+    }
+
+    .table .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+    }
+
+    .table .row > li,
+    .table .row > li input,
+    .table .row > li .input {
+        width: 100%;
+    }
+
+    .table .row .product-img {
+        width: 10em;
+    }
+
+    .table > ul:nth-child(2) {
+        border-top: unset;
+    }
+
+    .table > ul + ul {
+        border-top: 1px solid #000;
+    }
 }

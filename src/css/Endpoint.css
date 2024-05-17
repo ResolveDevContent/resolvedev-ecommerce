@@ -7,3 +7,10 @@
 .endpoint .accordeon span {
     font-weight: normal;
 }
+
+@media screen and (max-width: 959px) {
+    .endpoint {
+        padding-top: 4em;
+        flex-direction: column;
+    }
+}
