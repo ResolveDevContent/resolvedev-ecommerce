@@ -17,12 +17,62 @@ export const Filtros = () => {
                                 <Close />
                             </label>
                             <ul>
-                                <li>Filtro 1</li>
-                                <li>Filtro 2</li>
-                                <li>Filtro 3</li>
-                                <li>Filtro 4</li>
-                                <li>Filtro 5</li>
-                                <li>Filtro 6</li>
+                                <li>
+                                    <article className='aside-filtros-filter'>
+                                        <input type="radio" name="radio-fitros" id="filtro-1"/>
+                                        <label htmlFor="filtro-1">Filtro 1</label>
+                                        <div className='filter-accordeon'>
+                                            <ul>
+                                                <li>
+                                                    <input type="checkbox" name='filtro-1' id='filtro-1-a'/>
+                                                    <label htmlFor='filtro-1-a'>
+                                                        A
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name='filtro-1' id='filtro-1-b'/>
+                                                    <label htmlFor='filtro-1-b'>
+                                                        B
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name='filtro-1' id='filtro-1-c'/>
+                                                    <label htmlFor='filtro-1-c'>
+                                                        C
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </article>
+                                </li>
+                                <li>
+                                    <article className='aside-filtros-filter'>
+                                        <input type="radio" name="radio-fitros" id="filtro-2"/>
+                                        <label htmlFor="filtro-2">Filtro 2</label>
+                                        <div className='filter-accordeon'>
+                                            <ul>
+                                                <li>
+                                                    <input type="checkbox" name='filtro-2' id='filtro-2-d'/>
+                                                    <label htmlFor='filtro-2-d'>
+                                                        D
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name='filtro-2' id='filtro-2-e'/>
+                                                    <label htmlFor='filtro-2-e'>
+                                                        E
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name='filtro-2' id='filtro-2-f'/>
+                                                    <label htmlFor='filtro-2-f'>
+                                                        F
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </article>
+                                </li>
                             </ul>
                         </div>
                     </li>
