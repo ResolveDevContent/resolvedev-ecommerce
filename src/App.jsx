@@ -11,22 +11,23 @@ import { User } from './components/User'
 import { Cart } from './pages/Cart'
 import { About } from './pages/About'
 import { Endpoint } from './pages/Endpoint'
+import { Page404 } from './components/Page404'
 
 function App() {
 
   return (
     <>
       <Navbar />
-      <Router>
-        <Route path="/" component={Home} />
-        <Route path="/tienda" component={Listado} />
-        <Route path="/contacto" component={Contacto} />
-        <Route path="/producto" component={Product} />
-        <Route path="/carrito" component={Cart} />
-        <Route path="/usuario" component={User} />
-        <Route path="/nosotros" component={About} />
-        <Route path="/endpoint" component={Endpoint} />
-      </Router>
+        <Router defaultComponent={Page404}>
+          <Route path="/" component={Home} />
+          <Route path="/tienda" component={Listado} />
+          <Route path="/contacto" component={Contacto} />
+          <Route path="/producto" component={Product} />
+          <Route path="/carrito" component={Cart} />
+          <Route path="/usuario" component={User} />
+          <Route path="/nosotros" component={About} />
+          <Route path="/endpoint" component={Endpoint} />
+        </Router>
       <Footer />
     </>
   )

@@ -12,6 +12,7 @@
     position: sticky;
     top: 5em;
     height: 100vh;
+    background-color: #ffa91e45;
 }
 
 #user > aside > header {
@@ -20,6 +21,14 @@
     flex-direction: column;
     width: 100%;
     padding: 2em 1em;
+}
+
+#user > aside > header::after {
+    content: '';
+    width: 15em;
+    height: 0.125em;
+    background-color: #9F9F9F;
+    margin-top: 2em;
 }
 
 #user > aside > header > div {
@@ -76,7 +85,6 @@
 
 #user > article {
     flex: 1;
-    background-color: #ffa91e45;
     min-height: 100vh;
 }
 

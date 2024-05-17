@@ -1,8 +1,6 @@
-import { lazy } from 'react'
-
-const Listado = lazy(() => { import("../components/Listado")})
-const Categorias = lazy(() => { import("../components/Categorias")})
-const Banner = lazy(() => { import("../components/Banner")})
+import { Listado } from "../components/Listado.jsx"
+import { Categorias } from "../components/Categorias.jsx"
+import { Banner } from "../components/Banner.jsx"
 
 export const Home = () => {
     return (

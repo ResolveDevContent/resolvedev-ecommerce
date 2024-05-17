@@ -3,10 +3,9 @@ import './prod.css'
 import { ProductCard } from './ProductCard'
 import { Link } from 'resolvedev-router'
 import { Features } from './Features'
-
-const Breadcumb = lazy(import('./Breadcumb'))
-const Filtros = lazy(import('./Filtros'))
-const Paginator = lazy(import('./Paginator'))
+import { Breadcumb } from "./Breadcumb.jsx"
+import { Filtros } from "./Filtros.jsx"
+import { Paginator } from "./Paginator.jsx"
 
 export const Listado = ({isInHome}) => {
     return (
