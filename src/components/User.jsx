@@ -2,6 +2,7 @@ import { Exit } from '../icons/Icons'
 import Prod  from '../images/prod.jpg'
 import UserImg  from '../images/user.png'
 import { Link } from 'resolvedev-router'
+import { CartFeatures } from './CartFeatures'
 import '../css/User.css'
 
 export const User = () => {
@@ -35,80 +36,82 @@ export const User = () => {
                         <section className='datos-personales'>
                             <form>
                                 <div>
-                                    <strong>Domicilio</strong>
-                                    <ul>
-                                        <li>
-                                            <div className='input'>
-                                                <label>Pais</label>
-                                                <input type="text" placeholder='Argentina'/>
-                                            </div>    
-                                        </li>
-                                        <li>
-                                            <div className='input'>
-                                                <label>Provincia</label>
-                                                <input type="text" placeholder='Buenos Aires'/>
-                                            </div> 
-                                        </li>
-                                        <li>
-                                            <div className='input'>
-                                                <label>Ciudad</label>
-                                                <input type="text" placeholder='Caballito'/>
-                                            </div>    
-                                        </li>
-                                        <li>
-                                            <div className='input'>
-                                                <label>Codigo Postal</label>
-                                                <input type="text" placeholder='1234'/>
-                                            </div>    
-                                        </li>
-                                        <li>
-                                            <div className='input'>
-                                                <label>Calle</label>
-                                                <input type="text" placeholder='Alberdi'/>
-                                            </div>    
-                                        </li>
-                                        <li>
-                                            <div className='input'>
-                                                <label>Numero</label>
-                                                <input type="number" placeholder='536'/>
-                                            </div>    
-                                        </li>
-                                        <li>
-                                            <div className='input'>
-                                                <label>Depto.</label>
-                                                <input type="text" placeholder='Numero 3b'/>
-                                            </div>    
-                                        </li>
-                                    </ul>
+                                    <CartFeatures titulo={"Domicilio"} id={"domicilio"} checked={true}>
+                                        <ul>
+                                            <li>
+                                                <div className='input'>
+                                                    <label>Pais</label>
+                                                    <input type="text" placeholder='Argentina'/>
+                                                </div>    
+                                            </li>
+                                            <li>
+                                                <div className='input'>
+                                                    <label>Provincia</label>
+                                                    <input type="text" placeholder='Buenos Aires'/>
+                                                </div> 
+                                            </li>
+                                            <li>
+                                                <div className='input'>
+                                                    <label>Ciudad</label>
+                                                    <input type="text" placeholder='Caballito'/>
+                                                </div>    
+                                            </li>
+                                            <li>
+                                                <div className='input'>
+                                                    <label>Codigo Postal</label>
+                                                    <input type="text" placeholder='1234'/>
+                                                </div>    
+                                            </li>
+                                            <li>
+                                                <div className='input'>
+                                                    <label>Calle</label>
+                                                    <input type="text" placeholder='Alberdi'/>
+                                                </div>    
+                                            </li>
+                                            <li>
+                                                <div className='input'>
+                                                    <label>Numero</label>
+                                                    <input type="number" placeholder='536'/>
+                                                </div>    
+                                            </li>
+                                            <li>
+                                                <div className='input'>
+                                                    <label>Depto.</label>
+                                                    <input type="text" placeholder='Numero 3b'/>
+                                                </div>    
+                                            </li>
+                                        </ul>
+                                    </CartFeatures>
                                 </div>
                                 <div>
-                                    <strong>Datos personales</strong>
-                                    <ul>
-                                        <li>
-                                            <div className='input'>
-                                                <label>Email</label>
-                                                <input type="email" placeholder='Abc@email.com'/>
-                                            </div>    
-                                        </li>  
-                                        <li>
-                                            <div className='input'>
-                                                <label>Contraseña</label>
-                                                <input type="password" placeholder='***'/>
-                                            </div>    
-                                        </li>
-                                        <li>
-                                            <div className='input'>
-                                                <label>Telefono</label>
-                                                <input type="number" placeholder='123456'/>
-                                            </div>    
-                                        </li>  
-                                        <li>
-                                            <div className='input'>
-                                                <label>Caracteristica</label>
-                                                <input type="number" placeholder='1223'/>
-                                            </div>    
-                                        </li>        
-                                    </ul>    
+                                    <CartFeatures titulo={"Datos Personales"} id={"datos"} checked={false}>
+                                        <ul>
+                                            <li>
+                                                <div className='input'>
+                                                    <label>Email</label>
+                                                    <input type="email" placeholder='Abc@email.com'/>
+                                                </div>    
+                                            </li>  
+                                            <li>
+                                                <div className='input'>
+                                                    <label>Contraseña</label>
+                                                    <input type="password" placeholder='***'/>
+                                                </div>    
+                                            </li>
+                                            <li>
+                                                <div className='input'>
+                                                    <label>Telefono</label>
+                                                    <input type="number" placeholder='123456'/>
+                                                </div>    
+                                            </li>  
+                                            <li>
+                                                <div className='input'>
+                                                    <label>Caracteristica</label>
+                                                    <input type="number" placeholder='1223'/>
+                                                </div>    
+                                            </li>        
+                                        </ul>    
+                                    </CartFeatures>
                                 </div>
                             </form>
                         </section>    

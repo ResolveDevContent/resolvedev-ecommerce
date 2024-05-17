@@ -12,6 +12,7 @@ import { Cart } from './pages/Cart'
 import { About } from './pages/About'
 import { Endpoint } from './pages/Endpoint'
 import { Page404 } from './components/Page404'
+import { Login } from './components/Login'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
     <>
       <Navbar />
         <Router defaultComponent={Page404}>
+          <Route path="/login" component={Login} />
           <Route path="/" component={Home} />
           <Route path="/tienda" component={Listado} />
           <Route path="/contacto" component={Contacto} />
