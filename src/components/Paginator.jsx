@@ -5,13 +5,17 @@ export const Paginator = () => {
         <footer className="paginator">
             <ul>
                 <li>
-                    <button>Anterior</button>
+                    <div className='btn-carrito'>
+                        <button>Anterior</button>
+                    </div>
                 </li>
                 <li>
                     <span>1 de 11</span>
                 </li>
                 <li>
-                    <button>Siguiente</button>
+                    <div className='btn-carrito'>
+                        <button>Siguiente</button>
+                    </div>
                 </li>
             </ul>
         </footer>

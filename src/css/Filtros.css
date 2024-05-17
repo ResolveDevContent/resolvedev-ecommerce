@@ -133,4 +133,13 @@
     .filtros{
         padding: 1em;
     }
+
+    .filtros .filtros-container .aside-filtros {
+        flex-direction: column;
+        padding: unset;
+    }
+
+    .filtros .filtros-container .aside-filtros > ul {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
