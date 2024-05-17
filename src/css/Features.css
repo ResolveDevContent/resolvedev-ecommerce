@@ -35,3 +35,13 @@
     font-weight: 500;
     color: #898989;
 }
+
+@media screen and (max-width: 959px) {
+    #features {
+        padding: 2em 1em;
+    }
+
+    #features > ul > li {
+        width: 100%;
+    }
+}

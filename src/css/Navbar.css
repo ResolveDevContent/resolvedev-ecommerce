@@ -122,6 +122,10 @@
 
 
 @media screen and (max-width: 959px) {
+    .navbar-list {
+        padding: 0 1.5em;
+    }
+
     .navbar .navbar-list > ul {
         display: none;
     }
@@ -150,7 +154,7 @@
 
     .navbar .navbar-responsive {
         display: flex;
-        padding: 2em 5em;
+        padding: 1.5em;
     }
 
     .navbar .navbar-responsive ul li {
@@ -197,18 +201,17 @@
     }
     
     .navbar .navbar-responsive > article ul {
-        background-color: #B88E2F;
+        background-color: #FFF3E3;
         z-index: 1;
         padding: 2em;
         display: flex;
         flex-direction: column;
         border-radius: 1em;
-        width: 80%;
-        color: white;
+        color: black;
 
         position: absolute;
         right: 0;
-        width: 40%;
+        width: 14em;
         height: 100%;
         border-radius: 0;
     }
@@ -219,7 +222,7 @@
     }
     
     .navbar .navbar-responsive > article ul li a {
-        color: white;
+        color: black;
         text-transform: uppercase;
         width: 100%;
         display: flex;
@@ -251,6 +254,7 @@
     .navbar .navbar-responsive .menu-close em {
         font-weight: bolder;
         font-style: normal;
+        color: #B88E2F;
     }
     
     .navbar .navbar-responsive .menu-close label{
@@ -260,9 +264,13 @@
     }
 
     .navbar .navbar-responsive .menu-close label svg {
-        fill: white;
+        fill: #B88E2F;
     }
     
+    .navbar .navbar-responsive .popup ul li svg {
+        fill: #B88E2F;
+    }
+
     .navbar .navbar-responsive .popup ul li a span{
         font-weight: bold;
     }
@@ -303,4 +311,5 @@
     .navbar .search input:checked + .input {
         animation: sube 1s ease;
     }
+    
 }

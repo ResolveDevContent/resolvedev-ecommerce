@@ -152,10 +152,30 @@
 @media screen and (max-width: 959px) {
     .product-page {
         flex-direction: column;
+        padding: 1em;
+        gap: 0;
     }
 
     .product-images,
     .product-details{
         width: 100%;
+    }
+
+    .product-images {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .product-images > figure,
+    .product-images > ul {
+        width: 100%;
+    }
+
+    .product-images > ul {
+        flex-direction: row;
+    }
+
+    .product-details .product-actions {
+        flex-direction: column;
     }
 }

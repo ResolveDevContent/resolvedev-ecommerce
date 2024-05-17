@@ -92,3 +92,9 @@
 .producto > footer .btn-carrito {
     margin-top: 1em;
 }
+
+@media screen and (max-width: 959px) {
+    #listado {
+        margin: 1em;
+    }
+}

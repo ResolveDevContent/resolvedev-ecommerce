@@ -35,6 +35,9 @@
 @media screen and (max-width: 959px) {
     .about {
         flex-direction: column;
+        margin-inline: 1em;
+        padding-top: 2em;
+        gap: 1em;
     }
 
     .about > aside,

@@ -12,3 +12,18 @@
 .categorias > header {
     text-align: center;
 }
+
+@media screen and (max-width: 959px) {
+    .categorias {
+        padding: 2em 3em;
+    }
+
+    .carousel-item figure {
+        width: 19em;
+        padding: 1em;
+    }
+
+    .carousel > ul {
+        padding-bottom: unset;
+    }
+}

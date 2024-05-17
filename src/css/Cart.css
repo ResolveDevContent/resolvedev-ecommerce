@@ -273,4 +273,8 @@
         margin: 0;
     }
 
+    .cart-features .accordeon .info-contacto {
+        grid-template-columns: auto;
+    }
+
 }

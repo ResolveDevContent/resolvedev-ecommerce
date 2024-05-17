@@ -64,7 +64,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #eee;
+    background-color: #eee7d6;
 }
 
 .footer > section {
@@ -103,7 +103,7 @@
 .footer .footer-links > em{
     font-weight: bolder;
     font-size: 1.25em;
-    color: var(--primary);
+    color: #B88E2F;
 }
 
 .footer .footer-links a,
@@ -169,6 +169,7 @@
 @media screen and (max-width: 959px) {
     .footer > section {
         grid-template-columns: auto;
+        padding: 2em 1em;
     }
 
     #floating-footer {

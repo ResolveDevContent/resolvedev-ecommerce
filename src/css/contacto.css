@@ -78,9 +78,15 @@
 }
 
 @media screen and (max-width: 959px) {
+
+    #contacto {
+        margin: 2em 1em;
+    }
+
     #contacto > article {
         flex-direction: column;
         gap: 4em;
+        padding: 1em;
     }
 
     #contacto > article > div,
@@ -90,7 +96,11 @@
     }
 
     #contacto > header {
-        width: 30em;
+        width: 100%;
+    }
+
+    #contacto .ul-form > li:last-child {
+        text-align: center;
     }
 
 }

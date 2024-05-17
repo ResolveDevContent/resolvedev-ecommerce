@@ -87,5 +87,10 @@
     .filtros .filter ul,
     .filtros .sort li{
         flex-direction: column;
+        gap: 0.5em;
+    }
+    
+    .filtros{
+        padding: 1em;
     }
 }
