@@ -38,10 +38,11 @@
 
 .table .row > li {
     color: black;
-    padding: 1em;
+    padding: .5em;
     text-transform: capitalize;
     display: table-cell;
     vertical-align: middle;
+    text-align: center;
 }
 
 .table .row > li input {
@@ -84,6 +85,10 @@
 
 .table .row .product-img {
     width: 7em;
+}
+
+.table .row .product-img > img {
+    border-radius: .5em;
 }
 
 .cart-details {
