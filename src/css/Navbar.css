@@ -46,6 +46,11 @@
     display: none;
 }
 
+.navbar .search label,
+.navbar .buttons a {
+    display: flex;
+}
+
 .navbar .search .input {
     display: none;
 
@@ -80,6 +85,10 @@
     animation: baja 1s ease;
 }
 
+.navbar .navbar-responsive {
+    display: none;
+}
+
 @keyframes baja {
     from {
         transform: translateY(-5em);
@@ -88,5 +97,210 @@
     to {
         transform: translateY(0em);
         opacity: 1;
+    }
+}
+
+@keyframes sube {
+    from {
+        transform: translateY(5em);
+        opacity: .4;
+    }
+    to {
+        transform: translateY(0em);
+        opacity: 1;
+    }
+}
+
+@keyframes rightanimation {
+    from {
+        transform: translateX(15em);
+    }
+    to {
+        transform: translateX(0em);
+    }
+}
+
+
+@media screen and (max-width: 959px) {
+    .navbar .navbar-list > ul {
+        display: none;
+    }
+
+    .navbar .buttons {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        padding: 1.5em;
+    }
+
+    .navbar .buttons ul li {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar .buttons ul li svg {
+        width: 2em;
+        height: 2em;
+    }
+
+    .navbar .navbar-responsive {
+        display: flex;
+        padding: 2em 5em;
+    }
+
+    .navbar .navbar-responsive ul li {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5em;
+    }
+    
+    .navbar .navbar-responsive > article{
+        display: none;
+    }
+    
+    .navbar .navbar-responsive input {
+        display: none;
+    }
+    
+    .navbar .navbar-responsive > label {
+        display: flex;
+    }
+
+    .navbar .navbar-responsive > label svg {
+        width: 2em;
+        height: 2em;
+    }
+    
+    .navbar .navbar-responsive input:checked + article {
+        display: flex;
+    
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .navbar .navbar-responsive > article {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    
+        width: 100%;
+        height: 100%;
+    }
+    
+    .navbar .navbar-responsive > article ul {
+        background-color: #B88E2F;
+        z-index: 1;
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+        border-radius: 1em;
+        width: 80%;
+        color: white;
+
+        position: absolute;
+        right: 0;
+        width: 40%;
+        height: 100%;
+        border-radius: 0;
+    }
+    
+    .navbar .navbar-responsive input:checked + article ul {
+        transition: all .5s;
+        animation: rightanimation 1s ease-in-out ;
+    }
+    
+    .navbar .navbar-responsive > article ul li a {
+        color: white;
+        text-transform: uppercase;
+        width: 100%;
+        display: flex;
+        font-size: 1.25em;
+        align-items: center;
+    }
+    
+    .navbar .navbar-responsive .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: black;
+        opacity: .5;
+    
+        height: 100vh;
+    }
+    
+    .navbar .navbar-responsive .menu-close {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2em;
+    }
+    
+    .navbar .navbar-responsive .menu-close em {
+        font-weight: bolder;
+        font-style: normal;
+    }
+    
+    .navbar .navbar-responsive .menu-close label{
+        width: 100%;
+        display: flex;
+        justify-content: end;
+    }
+
+    .navbar .navbar-responsive .menu-close label svg {
+        fill: white;
+    }
+    
+    .navbar .navbar-responsive .popup ul li a span{
+        font-weight: bold;
+    }
+    
+    .navbar .navbar-responsive ul li a span::after{
+        content: "";
+        width: 0.5em;
+        height: 0.125em;
+        background-color: transparent;
+        transition: all 0.5s;
+        display: block;
+    }
+    
+    .navbar .navbar-responsive ul li a span:hover::after{
+        content: "";
+        width: 1.5em;
+        height: 0.125em;
+        background-color: var(--secondary);
+        display: block;
+    }
+
+    .navbar .search .input {
+        right: 0;
+        left: 0;
+        width: 100%;
+        bottom: 4em;
+        padding-inline: 4em;
+    }
+
+    .navbar .search .input input {
+        width: 100%;
+    }
+
+    .navbar .search .input label {
+        padding: 0.875em;
+    }
+
+    .navbar .search input:checked + .input {
+        animation: sube 1s ease;
     }
 }

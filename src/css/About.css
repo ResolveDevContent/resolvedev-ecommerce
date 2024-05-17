@@ -31,3 +31,14 @@
 .about article header strong {
     font-size: 2em;
 }
+
+@media screen and (max-width: 959px) {
+    .about {
+        flex-direction: column;
+    }
+
+    .about > aside,
+    .about > article {
+        width: 100%;
+    }
+}

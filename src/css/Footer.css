@@ -165,3 +165,9 @@
     font-weight: bolder;
     font-size: .75em;
 }
+
+@media screen and (max-width: 959px) {
+    .footer > section {
+        grid-template-columns: auto;
+    }
+}

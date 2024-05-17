@@ -25,12 +25,21 @@
 .product-images {
     display: flex;
     flex-direction: row-reverse;
+    gap: 1em;
+}
+
+.product-images > figure {
+    width: 32em;
+}
+
+.product-images img {
+    border-radius: 0.5em;
 }
 
 .product-images > ul{
     display: flex;
     flex-direction: column;
-    width: 5em;
+    width: 7em;
     gap: 1em;
 }
 
@@ -138,4 +147,15 @@
 .product-description p {
     color: #B0B0B0;
     text-align: center;
+}
+
+@media screen and (max-width: 959px) {
+    .product-page {
+        flex-direction: column;
+    }
+
+    .product-images,
+    .product-details{
+        width: 100%;
+    }
 }

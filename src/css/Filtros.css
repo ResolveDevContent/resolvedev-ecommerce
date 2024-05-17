@@ -82,3 +82,10 @@
     animation: baja 1s ease;
     align-items: center;
 }
+
+@media screen and (max-width: 959px) {
+    .filtros .filter ul,
+    .filtros .sort li{
+        flex-direction: column;
+    }
+}

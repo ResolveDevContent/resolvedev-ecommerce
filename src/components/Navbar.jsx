@@ -1,5 +1,5 @@
 import '../css/Navbar.css'
-import { User, Search, Favorite, Cart, Menu, Close } from '../icons/Icons'
+import { User, Search, Favorite, Cart, Menu, Close, Home, Group, Shop, Contact } from '../icons/Icons'
 import { NavLink } from './NavLink'
 import { Link } from 'resolvedev-router'
 
@@ -45,7 +45,9 @@ export const Navbar = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Favorite />
+                                <Link to={'/favorito'}>
+                                    <Favorite />
+                                </Link>
                             </li>
                             <li>
                                 <Link to={'/carrito'}>
@@ -56,7 +58,7 @@ export const Navbar = () => {
                     </div>
                 </ul>
 
-                {/* <div className="navbar-responsive">
+                <div className="navbar-responsive">
                     <label for="menu">
                         <Menu />
                     </label>
@@ -71,33 +73,24 @@ export const Navbar = () => {
                                 </label>
                             </li>
                             <li>
-                                <a href="#">
-                                    <span>Inicio</span>
-                                </a>
+                                <Home />
+                                <NavLink to="/">Inicio</NavLink>
                             </li>
                             <li>
-                                <a href="#">
-                                    <span>Tienda</span>
-                                </a>
+                                <Shop />
+                                <NavLink to="/tienda">Tienda</NavLink>
                             </li>
                             <li>
-                                <a href="#">
-                                    <span>Nosotros</span>
-                                </a>
+                                <Group />
+                                <NavLink to="/nosotros">Nosotros</NavLink>
                             </li>
                             <li>
-                                <a href="#">
-                                    <span>Contacto</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span>Contacto</span>
-                                </a>
+                                <Contact />
+                                <NavLink to="/contacto">Contacto</NavLink>
                             </li>
                         </ul>
                     </article>
-                </div> */}
+                </div>
             </nav>
         </header>
     )

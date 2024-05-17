@@ -76,3 +76,21 @@
 #contacto .ul-form > li > button:hover {
     background-color: #ffa91e;
 }
+
+@media screen and (max-width: 959px) {
+    #contacto > article {
+        flex-direction: column;
+        gap: 4em;
+    }
+
+    #contacto > article > div,
+    #contacto > article > form {
+        width: 100%;
+        margin: 0;
+    }
+
+    #contacto > header {
+        width: 30em;
+    }
+
+}
