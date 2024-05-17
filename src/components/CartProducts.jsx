@@ -1,5 +1,5 @@
 import { Plus, Minus, Trash } from "../icons/Icons"
-import Img from '../images/img.png'
+import Prod from '../images/prod.jpg'
 
 export const CartProducts = ({products}) => {
     return (
@@ -15,7 +15,7 @@ export const CartProducts = ({products}) => {
             </ul>
             <ul className='row'>
                 <li className='product-img'>
-                    <img src={Img} alt='product-img' />
+                    <img src={Prod} alt='product-img' />
                 </li>
                 {products.rows.map((product, index) => (
                     index == 2 ? (

@@ -1,4 +1,5 @@
 import { Link } from 'resolvedev-router'
+import Prod from '../images/prod.jpg'
 
 export const ProductCard = () => {
     return (
@@ -8,7 +9,7 @@ export const ProductCard = () => {
                     <span className='loader'></span>
                     <ul className='imagenes'>
                         <li>
-                            <img src="src/images/Lunes.png" alt="" />
+                            <img src={Prod} alt="" />
                         </li>
                         <li>
                             <img src="" alt="" />
@@ -17,11 +18,11 @@ export const ProductCard = () => {
                 </Link>
             </article>
             <footer>
-                <strong>Lunes a la mañana</strong>
-                <span>Muy cansador</span>
+                <strong>Sillon individual cuerina</strong>
+                <span>Cuero</span>
                 <div className='price'>
-                    <del className="without-discount">$1.000.000</del>
-                    <em>$2.000.000</em>
+                    <del className="without-discount">$630.000</del>
+                    <em>$500.000</em>
                 </div>
                 <div className='btn-carrito'>
                     <button>Agregar al carrito</button>

@@ -1,6 +1,6 @@
 import '../css/Product.css'
 import { Plus, Minus, Share } from '../icons/Icons'
-import Img from '../images/img.png'
+import Prod from '../images/prod.jpg'
 import { Promociones } from './Promociones'
 import { Features } from './Features'
 
@@ -13,24 +13,24 @@ export const Product = () => {
             <section className="product-page">
                 <aside className="product-images">
                     <figure>
-                        <img src={Img} alt="" />
+                        <img src={Prod} alt="" />
                     </figure>
                     <ul>
-                    <li>
-                        <figure>
-                            <img src={Img} alt="" />
-                        </figure>
-                    </li>
-                    <li>
-                        <figure>
-                            <img src={Img} alt="" />
-                        </figure>
-                    </li>
-                    <li>
-                        <figure>
-                            <img src={Img} alt="" />
-                        </figure>
-                    </li>
+                        <li>
+                            <figure>
+                                <img src={Prod} alt="" />
+                            </figure>
+                        </li>
+                        <li>
+                            <figure>
+                                <img src={Prod} alt="" />
+                            </figure>
+                        </li>
+                        <li>
+                            <figure>
+                                <img src={Prod} alt="" />
+                            </figure>
+                        </li>
                     </ul>
                 </aside>
                 <article className="product-details">

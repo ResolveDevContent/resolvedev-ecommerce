@@ -1,5 +1,5 @@
 import { Exit } from '../icons/Icons'
-import Img  from '../images/Lunes.png'
+import Prod  from '../images/prod.jpg'
 import UserImg  from '../images/user.png'
 import { Link } from 'resolvedev-router'
 import '../css/User.css'
@@ -86,10 +86,28 @@ export const User = () => {
                                     <ul>
                                         <li>
                                             <div className='input'>
+                                                <label>Email</label>
+                                                <input type="email" placeholder='Abc@email.com'/>
+                                            </div>    
+                                        </li>  
+                                        <li>
+                                            <div className='input'>
                                                 <label>Contraseña</label>
                                                 <input type="password" placeholder='***'/>
                                             </div>    
-                                        </li>    
+                                        </li>
+                                        <li>
+                                            <div className='input'>
+                                                <label>Telefono</label>
+                                                <input type="number" placeholder='123456'/>
+                                            </div>    
+                                        </li>  
+                                        <li>
+                                            <div className='input'>
+                                                <label>Caracteristica</label>
+                                                <input type="number" placeholder='1223'/>
+                                            </div>    
+                                        </li>        
                                     </ul>    
                                 </div>
                             </form>
@@ -108,7 +126,15 @@ export const User = () => {
                             </header>
                             <ul>
                                 <li>
-                                    <img src={Img} alt="" />
+                                    <img src={Prod} alt="" />
+                                    <span>124356789</span>
+                                    <em>$1.200.500</em>
+                                    <div className='btn-carrito'>
+                                        <Link to={'/endpoint'}>Ver</Link>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src={Prod} alt="" />
                                     <span>124356789</span>
                                     <em>$1.200.500</em>
                                     <div className='btn-carrito'>

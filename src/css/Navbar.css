@@ -32,7 +32,7 @@
 }
 
 .navbar-items > li > a {
-    color: black;
+    color: black; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,7 +50,6 @@
     display: none;
 
     right: 0;
-    padding-inline: 5em;
     width: 30%;
     transition: all 0.5s;
     flex-direction: row;
@@ -66,7 +65,7 @@
 .navbar .search .input label {
     display: flex;
     padding: 1.125em;
-    background-color: white;
+    background-color: #B88E2F;
     border-radius: 0 0.5em 0.5em 0;
     border: 1px solid #9F9F9F;
 }

@@ -1,4 +1,6 @@
 import '../css/Banner.css'
+import Home from '../images/home.jpg'
+import { Link } from 'resolvedev-router'
 
 export const Banner = () => {
     return (
@@ -6,19 +8,25 @@ export const Banner = () => {
             <ul>
                 <li>
                     <figure>
-                        <img src="https://images.unsplash.com/photo-1533673662755-98c661c601a1?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="logo" /> 
-                        {/* <figcaption>
-                            <article>
-                                <div className="home-text">
+                        <img src={Home} alt="logo" /> 
+                        <figcaption>
+                            <article className="home-text">
+                                <span>New Arrival</span>
+                                <div>
+                                    <em>Discover Our New Collection</em>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
                                     </p>
                                 </div>
                                 <footer>
-                                    <a href="#servicios">¡Comencemos!</a>
+                                    <button>
+                                        <Link to={'/listado'}>
+                                            Buy now
+                                        </Link>    
+                                    </button>
                                 </footer>
                             </article>
-                        </figcaption> */}
+                        </figcaption>
                     </figure>
                 </li>
             </ul>
