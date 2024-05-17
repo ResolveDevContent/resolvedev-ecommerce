@@ -59,16 +59,16 @@ export const Navbar = () => {
                 </ul>
 
                 <div className="navbar-responsive">
-                    <label for="menu">
+                    <label htmlFor="menu">
                         <Menu />
                     </label>
                     <input type="checkbox" name="menu-responsive" id="menu" />
                     <article className="popup">
-                        <label className="background" for="menu"></label>
+                        <label className="background" htmlFor="menu"></label>
                         <ul>
                             <li className="menu-close">
                                 <em>Men&uacute;</em>
-                                <label for="menu">
+                                <label htmlFor="menu">
                                     <Close />
                                 </label>
                             </li>

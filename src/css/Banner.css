@@ -53,6 +53,10 @@
     border-radius: 0.5em;
 }
 
+.banners .home-text > footer > button:hover {
+    background-color: #d4a536;
+}
+
 .banners .home-text > footer > button > a {
     text-transform: uppercase;
     font-weight: 700;
