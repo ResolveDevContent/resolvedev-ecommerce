@@ -163,6 +163,7 @@
         align-items: center;
         justify-content: center;
         gap: 0.5em;
+        margin: 1em 0;
     }
     
     .navbar .navbar-responsive > article{
@@ -203,7 +204,7 @@
     .navbar .navbar-responsive > article ul {
         background-color: #FFF3E3;
         z-index: 1;
-        padding: 2em;
+        padding: 1em;
         display: flex;
         flex-direction: column;
         border-radius: 1em;

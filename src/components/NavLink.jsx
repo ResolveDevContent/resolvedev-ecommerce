@@ -2,19 +2,18 @@ import { useEffect, useState } from 'react';
 import { Link } from 'resolvedev-router'
 
 export const NavLink = ({to, children}) => {
-
-    const [ pathname, setPathname ] = useState("")
-    var isActive;
     var className;
+    // var isActive;
 
-    useEffect(() => {
-        const url = new URL(window.location.href)
+    // const url = new URL(window.location.href)
+    // useEffect(() => {
 
-        setPathname(url.pathname)
-        isActive = url.pathname === to;
-        className = isActive ? 'active' : '';
-        console.log(pathname, url, isActive, className)
-    }, [pathname])
+    //     isActive = url.pathname === to;
+    //     className = isActive ? 'active' : '';
+    //     console.log(url.pathname, isActive, className)
+    //     history.pushState({}, "", url.pathname)
+    //     console.log(history)
+    // }, [url])
 
     return (
         <Link className={className} to={to}>
