@@ -1,10 +1,34 @@
 import '../css/Product.css'
 import { Plus, Minus, Share } from '../icons/Icons'
 import Prod from '../images/prod.jpg'
+import Img from '../images/otherimg.png'
+import Img2 from '../images/otherimg2.png'
 import { Promociones } from './Promociones'
 import { Features } from './Features'
+import { useState } from 'react'
 
 export const Product = () => {
+    const [ quantity, setQuantity ] = useState(1)
+    const [ image, setImage ] = useState(Prod)
+
+    const addQuantity = (e, num) => {
+        e.preventDefault()
+
+        let suma = quantity + num;
+
+        if(suma <= 0) {
+            return;
+        }
+
+        setQuantity(suma);
+    }
+
+    const changeImg = (e, img) => {
+        e.preventDefault()
+
+        setImage(img)
+    }
+
     return (
         <>
             <header className="product-header filtros">
@@ -13,22 +37,22 @@ export const Product = () => {
             <section className="product-page">
                 <aside className="product-images">
                     <figure>
-                        <img src={Prod} alt="" />
+                        <img src={image} alt="" />
                     </figure>
                     <ul>
                         <li>
                             <figure>
-                                <img src={Prod} alt="" />
+                                <img src={Img} alt="" onClick={(e) => changeImg(e, Img)} />
                             </figure>
                         </li>
                         <li>
                             <figure>
-                                <img src={Prod} alt="" />
+                                <img src={Prod} alt="" onClick={(e) => changeImg(e, Prod)}/>
                             </figure>
                         </li>
                         <li>
                             <figure>
-                                <img src={Prod} alt="" />
+                                <img src={Img2} alt="" onClick={(e) => changeImg(e, Img2)}/>
                             </figure>
                         </li>
                     </ul>
@@ -52,11 +76,11 @@ export const Product = () => {
                     <ul className='product-actions'>
                         <li>
                             <div className='input'>
-                                <button>
+                                <button onClick={(e) => addQuantity(e, -1)}>
                                     <Minus />
                                 </button>
-                                <input type="number"/>
-                                <button>
+                                <input type="number" defaultValue={quantity} value={quantity} name='quantity' id='quantity'/>
+                                <button onClick={(e) => addQuantity(e, 1)}>
                                     <Plus />   
                                 </button>
                             </div>

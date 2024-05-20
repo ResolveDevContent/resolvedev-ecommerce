@@ -112,6 +112,7 @@ textarea {
     gap: 0.5em;
 
     scroll-snap-align: center;
+    cursor: pointer;
 }
 
 .carousel-item figure{
