@@ -20,7 +20,7 @@
 .producto > article::after {
     content: '30%';
     padding: .325em 1.5em;
-    background-color: red;
+    background-color: rgb(104, 63, 24);
     color: black;
     position: absolute;
     top: .75em;
@@ -31,6 +31,23 @@
     font-weight: bolder;
     opacity: .7;
 }
+.producto > article::before {
+    content: 'Sin Stock';
+    background-color: red;
+    color: black;
+    position: absolute;
+    top: 3em;
+    right: 0;
+    z-index: 10;
+    font-size: 1.125em;
+    font-weight: bolder;
+    opacity: .7;
+    width: 100%;
+    padding: .5em 0;
+    display: flex;
+    justify-content: center;
+}
+
 .producto > article > a {
     display: block;
     width: 100%;
