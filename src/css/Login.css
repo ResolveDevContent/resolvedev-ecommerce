@@ -158,6 +158,8 @@
 #login .loginForm > form {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
 }
 
 #login .registerForm > form .input,
@@ -271,11 +273,6 @@
     #login .container .overlay > div {
         width: 100%;
         height: 50%;
-    }
-    #login .registerForm > form,
-    #login .loginForm > form {
-        height: 100%;
-        justify-content: space-between;
     }
     #login .container.right-active .registerForm,
     #login .container.right-active .loginForm,
