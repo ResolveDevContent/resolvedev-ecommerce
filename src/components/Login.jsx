@@ -1,6 +1,7 @@
 import '../css/Login.css'
 import { Link } from 'resolvedev-router'
 import { useRef } from 'react'
+import { Google, Facebook } from '../icons/Icons'
 
 export const Login = () => {
 
@@ -21,8 +22,12 @@ export const Login = () => {
                     <form>
                         <h1>Register</h1>
                         <div className='socials'>
-                            <Link>G</Link>
-                            <Link>F</Link>
+                            <Link>
+                                <Google />
+                            </Link>
+                            <Link>
+                                <Facebook />
+                            </Link>
                         </div>
                         <span>Please complete all fields below</span>
                         <div className="input">
@@ -44,8 +49,12 @@ export const Login = () => {
                     <form>
                         <h1>Login</h1>
                         <div className='socials'>
-                            <Link>G</Link>
-                            <Link>F</Link>
+                            <Link>
+                                <Google />
+                            </Link>
+                            <Link>
+                                <Facebook />
+                            </Link>
                         </div>
                         <span>Please complete all fields below</span>
                         <div className="input">
