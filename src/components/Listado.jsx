@@ -1,13 +1,14 @@
 import './prod.css'
 
 import { ProductCard } from './ProductCard'
-import { Link } from 'resolvedev-router'
+import { Link } from 'react-router-dom'
 import { Features } from './Features'
 import { Breadcumb } from "./Breadcumb.jsx"
 import { Filtros } from "./Filtros.jsx"
 import { Paginator } from "./Paginator.jsx"
 
 export const Listado = ({isInHome}) => {
+
     return (
         <>
             {!isInHome ? (

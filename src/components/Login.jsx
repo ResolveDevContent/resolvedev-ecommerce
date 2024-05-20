@@ -1,5 +1,5 @@
 import '../css/Login.css'
-import { Link } from 'resolvedev-router'
+import { Link } from 'react-router-dom'
 import { useRef } from 'react'
 import { Google, Facebook } from '../icons/Icons'
 

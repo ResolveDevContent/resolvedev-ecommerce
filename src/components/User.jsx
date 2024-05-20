@@ -1,7 +1,7 @@
 import { Exit } from '../icons/Icons'
 import Prod  from '../images/prod.jpg'
 import UserImg  from '../images/user.png'
-import { Link } from 'resolvedev-router'
+import { Link } from 'react-router-dom'
 import { CartFeatures } from './CartFeatures'
 import '../css/User.css'
 

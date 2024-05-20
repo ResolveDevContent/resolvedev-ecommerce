@@ -1,7 +1,6 @@
 import '../css/Navbar.css'
 import { User, Search, Favorite, Cart, Menu, Close, Home, Group, Shop, Contact } from '../icons/Icons'
-import { NavLink } from './NavLink'
-import { Link } from 'resolvedev-router'
+import { Link } from 'react-router-dom'
 
 export const Navbar = () => {
     return (
@@ -13,16 +12,16 @@ export const Navbar = () => {
                     </div>
                     <ul className='navbar-items'>
                         <li>
-                            <NavLink to="/">Inicio</NavLink>
+                            <Link to="/">Inicio</Link>
                         </li>
                         <li>
-                            <NavLink to="/tienda">Tienda</NavLink>
+                            <Link to="/tienda">Tienda</Link>
                         </li>
                         <li>
-                            <NavLink to="/nosotros">Nosotros</NavLink>
+                            <Link to="/nosotros">Nosotros</Link>
                         </li>
                         <li>
-                            <NavLink to="/contacto">Contacto</NavLink>
+                            <Link to="/contacto">Contacto</Link>
                         </li>
                     </ul>
                     <div className='buttons'>
@@ -40,17 +39,17 @@ export const Navbar = () => {
                                 </div>
                             </li>
                             <li>
-                                <Link to={'/usuario'}>
+                                <Link to='/usuario'>
                                     <User />
                                 </Link>
                             </li>
                             <li>
-                                <Link to={'/favorito'}>
+                                <Link to='/favorito'>
                                     <Favorite />
                                 </Link>
                             </li>
                             <li>
-                                <Link to={'/carrito'}>
+                                <Link to='/carrito'>
                                     <Cart />
                                 </Link>
                             </li>
@@ -74,19 +73,19 @@ export const Navbar = () => {
                             </li>
                             <li>
                                 <Home />
-                                <NavLink to="/">Inicio</NavLink>
+                                <Link to="/">Inicio</Link>
                             </li>
                             <li>
                                 <Shop />
-                                <NavLink to="/tienda">Tienda</NavLink>
+                                <Link to="/tienda">Tienda</Link>
                             </li>
                             <li>
                                 <Group />
-                                <NavLink to="/nosotros">Nosotros</NavLink>
+                                <Link to="/nosotros">Nosotros</Link>
                             </li>
                             <li>
                                 <Contact />
-                                <NavLink to="/contacto">Contacto</NavLink>
+                                <Link to="/contacto">Contacto</Link>
                             </li>
                         </ul>
                     </article>

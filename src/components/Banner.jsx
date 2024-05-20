@@ -1,6 +1,6 @@
 import '../css/Banner.css'
 import Home from '../images/home.jpg'
-import { Link } from 'resolvedev-router'
+import { Link } from 'react-router-dom'
 
 export const Banner = () => {
     return (

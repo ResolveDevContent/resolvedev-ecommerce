@@ -1,4 +1,4 @@
-import { Link } from 'resolvedev-router'
+import { Link } from 'react-router-dom'
 import Prod from '../images/prod.jpg'
 
 export const ProductCard = () => {

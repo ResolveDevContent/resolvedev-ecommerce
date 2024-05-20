@@ -1,6 +1,5 @@
 import '../css/Footer.css'
 import { ArrowRight, WhatsApp } from '../icons/Icons'
-import { Link } from 'resolvedev-router'
 
 export const Footer = () => {
     return (
@@ -8,10 +7,10 @@ export const Footer = () => {
             <section id='floating-footer'>
                 <ul>
                     <li>
-                        <Link>
+                        <a href="#">
                             <span>Escribinos por Whatsapp</span>
                             <WhatsApp />
-                        </Link>
+                        </a>
                     </li>
                 </ul>
             </section>

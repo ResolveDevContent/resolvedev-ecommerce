@@ -1,4 +1,5 @@
 import '../css/Filtros.css'
+
 import { Filters, Close } from '../icons/Icons'
 import { useState } from 'react'
 
@@ -6,8 +7,7 @@ export const Filtros = () => {
     const [ filters, setFilters ] = useState({})
 
     const changeFilters = (e) => {
-        const { name, id } = e.target;
-        const value = id.split("-")[1];
+        const { name, value } = e.target;
         let arr = [];
 
         if(e.target.checked) {
@@ -80,6 +80,7 @@ export const Filtros = () => {
                                                     <input type="checkbox" 
                                                         name='color' 
                                                         id='color-marron' 
+                                                        value='marron'
                                                         onChange={changeFilters}
                                                     />
                                                     <label htmlFor='color-marron'>
@@ -90,6 +91,7 @@ export const Filtros = () => {
                                                     <input type="checkbox" 
                                                         name='color' 
                                                         id='color-rojo' 
+                                                        value='rojo'
                                                         onChange={changeFilters}
                                                     />
                                                     <label htmlFor='color-rojo'>
@@ -100,6 +102,7 @@ export const Filtros = () => {
                                                     <input type="checkbox" 
                                                         name='color' 
                                                         id='color-beige' 
+                                                        value='beige'
                                                         onChange={changeFilters}
                                                     />
                                                     <label htmlFor='color-beige'>
@@ -120,6 +123,7 @@ export const Filtros = () => {
                                                     <input type="checkbox" 
                                                         name='tipo' 
                                                         id='tipo-deco' 
+                                                        value='deco'
                                                         onChange={changeFilters}
                                                     />
                                                     <label htmlFor='tipo-deco'>
@@ -130,6 +134,7 @@ export const Filtros = () => {
                                                     <input type="checkbox" 
                                                         name='tipo' 
                                                         id='tipo-lana'
+                                                        value='lana'
                                                         onChange={changeFilters}
                                                     />
                                                     <label htmlFor='tipo-lana'>
@@ -140,6 +145,7 @@ export const Filtros = () => {
                                                     <input type="checkbox" 
                                                         name='tipo' 
                                                         id='tipo-tejido'
+                                                        value='tejido'
                                                         onChange={changeFilters}
                                                     />
                                                     <label htmlFor='tipo-tejido'>
@@ -167,11 +173,11 @@ export const Filtros = () => {
                 <ul>
                     <li>
                         <label htmlFor="sort">Ordenar por</label>
-                        <select name="sort" id="sort-products">
+                        <select name="sort" id="sort" onChange={changeFilters}>
                             <option value="">Por defecto</option>
-                            <option value="">Nombre</option>
-                            <option value="">Mayor precio</option>
-                            <option value="">Menor precio</option>
+                            <option value="nombre">Nombre</option>
+                            <option value="major-price">Mayor precio</option>
+                            <option value="minor-price">Menor precio</option>
                         </select>
                     </li>
                 </ul>

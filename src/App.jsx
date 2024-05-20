@@ -1,5 +1,5 @@
 import './css/style.css' 
-import { Router, Route } from 'resolvedev-router'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { Home } from "./pages/Home"
 import { Footer } from './components/Footer'
@@ -18,19 +18,22 @@ function App() {
 
   return (
     <>
-      <Navbar />
-        <Router defaultComponent={Page404}>
-          <Route path="/login" component={Login} />
-          <Route path="/" component={Home} />
-          <Route path="/tienda" component={Listado} />
-          <Route path="/contacto" component={Contacto} />
-          <Route path="/producto" component={Product} />
-          <Route path="/carrito" component={Cart} />
-          <Route path="/usuario" component={User} />
-          <Route path="/nosotros" component={About} />
-          <Route path="/endpoint" component={Endpoint} />
-        </Router>
-      <Footer />
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/tienda" element={<Listado />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/producto" element={<Product />} />
+          <Route path="/carrito" element={<Cart />} />
+          <Route path="/usuario" element={<User />} />
+          <Route path="/nosotros" element={<About />} />
+          <Route path="/endpoint" element={<Endpoint />} />
+          <Route path="*" element={<Page404 />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
   )
 }
