@@ -37,22 +37,22 @@ export const Filtros = () => {
     const applyFilters = (e) => {
         e.preventDefault()
 
-        let query = filters;
+        let queryFilter = filters;
 
-        query = Object.keys(query).reduce(function(_, key) {
-            _.push(key + '-' + query[key].join('-'));
+        queryFilter = Object.keys(queryFilter).reduce(function(_, key) {
+            _.push(key + '-' + queryFilter[key].join('-'));
             return _;
         }, [ ]);
 
-        query = query.join('~');
+        queryFilter = queryFilter.join('~');
 
         const url = new URL(location.href);
-        url.searchParams.set('query', query);
+        url.searchParams.set('query', queryFilter);
 
         history.replaceState({ }, null, url.toString());
         window.dispatchEvent(new Event('replacestate'));
 
-        console.log("click", query)
+        console.log("click", queryFilter)
     }
 
     return (
