@@ -18,8 +18,8 @@ import { Login } from './components/Login'
 function App() {
 
   return (
-    <CartProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <CartProvider>
         <Navbar />
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -34,8 +34,8 @@ function App() {
           <Route path="*" element={<Page404 />} />
         </Routes>
         <Footer />
-      </BrowserRouter>
-    </CartProvider>
+      </CartProvider>
+    </BrowserRouter>
   )
 }
 

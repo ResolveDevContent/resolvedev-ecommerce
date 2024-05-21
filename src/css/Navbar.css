@@ -218,6 +218,7 @@
         flex-direction: column;
         border-radius: 1em;
         color: black;
+        font-size: 1.25em;
 
         position: absolute;
         right: 0;

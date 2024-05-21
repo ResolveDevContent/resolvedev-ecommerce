@@ -197,7 +197,7 @@
         border: none;
     }
     #user > aside > header {
-        flex-direction: row;
+        flex-direction: column;
         padding: .5em;
         align-items: center;
     }
@@ -207,7 +207,8 @@
     }
     #user > aside > header > div {
         width: 100%;
-        justify-content: space-between;
+        justify-content: center;
+        flex-direction: column;
     }
     #user > aside > div {
         margin: 0;
@@ -227,6 +228,7 @@
     }
     #user > article > ul {
         padding: 1em;
+        min-height: 100vh;
     }
     #user .pedidos > ul > li > img {
         width: 4em;
@@ -235,5 +237,9 @@
     #user .pedidos span,
     #user .pedidos .btn-carrito a {
         font-size: .75em;
+    }
+    
+    #user .datos-personales > form > div ul {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
