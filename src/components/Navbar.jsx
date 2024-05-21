@@ -1,5 +1,5 @@
 import '../css/Navbar.css'
-import { User, Search, Favorite, Cart, Menu, Close, Home, Group, Shop, Contact } from '../icons/Icons'
+import { User, Search, Favorite, Cart, Menu, Close, Home, Group, Shop, Contact, Send } from '../icons/Icons'
 import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 
@@ -35,10 +35,13 @@ export const Navbar = () => {
                                 </label>
                                 <input type="checkbox" id='search' name='search-input'/>
                                 <div className='input'>
-                                    <input type="text" placeholder='Buscar...'/>
                                     <label htmlFor="search">
                                         <Close />
                                     </label>
+                                    <input type="text" placeholder='Buscar...'/>
+                                    <button>
+                                        <Send />
+                                    </button>
                                 </div>
                             </li>
                             <li>
