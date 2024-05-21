@@ -6,6 +6,7 @@ import Img2 from '../images/otherimg2.png'
 import { Promociones } from './Promociones'
 import { Features } from './Features'
 import { useState } from 'react' 
+import { useCart } from 'resolvedev-cart'
 
 export const Product = () => {
     const [ image, setImage ] = useState(Prod)
