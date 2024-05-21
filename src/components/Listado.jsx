@@ -171,10 +171,10 @@ export const Listado = ({isInHome}) => {
                                                     </div>
                                                 </article>
                                             </li>
-                                            <li>
-                                                <button onClick={(e) => applyFilters(e)}>Aplicar filtros</button>
-                                            </li>
                                         </ul>
+                                        <div className='btn-carrito apply-filters'>
+                                            <button onClick={(e) => applyFilters(e)}>Aplicar filtros</button>
+                                        </div>
                                     </div>
                                 </li>
                                 <li>

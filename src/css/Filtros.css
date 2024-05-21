@@ -93,6 +93,7 @@
 
 .filtros .filtros-container input[type="checkbox"]:checked + .aside-filtros {
     display: flex;
+    flex-direction: column;
     animation: baja 1s ease;
     align-items: start;
 }
@@ -121,6 +122,14 @@
     padding: 0.5em 1em;
     border-radius: 50%;
     background-color: #eee;
+}
+
+.filtros .apply-filters {
+    margin: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 @media screen and (max-width: 959px) {
