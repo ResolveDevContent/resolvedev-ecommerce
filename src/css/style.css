@@ -220,6 +220,22 @@ textarea {
     animation: rotation 1s linear infinite;
 }
 
+#notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8em;
+}
+
+#notFound > h1 {
+    font-size: 3em;
+}
+
+#notFound img {
+    width: 15em;
+    height: 10em;
+}
+
 /* KEYFRAMES ----------------------- */
 
 
