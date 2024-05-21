@@ -63,7 +63,7 @@
 }
 
 .navbar .search .input input {
-    border-radius: 0.5em 0em 0em 0.5em;
+    border-radius: 0em;
     margin-top: 0;
 }
 
@@ -71,17 +71,16 @@
     display: flex;
     padding: 1.125em;
     background-color: #B88E2F;
-    border-radius: 0em 0.5em 0.5em 0em;
+    border-radius: 0.5em 0em 0em 0.5em;
     border: 1px solid #9F9F9F;
 }
 
 .navbar .search .input button {
-    padding: 1.125em;
+    display: flex;
+    padding: 1.34em;
     background-color: white;
     border-radius: 0em 0.5em 0.5em 0em;
     border: 1px solid darkgray;
-
-    display: none;
 }
 
 .navbar .search label {
@@ -93,7 +92,6 @@
     position: absolute;
     animation: baja 1s ease;
     
-    flex-direction: row-reverse;
     align-items: center;
     justify-content: center;
 }
@@ -323,25 +321,17 @@
         padding-inline: 4em;
     }
 
-    .navbar .search input:checked + .input {
-        flex-direction: row;
-    }
-
     .navbar .search .input input {
         width: 100%;
         padding: 1.25em;
-        border-radius: 0em;
     }
 
     .navbar .search .input label {
         padding: 1em;
-
-        border-radius: 0.5em 0em 0em 0.5em;
     }
 
     .navbar .search .input button {
         padding: 1em;
-        display: flex;
     }
 
     .navbar .search input:checked + .input {
