@@ -142,4 +142,13 @@
     .filtros .filtros-container .aside-filtros > ul {
         grid-template-columns: repeat(1, 1fr);
     }
+
+    .filtros .sort li select {
+        font-size: .75em;
+    }
+
+    .filtros .filter .filtros-container > label > svg {
+        width: 1.5em;
+        height: 1.5em;
+    }
 }

@@ -1,6 +1,7 @@
 import '../css/Categorias.css'
 import { useRef } from 'react'
-import { Arrows } from './Arrows';
+import { Arrows } from './Arrows'
+import { Link } from 'react-router-dom'
 import Cat from '../images/cat.jpg'
 
 export const Categorias = () => {
@@ -16,36 +17,44 @@ export const Categorias = () => {
                 <Arrows scrollable={scrollable}/>
                 <ul ref={scrollable}>
                     <li className="carousel-item">
-                        <figure>
-                            <img src={Cat} alt="" />
-                            <figcaption>
-                                <strong>Interior</strong>
-                            </figcaption>
-                        </figure>
+                        <Link to="/tienda">
+                            <figure>
+                                <img src={Cat} alt="" />
+                                <figcaption>
+                                    <strong>Interior</strong>
+                                </figcaption>
+                            </figure>
+                        </Link>
                     </li>
                     <li className="carousel-item">
-                        <figure>
-                            <img src={Cat} alt="" />
-                            <figcaption>
-                                <strong>Muebles</strong>
-                            </figcaption>
-                        </figure>
+                        <Link to="/tienda">
+                            <figure>
+                                <img src={Cat} alt="" />
+                                <figcaption>
+                                    <strong>Interior</strong>
+                                </figcaption>
+                            </figure>
+                        </Link>
                     </li>
                     <li className="carousel-item">
-                        <figure>
-                            <img src={Cat} alt="" />
-                            <figcaption>
-                                <strong>Decorar</strong>
-                            </figcaption>
-                        </figure>
+                        <Link to="/tienda">
+                            <figure>
+                                <img src={Cat} alt="" />
+                                <figcaption>
+                                    <strong>Interior</strong>
+                                </figcaption>
+                            </figure>
+                        </Link>
                     </li>
                     <li className="carousel-item">
-                        <figure>
-                            <img src={Cat} alt="" />
-                            <figcaption>
-                                <strong>Interior</strong>
-                            </figcaption>
-                        </figure>
+                        <Link to="/tienda">
+                            <figure>
+                                <img src={Cat} alt="" />
+                                <figcaption>
+                                    <strong>Interior</strong>
+                                </figcaption>
+                            </figure>
+                        </Link>
                     </li>
                 </ul>
             </div>

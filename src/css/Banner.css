@@ -64,16 +64,26 @@
 }
 
 @media screen and (max-width: 959px) {
+    .banners figcaption {
+        align-items: end;
+    }
+    
     .banners .home-text {
-        width: 100%;
+        width: 80%;
         margin: 1em;
+        padding: 1.5em;
+        margin-bottom: 7em;
     }
 
     .banners .home-text > div > em {
         font-size: 2.5em;
     }
-    
+
     .banners .home-text > footer{
         text-align: center;
+    }
+
+    .banners .home-text > footer > button {
+        padding: 1em 2em;
     }
 }

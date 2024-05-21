@@ -175,4 +175,15 @@
     #floating-footer {
         bottom: 5em;
     }
+
+    .footer .footer-links .newsletter li > input {
+        width: 70%;
+        font-size: 1em;
+    }
+
+    .footer .footer-links .newsletter li > a svg {
+        width: 2em;
+        height: 2em;
+    }
+
 }

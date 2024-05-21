@@ -122,6 +122,10 @@
 
 
 @media screen and (max-width: 959px) {
+    button {
+        font-size: 1em;
+    }
+
     .navbar-list {
         padding: 0 1.5em;
     }
@@ -166,6 +170,11 @@
         margin: 1em 0;
     }
     
+    .navbar .navbar-responsive ul li svg {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
     .navbar .navbar-responsive > article{
         display: none;
     }
@@ -227,7 +236,6 @@
         text-transform: uppercase;
         width: 100%;
         display: flex;
-        font-size: 1.25em;
         align-items: center;
     }
     
@@ -306,7 +314,7 @@
     }
 
     .navbar .search .input label {
-        padding: 0.875em;
+        padding: 1.3em;
     }
 
     .navbar .search input:checked + .input {

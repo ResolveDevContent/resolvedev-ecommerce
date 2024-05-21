@@ -5,23 +5,11 @@ import Img from '../images/otherimg.png'
 import Img2 from '../images/otherimg2.png'
 import { Promociones } from './Promociones'
 import { Features } from './Features'
-import { useState } from 'react'
+import { useState } from 'react' 
 
 export const Product = () => {
-    const [ quantity, setQuantity ] = useState(1)
     const [ image, setImage ] = useState(Prod)
-
-    const addQuantity = (e, num) => {
-        e.preventDefault()
-
-        let suma = quantity + num;
-
-        if(suma <= 0) {
-            return;
-        }
-
-        setQuantity(suma);
-    }
+    const { addToCart, removeFromCart, updateQuantity } = useCart()
 
     const changeImg = (e, img) => {
         e.preventDefault()
@@ -76,19 +64,28 @@ export const Product = () => {
                     <ul className='product-actions'>
                         <li>
                             <div className='input'>
-                                <button onClick={(e) => addQuantity(e, -1)}>
+                                <button onClick={() => updateQuantity(item, -1, true)}>
                                     <Minus />
                                 </button>
-                                <input type="number" defaultValue={quantity} value={quantity} name='quantity' id='quantity'/>
-                                <button onClick={(e) => addQuantity(e, 1)}>
-                                    <Plus />   
+                                <input type="number" 
+                                    onChange={e => updateQuantity(item, e.target.value, false)} 
+                                    value={item.quantity} defaultValue={item.quantity}/>
+                                <button onClick={() => updateQuantity(item, 1, true)}>
+                                    <Plus />  
                                 </button>
                             </div>
                         </li>
                         <li>
                             <div className='btn-carrito'>
-                                <button>
-                                    Añadir al carrito
+                                <button onClick={() => {
+                                        false ? removeFromCart(item)
+                                            : addToCart(item)
+                                            }}>
+                                        { 
+                                            false 
+                                                ? "Eliminar del carrito"
+                                                :  "Añadir al carrito" 
+                                        }
                                 </button>
                             </div>
                         </li>

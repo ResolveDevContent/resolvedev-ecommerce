@@ -195,11 +195,13 @@
 .cart-features > label {
     width: 100%;
     display: flex;
+    align-items: center;
     background-color: #ffa91e45;
     padding: 1.5em 1em;
     border-radius: 0.5em;
     cursor: pointer;
     user-select: none;
+    font-weight: 600;
 }
 
 .cart-features > input {
@@ -280,6 +282,12 @@
 
     .cart-features .accordeon .info-contacto {
         grid-template-columns: auto;
+    }
+
+    .cart-features > label > svg,
+    .table .row > li:last-child svg {
+        width: 2em;
+        height: 2em;
     }
 }
 

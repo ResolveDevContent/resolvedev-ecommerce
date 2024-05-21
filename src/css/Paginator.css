@@ -19,9 +19,3 @@
     padding: 0.5em;
     cursor: default;
 }
-
-@media screen and (max-width: 959px) {
-    .paginator ul {
-        flex-direction: column;
-    }
-}

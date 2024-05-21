@@ -251,6 +251,9 @@
 }
 
 @media screen and (max-width: 960px) {
+    #login {
+        padding: 5.5em 2em;
+    }
     #login .container {
         min-height: 57em;
     }

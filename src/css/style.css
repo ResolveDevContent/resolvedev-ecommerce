@@ -124,6 +124,10 @@ textarea {
     border-radius: .5em;
 }
 
+.carousel-item > a {
+    color: black;
+}
+
 .carousel-item figcaption {
     text-align: center;
     position: absolute;
@@ -223,5 +227,21 @@ textarea {
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 959px) {
+    body {
+        font-size: 3.5vw;
+    }
+
+    .carousel-arrow button > svg {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+    .input > input, 
+    .input > textarea {
+        font-size: 1em;
     }
 }

@@ -22,14 +22,6 @@
     padding: 2em 1em;
 }
 
-#user > aside > header::after {
-    content: '';
-    width: 15em;
-    height: 0.125em;
-    background-color: #9F9F9F;
-    margin-top: 1.5em;
-}
-
 #user > aside > header > div {
     display: flex;
     align-items: center;
@@ -182,4 +174,66 @@
 #user .pedidos  em {
     font-weight: 600;
     font-style: normal;
+}
+
+@media screen and (min-width: 960px) {
+    #user > aside > header::after {
+        content: '';
+        width: 15em;
+        height: 0.125em;
+        background-color: #9F9F9F;
+        margin-top: 1.5em;
+    }
+} 
+
+@media screen and (max-width: 959px) {
+    #user {
+        flex-direction: column;
+    }
+    #user > aside {
+        width: 100%;
+        position: initial;
+        height: auto;
+        border: none;
+    }
+    #user > aside > header {
+        flex-direction: row;
+        padding: .5em;
+        align-items: center;
+    }
+    #user > aside > header img {
+        width: 3em;
+        height: 3em;
+    }
+    #user > aside > header > div {
+        width: 100%;
+        justify-content: space-between;
+    }
+    #user > aside > div {
+        margin: 0;
+        padding: 0;
+    }
+    #user > aside > div > ul {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+    #user > aside > div > ul > li + li {
+        margin: 0;
+    }
+    #user > article {
+        width: 100%;
+        min-height: auto;
+    }
+    #user > article > ul {
+        padding: 1em;
+    }
+    #user .pedidos > ul > li > img {
+        width: 4em;
+        height: 4em;
+    }
+    #user .pedidos span,
+    #user .pedidos .btn-carrito a {
+        font-size: .75em;
+    }
 }

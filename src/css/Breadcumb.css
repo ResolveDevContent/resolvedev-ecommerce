@@ -27,11 +27,7 @@
 }
 
 @media screen and (max-width: 959px) {
-    .breadcumbs {
-        padding-top: 6em;
-    }
-
     .breadcumbs figcaption article strong {
-        font-size: 1em;
+        font-size: 2em;
     }
 }
