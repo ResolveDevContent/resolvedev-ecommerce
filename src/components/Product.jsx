@@ -18,6 +18,8 @@ export const Product = () => {
         setImage(img)
     }
 
+    const item = "hola"
+
     return (
         <>
             <header className="product-header filtros">
@@ -36,7 +38,7 @@ export const Product = () => {
                         </li>
                         <li>
                             <figure>
-                                <img src={Prod} alt="" onClick={(e) => changeImg(e, Prod)}/>
+                                <img src={Img} alt="" onClick={(e) => changeImg(e, Img)}/>
                             </figure>
                         </li>
                         <li>
