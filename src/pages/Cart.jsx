@@ -3,6 +3,7 @@ import { Breadcumb } from "../components/Breadcumb"
 import { CartDetails } from '../components/CartDetails'
 import { CartProducts } from '../components/CartProducts'
 import { CartFeatures } from '../components/CartFeatures'
+import { useEffect } from 'react'
 
 export const Cart = () => {
 
@@ -10,6 +11,10 @@ export const Cart = () => {
         columns: ["Producto", "Precio", "Cantidad", "Subtotal"],
         rows: ["Nombre", "$2.000.000", "1", "$2.000.000"]
     }
+
+    useEffect(() => {
+        scrollTo(0,0)
+    }, [])
 
     return (
         <>

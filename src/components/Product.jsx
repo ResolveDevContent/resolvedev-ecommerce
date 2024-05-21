@@ -5,7 +5,7 @@ import Img from '../images/otherimg.png'
 import Img2 from '../images/otherimg2.png'
 import { Promociones } from './Promociones'
 import { Features } from './Features'
-import { useState } from 'react' 
+import { useState, useEffect } from 'react' 
 import { useCart } from 'resolvedev-cart'
 
 export const Product = () => {
@@ -17,6 +17,10 @@ export const Product = () => {
 
         setImage(img)
     }
+
+    useEffect(() => {
+        scrollTo(0,0)
+    }, [])
 
     const item = "hola"
 

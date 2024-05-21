@@ -1,9 +1,15 @@
+import '../css/contacto.css'
 import { Breadcumb } from "../components/Breadcumb"
 import Tienda from '../images/tienda.png'
 import { Location, Phone, Clock } from "../icons/Icons"
-import '../css/contacto.css'
+import { useEffect } from 'react'
 
 export const Contacto = () => {
+
+    useEffect(() => {
+        scrollTo(0,0)
+    }, [])
+
     return (
         <>
             <Breadcumb titulo={"Contacto"} imagen={Tienda} breadcumb={"Home > Contacto"}/>

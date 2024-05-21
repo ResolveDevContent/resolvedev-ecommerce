@@ -3,12 +3,18 @@ import '../css/Cart.css'
 import { CartProducts } from '../components/CartProducts'
 import { CartDetails } from '../components/CartDetails'
 import { CartFeatures } from '../components/CartFeatures'
+import { useEffect } from 'react'
 
 export const Endpoint = () => {
+
     const products = {
         columns: ["Producto", "Precio", "Cantidad", "Subtotal"],
         rows: ["Nombre", "$2.000.000", "1", "$2.000.000"]
     }
+
+    useEffect(() => {
+        scrollTo(0,0)
+    }, [])
 
     return (
         <section className='endpoint'>

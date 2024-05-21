@@ -63,7 +63,7 @@ export const Listado = ({isInHome}) => {
     }
 
     useEffect(() => {
-        
+        scrollTo(0,0)
     }, [query])
 
     return (

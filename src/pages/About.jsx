@@ -1,7 +1,13 @@
 import '../css/About.css'
 import { Breadcumb } from '../components/Breadcumb'
+import { useEffect } from 'react'
 
 export const About = () => {
+    
+    useEffect(() => {
+        scrollTo(0,0)
+    }, [])
+
     return (
         <>
             <Breadcumb titulo={"Sobre nosotros"} breadcumb={"Home > Nosotros"}/>
