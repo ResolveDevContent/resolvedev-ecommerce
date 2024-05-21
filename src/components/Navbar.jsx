@@ -1,8 +1,11 @@
 import '../css/Navbar.css'
 import { User, Search, Favorite, Cart, Menu, Close, Home, Group, Shop, Contact } from '../icons/Icons'
 import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export const Navbar = () => {
+
+
     return (
         <header>
             <nav className='navbar'>
@@ -12,16 +15,16 @@ export const Navbar = () => {
                     </div>
                     <ul className='navbar-items'>
                         <li>
-                            <Link to="/">Inicio</Link>
+                            <NavLink to="/">Inicio</NavLink>
                         </li>
                         <li>
-                            <Link to="/tienda">Tienda</Link>
+                            <NavLink to="/tienda">Tienda</NavLink>
                         </li>
                         <li>
-                            <Link to="/nosotros">Nosotros</Link>
+                            <NavLink to="/nosotros">Nosotros</NavLink>
                         </li>
                         <li>
-                            <Link to="/contacto">Contacto</Link>
+                            <NavLink to="/contacto">Contacto</NavLink>
                         </li>
                     </ul>
                     <div className='buttons'>
