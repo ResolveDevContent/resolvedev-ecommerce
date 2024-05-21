@@ -160,4 +160,9 @@
         width: 1.5em;
         height: 1.5em;
     }
+
+    .filtros .apply-filters {
+        margin: unset;
+        margin-block: 1em;
+    }
 }
