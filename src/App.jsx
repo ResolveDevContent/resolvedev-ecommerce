@@ -16,9 +16,19 @@ import { Page404 } from './components/Page404'
 import { Login } from './components/Login'
 
 function App() {
+  const root = `
+    :root {
+      --light: red;
+      --dark: black;
+      --muted-dark: blue;
+      --muted-light: white;
+      --muted: green;
+    }
+  `
 
   return (
     <BrowserRouter>
+      <style>{root}</style>
       <CartProvider>
         <Navbar />
         <Routes>
