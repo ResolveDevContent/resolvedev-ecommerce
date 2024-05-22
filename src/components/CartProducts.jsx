@@ -9,7 +9,7 @@ export const CartProducts = ({products}) => {
         return Object.values(data).slice(1,4)
     })
 
-    console.log(columns, rows)
+    console.log(products, columns, rows)
 
     return (
         <div className="table">
@@ -23,32 +23,34 @@ export const CartProducts = ({products}) => {
                 <li>Cantidad</li>
                 <li></li>
             </ul>
-            <ul className='row'>
-                <li className='product-img'>
-                    <img src={Prod} alt='product-img' />
-                </li>
-                {rows[0].map((product, index) => (
-                    <li key={index}>
-                        <span>{product}</span>
-                    </li> 
-                ))}
-                <li>
-                    <div className='input'>
-                        <button>
-                            <Minus />
-                        </button>
-                        <input type="number" defaultValue={1}/>
-                        <button>
-                            <Plus />   
-                        </button>
-                    </div>
-                </li>
-                <li>
-                    <a href="#">
-                        <Trash />
-                    </a>
-                </li>
-            </ul>
+            {rows.map((row, index) => (
+                <ul className='row'>
+                    <li className='product-img'>
+                        <img src={Prod} alt='product-img' />
+                    </li>
+                    {row.map((product, idx) => (
+                        <li key={idx}>
+                            <span>{product}</span>
+                        </li> 
+                    ))}
+                    <li>
+                        <div className='input'>
+                            <button>
+                                <Minus />
+                            </button>
+                            <input type="number" defaultValue={1}/>
+                            <button>
+                                <Plus />   
+                            </button>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <Trash />
+                        </a>
+                    </li>
+                </ul>
+            ))}
         </div>
     )
 }
