@@ -119,9 +119,6 @@
 
 .filtros .aside-filtros .aside-filtros-filter input[type="checkbox"]:checked + label {
     font-weight: bolder;
-    padding: 0.5em 1em;
-    border-radius: 50%;
-    background-color: #eee;
 }
 
 .filtros .apply-filters {

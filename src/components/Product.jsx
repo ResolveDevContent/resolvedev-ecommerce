@@ -39,8 +39,6 @@ export const Product = () => {
     const handleChangeCarrito = () => {
         oneData.quantity = inputState
 
-        console.log(oneData)
-
         inCart ? removeFromCart(oneData)
                : addToCart(oneData)                                    
     }

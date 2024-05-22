@@ -1,17 +1,13 @@
-import { createContext } from "react";
+import { useState, createContext } from "react";
+ 
+export const FilterContext = createContext();
 
-export const FilterContext = createContext({
-    query: [],
-    setQuery: () => {},
-})
-
-export const FilterProvider = ({children}) => {
+export const FilterProvider = ({ children }) => {
+    const [query, setQuery] = useState("");
+ 
     return (
-        <FilterContext.Provider value={{
-            query,
-            setQuery
-        }}>
+        <FilterContext.Provider value={{ query, setQuery }}>
             {children}
         </FilterContext.Provider>
-    )
-}
+    );
+};

@@ -1,10 +1,12 @@
+import { FilterContext } from '../context/Filter'
 import '../css/Filtros.css'
 
 import { Filters, Close } from '../icons/Icons'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 
 export const Filtros = () => {
     const [ filters, setFilters ] = useState({})
+    const { setQuery } = useContext(FilterContext)
 
     const changeFilters = (e) => {
         const { name, value } = e.target;
@@ -52,7 +54,7 @@ export const Filtros = () => {
         history.replaceState({ }, null, url.toString());
         window.dispatchEvent(new Event('replacestate'));
 
-        console.log("click", queryFilter)
+        setQuery(queryFilter)
     }
 
     return (
@@ -156,7 +158,7 @@ export const Filtros = () => {
                                         </div>
                                     </article>
                                 </li>
-                                <li>
+                                <li className='btn-carrito'>
                                     <button onClick={(e) => applyFilters(e)}>Aplicar filtros</button>
                                 </li>
                             </ul>

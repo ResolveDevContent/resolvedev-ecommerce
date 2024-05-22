@@ -14,6 +14,7 @@ import { About } from './pages/About'
 import { Endpoint } from './pages/Endpoint'
 import { Page404 } from './components/Page404'
 import { Login } from './components/Login'
+import { FilterProvider } from './context/Filter'
 
 function App() {
   const root = `
@@ -30,20 +31,22 @@ function App() {
     <BrowserRouter>
       <style>{root}</style>
       <CartProvider>
-        <Navbar />
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/tienda" element={<Listado />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="/producto/:id" element={<Product />} />
-          <Route path="/carrito" element={<Cart />} />
-          <Route path="/usuario" element={<User />} />
-          <Route path="/nosotros" element={<About />} />
-          <Route path="/endpoint" element={<Endpoint />} />
-          <Route path="*" element={<Page404 />} />
-        </Routes>
-        <Footer />
+        <FilterProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/tienda" element={<Listado />} />
+            <Route path="/contacto" element={<Contacto />} />
+            <Route path="/producto/:id" element={<Product />} />
+            <Route path="/carrito" element={<Cart />} />
+            <Route path="/usuario" element={<User />} />
+            <Route path="/nosotros" element={<About />} />
+            <Route path="/endpoint" element={<Endpoint />} />
+            <Route path="*" element={<Page404 />} />
+          </Routes>
+          <Footer />
+        </FilterProvider>
       </CartProvider>
     </BrowserRouter>
   )
