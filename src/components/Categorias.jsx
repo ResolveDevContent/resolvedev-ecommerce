@@ -22,28 +22,33 @@ export const Categorias = () => {
     }, [listarDatos])
 
     return (
-        <section className="categorias">
-            <header>
-                <h2>Categorias</h2> 
-                <p>Descubrí todas nuestras categorias</p>
-            </header>
-            <div className='carousel'>
-                <Arrows scrollable={scrollable}/>
-                <ul ref={scrollable}>
-                    {data.map(cat => (
-                        <li key={cat._id} className="carousel-item">
-                            <Link to="/tienda">
-                                <figure>
-                                    <img src={cat.imagen} alt="" />
-                                    <figcaption>
-                                        <strong>{cat.nombre}</strong>
-                                    </figcaption>
-                                </figure>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </section>
+        <>
+            {data.length > 0 ? 
+                <section className="categorias">
+                    <header>
+                        <h2>Categorias</h2> 
+                        <p>Descubrí todas nuestras categorias</p>
+                    </header>
+                    <div className='carousel'>
+                        <Arrows scrollable={scrollable}/>
+                        <ul ref={scrollable}>
+                            {data.map(cat => (
+                                <li key={cat._id} className="carousel-item">
+                                    <Link to="/tienda">
+                                        <figure>
+                                            <img src={cat.imagen} alt="" />
+                                            <figcaption>
+                                                <strong>{cat.nombre}</strong>
+                                            </figcaption>
+                                        </figure>
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </section>
+                : null
+            }
+        </>
     )
 }

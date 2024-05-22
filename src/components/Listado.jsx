@@ -9,6 +9,7 @@ import { Paginator } from "./Paginator.jsx"
 import { Filters, Close } from '../icons/Icons'
 import { useEffect, useState, useCallback } from 'react'
 import { getData } from '../services/db'
+import { EmptyState } from './EmptyState.jsx'
 
 export const Listado = ({isInHome}) => {
     const [ filters, setFilters ] = useState({})
@@ -215,22 +216,29 @@ export const Listado = ({isInHome}) => {
                     </section>
                 </>
             ) : null}
-            <section id="listado">
-                <ul>
-                    {data.map(item => (
-                        <ProductCard item={item} />
-                    ))}
-                </ul>
-            </section>
-            {!isInHome ? (
-                <Paginator />
-            ) : (
-                <footer className='paginator'>
-                    <div className='btn-carrito'>
-                        <Link to="/tienda">Ver más</Link>
-                    </div>
-                </footer>
-            )}
+            {(isInHome && data.length > 0) || !isInHome ?
+                data.length > 0 ? 
+                    <section id="listado">
+                        <ul>
+                            {data.map(item => (
+                                <ProductCard item={item} />
+                            ))}
+                        </ul>
+                    </section>
+                    :  <EmptyState texto={"No hay productos disponibles"} />
+                : null
+            }
+            {data.length > 0 ? 
+                !isInHome ? (
+                    <Paginator />
+                ) : (
+                    <footer className='paginator'>
+                        <div className='btn-carrito'>
+                            <Link to="/tienda">Ver más</Link>
+                        </div>
+                    </footer>
+                ) : null
+            }
             <Features />
         </>
     )

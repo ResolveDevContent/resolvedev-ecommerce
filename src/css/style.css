@@ -28,6 +28,29 @@ textarea {
     resize: none;
 }
 
+/*  EMPTY-STATE ------------------------- */
+
+.empty-state {
+    width: 100%;
+    padding: 10em 3em;
+}
+
+.empty-state > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+.empty-state > div > svg {
+    width: 3em;
+    height: 3em;
+}
+
+.empty-state > div > span {
+    font-size: 1.25em;
+    font-weight: 600;
+}
+
 /* BREADCUMBS ------------------------- */
 
 .breadcumbs {

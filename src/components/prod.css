@@ -6,6 +6,9 @@
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
     gap: 1em;
 }
+#listado > ul:empty + .empty-state{
+    display: flex;
+}
 .producto {
     background-color: #F4F5F7;
     position: relative;
