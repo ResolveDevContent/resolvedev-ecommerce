@@ -7,7 +7,7 @@ import { Features } from './Features'
 import { Breadcumb } from "./Breadcumb.jsx"
 import { Paginator } from "./Paginator.jsx"
 import { Filters, Close } from '../icons/Icons'
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState } from 'react'
 import { useData } from '../hook/useData'
 import { EmptyState } from './EmptyState.jsx'
 

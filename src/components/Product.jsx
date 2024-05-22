@@ -3,20 +3,22 @@ import { Plus, Minus, Share } from '../icons/Icons'
 import Prod from '../images/prod.jpg'
 import { Promociones } from './Promociones'
 import { Features } from './Features'
-import { useState, useEffect } from 'react' 
+import { useState, useEffect, useRef } from 'react' 
 import { useCart } from 'resolvedev-cart'
 import { useParams } from 'react-router-dom'
 import { useData } from '../hook/useData'
-// import { getOneData } from '../services/db'
 
 export const Product = () => {
     const [ image, setImage ] = useState(Prod)
-    // const [ data, setData ] = useState({})
-    const { getOneData } = useData()
-
-    const { addToCart, removeFromCart, updateQuantity, cart } = useCart()
+    const { oneData, getOneDato } = useData()
+    const [ inputState, setInputState ] = useState(0)
+    
+    const input = useRef()
     const { id } = useParams();
-    const inCart = cart.some(prod => prod._id == data._id)
+
+    const { addToCart, removeFromCart, cart } = useCart()
+
+    const inCart = cart.some(prod => prod._id == oneData.id)
 
     const changeImg = (e, img) => {
         e.preventDefault()
@@ -24,28 +26,48 @@ export const Product = () => {
         setImage(img)
     }
 
+    const handleClick = (value) => {
+        if(Number(input.current.value) + Number(value) < 1) return
+        setInputState(Number(input.current.value) + Number(value))
+    }
+
+    const handleChange = value => {
+        if(Number(value) < 1) return
+        setInputState(Number(value))
+    }
+
+    const handleChangeCarrito = () => {
+        oneData.quantity = inputState
+
+        console.log(oneData)
+
+        inCart ? removeFromCart(oneData)
+               : addToCart(oneData)                                    
+    }
+
     useEffect(() => {
         scrollTo(0,0)
         
-        getOneData("productos", id, setData)
+        getOneDato("productos", id)
+        console.log(oneData)
     }, [])
 
 
-    return data ? (
+    return oneData ? (
         <>
             <header className="product-header filtros">
-                <span>Home <span style={{color: "black"}}>&gt;</span> Tienda<span style={{color: "black"}}> /</span><span className='nombre-product'>{data.nombre}</span></span>
+                <span>Home <span style={{color: "black"}}>&gt;</span> Tienda<span style={{color: "black"}}> /</span><span className='nombre-product'>{oneData.nombre}</span></span>
             </header>
             <section className="product-page">
                 <aside className="product-images">
-                    {data.imagenes && data.imagenes.length > 0 ? (
+                    {oneData.imagenes && oneData.imagenes.length > 0 ? (
                         <>
                             <figure>
-                                    <img src={data?.imagenes[0]} alt="" />
+                                    <img src={oneData?.imagenes[0]} alt="" />
 
                             </figure>
                             <ul>
-                                {data.imagenes.map((img, idx) => (
+                                {oneData.imagenes.map((img, idx) => (
                                     <li key={idx}>
                                         <figure>
                                             <img src={img} alt="" onClick={(e) => changeImg(e, img)} />
@@ -58,45 +80,43 @@ export const Product = () => {
                 </aside>
                 <article className="product-details">
                     <header>
-                        <strong>{data.nombre}</strong>
+                        <strong>{oneData.nombre}</strong>
                         <del>$1.000.000</del>
-                        <em>$ {data.precio}</em>
+                        <em>$ {oneData.precio}</em>
                         <div className="caracteristicas">
-                            {data.caracteristicas && data.caracteristicas.length > 0 ? (
-                                <ul>
-                                    <li>
-                                        Categoria: {data.categorias}
-                                    </li>
-                                    {data.caracteristicas.map((carac, idx) => (
-                                        <li key={idx}>
-                                            {carac}
-                                        </li>
-                                    ))}
-                                </ul>
+                            {oneData.caracteristicas && oneData.caracteristicas.length > 0 ? (
+                                <>
+                                    <span>Caracter&iacute;sticas:</span>
+                                    <ul>
+                                        {oneData.caracteristicas.map((carac, idx) => (
+                                            <li key={idx}>
+                                                {carac}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </>
                             ) : null}
                         </div>
                     </header>
                     <ul className='product-actions'>
                         <li>
-                            {/* <div className='input'>
-                                <button onClick={() => updateQuantity(data, -1, true)}>
+                            <div className='input'>
+                                <button onClick={() => handleClick(-oneData.piezas)}>
                                     <Minus />
                                 </button>
-                                <input type="number" 
-                                    onChange={e => updateQuantity(data, e.target.value, false)} 
-                                    value="" defaultValue=""/>
-                                <button onClick={() => updateQuantity(data, 1, true)}>
+                                <input type="number" defaultValue={oneData.piezas} 
+                                    value={inputState} ref={input}
+                                    onChange={e => handleChange(e.target.value)}
+                                    />
+                                <button onClick={() => handleClick(oneData.piezas)}>
                                     <Plus />  
                                 </button>
-                            </div> */}
+                            </div>
                         </li>
                         <li>
                             <div className='btn-carrito'>
                                 <button className={inCart ? "in-cart" : null} 
-                                    onClick={() => {    
-                                        inCart ? removeFromCart(data)
-                                            : addToCart(data)
-                                            }}>
+                                    onClick={handleChangeCarrito}>
                                         { 
                                             inCart 
                                                 ? "Eliminar del carrito"
@@ -116,7 +136,7 @@ export const Product = () => {
             <div className="product-description">
                 <strong>Descripci&oacute;n</strong>
                 <p>
-                    {data.descripcion}
+                    {oneData.descripcion}
                 </p>
             </div>
             {/* <Promociones titulo={"Productos Relacionados"}/> */}

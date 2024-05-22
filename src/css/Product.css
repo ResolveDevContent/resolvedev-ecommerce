@@ -98,14 +98,28 @@
     margin-top: 1em;
 }
 
+.product-details .caracteristicas > span {
+    font-weight: 700;
+    font-size: 1.25em;
+    margin-top: 1em;
+}
+
+.product-details .caracteristicas > ul {
+    margin-left: 1.75em;
+    list-style: circle;
+}
+
 .product-details .product-actions {
     display: flex;
     align-items: center;
-    gap: 1em;
 }
 
 .product-details .product-actions li {
     display: flex;
+}
+
+.product-details .product-actions li + li {
+    margin-left: .5em;
 }
 
 .product-details .product-actions li input {
@@ -146,6 +160,12 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
+    display: flex;
+}
+
+.product-details .btn-share > svg {
+    width: 2.5em;
+    height: 2.5em;
 }
 
 .product-description {
