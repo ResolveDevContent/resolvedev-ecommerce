@@ -1,29 +1,26 @@
 import '../css/Categorias.css'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { Arrows } from './Arrows'
 import { Link } from 'react-router-dom'
 import Cat from '../images/cat.jpg'
-import { getData } from '../services/db'
+import { useData } from '../hook/useData'
 
 export const Categorias = () => {
     const scrollable = useRef();
-    const [ data, setData ] = useState([])
+    const { data, getDatos } = useData()
 
-    const listarDatos = useCallback(() => {
-        getData('categorias', setData)
-
-        // if(!data || data.length == 0) {
-        //     console.log('e', data)
-        // }
-    },[])
+    const listarDatos = () => {
+        getDatos('categorias')
+        console.log(data)
+    }
 
     useEffect(() => {
         listarDatos()
-    }, [listarDatos])
+    }, [])
 
     return (
         <>
-            {data.length > 0 ? 
+            {data && data.length > 0 ? 
                 <section className="categorias">
                     <header>
                         <h2>Categorias</h2> 

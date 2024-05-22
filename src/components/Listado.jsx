@@ -8,26 +8,23 @@ import { Breadcumb } from "./Breadcumb.jsx"
 import { Paginator } from "./Paginator.jsx"
 import { Filters, Close } from '../icons/Icons'
 import { useEffect, useState, useCallback } from 'react'
-import { getData } from '../services/db'
+import { useData } from '../hook/useData'
 import { EmptyState } from './EmptyState.jsx'
 
 export const Listado = ({isInHome}) => {
     const [ filters, setFilters ] = useState({})
     const [ query, setQuery ] = useState({})
-    const [ data, setData ] = useState([])
+    const { data, getDatos } = useData()
 
-    const listarDatos = useCallback(() => {
-        getData('productos', setData)
-
-        // if(!data || data.length == 0) {
-        //     console.log('e', data)
-        // }
-    },[])
+    const listarDatos = () => {
+        getDatos('productos')
+        console.log(data)
+    }
 
     useEffect(() => {
         listarDatos()
         console.log(data)
-    }, [listarDatos])
+    }, [])
 
     const changeFilters = (e) => {
         const { name, value } = e.target;

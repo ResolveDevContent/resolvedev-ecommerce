@@ -150,8 +150,7 @@ textarea {
     cursor: pointer;
 }
 
-.carousel-item:hover figcaption,
-.carousel-item:hover figure img {
+.carousel-item:hover {
     transform: scale(1.05);
     transition: all .3s;
 }

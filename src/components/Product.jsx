@@ -6,11 +6,13 @@ import { Features } from './Features'
 import { useState, useEffect } from 'react' 
 import { useCart } from 'resolvedev-cart'
 import { useParams } from 'react-router-dom'
-import { getOneData } from '../services/db'
+import { useData } from '../hook/useData'
+// import { getOneData } from '../services/db'
 
 export const Product = () => {
     const [ image, setImage ] = useState(Prod)
-    const [ data, setData ] = useState({})
+    // const [ data, setData ] = useState({})
+    const { getOneData } = useData()
 
     const { addToCart, removeFromCart, updateQuantity, cart } = useCart()
     const { id } = useParams();
