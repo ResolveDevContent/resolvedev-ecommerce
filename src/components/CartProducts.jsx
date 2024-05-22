@@ -1,12 +1,15 @@
 import { Plus, Minus, Trash } from "../icons/Icons"
 import Prod from '../images/prod.jpg'
+import { fmtImporte } from "../utils/site";
+import { useCart } from 'resolvedev-cart'
 
 export const CartProducts = ({products}) => {
+    const { updateQuantity } = useCart()
 
     const columns = Object.keys(products[0]).slice(1,4);
         
-    const rows = products.map((data) => {
-        return Object.values(data).slice(1,4)
+    const rows = products.map((data, idx) => {
+        return {datos: Object.values(data).slice(1,4), id: idx}
     })
 
     console.log(products, columns, rows)
@@ -28,18 +31,20 @@ export const CartProducts = ({products}) => {
                     <li className='product-img'>
                         <img src={Prod} alt='product-img' />
                     </li>
-                    {row.map((product, idx) => (
+                    {row.datos.map((product, idx) => (
                         <li key={idx}>
-                            <span>{product}</span>
+                            {row.datos[idx] == products[row.id].precio ? <em>$ {fmtImporte(product)}</em> : <span>{product}</span>}
                         </li> 
                     ))}
                     <li>
                         <div className='input'>
-                            <button>
+                            <button onClick={(e) => { updateQuantity(products[row.id]), Number(products[row.id].piezas  * -1), true} }>
                                 <Minus />
                             </button>
-                            <input type="number" defaultValue={1}/>
-                            <button>
+                            <input type="number" defaultValue={products[row.id].quantity} value={products[row.id].quantity}
+                                onChange={(e) => { updateQuantity(products[row.id]), e.target.value, false} }
+                            />
+                            <button onClick={(e) => { updateQuantity(products[row.id]), Number(products[row.id].piezas), true} }>
                                 <Plus />   
                             </button>
                         </div>

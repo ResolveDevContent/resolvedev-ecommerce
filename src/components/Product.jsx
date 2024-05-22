@@ -80,7 +80,7 @@ export const Product = () => {
                     <header>
                         <strong>{oneData.nombre}</strong>
                         <del>$1.000.000</del>
-                        <em>$ {oneData.precio}</em>
+                        <em>$ {oneData.fmt_precio}</em>
                         <div className="caracteristicas">
                             {oneData.caracteristicas && oneData.caracteristicas.length > 0 ? (
                                 <>
