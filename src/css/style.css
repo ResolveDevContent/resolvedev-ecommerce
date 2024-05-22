@@ -150,6 +150,12 @@ textarea {
     cursor: pointer;
 }
 
+.carousel-item:hover figcaption,
+.carousel-item:hover figure img {
+    transform: scale(1.05);
+    transition: all .3s;
+}
+
 .carousel-item figure{
     width: 20em;
     position: relative;
@@ -169,7 +175,9 @@ textarea {
     bottom: 0;
     right: 0;
     left: 0;
-    margin-bottom: 3em;
+    margin-bottom: 1em;
+    background-color: #B88E2F80;
+    padding: .75em 0;
 }
 
 .carousel-item figcaption > strong {
