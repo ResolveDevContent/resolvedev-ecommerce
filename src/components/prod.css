@@ -17,8 +17,8 @@
     aspect-ratio: auto;
     height: 18em;
 }
-.producto > article::after {
-    content: '30%';
+[data-discount]::after {
+    content: attr(data-discount) + '%';
     padding: .325em 1.5em;
     background-color: rgb(104, 63, 24);
     color: black;
@@ -31,7 +31,7 @@
     font-weight: bolder;
     opacity: .7;
 }
-.producto > article::before {
+[data-stock="0"]::before {
     content: 'Sin Stock';
     background-color: red;
     color: black;
@@ -47,7 +47,10 @@
     display: flex;
     justify-content: center;
 }
-
+[data-discount="0"]::after,
+[data-stock="0"][data-discount]::before {
+    display: none;
+}
 .producto > article > a {
     display: block;
     width: 100%;

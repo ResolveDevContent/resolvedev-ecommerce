@@ -4,14 +4,27 @@ import { ProductCard } from './ProductCard'
 import { Link } from 'react-router-dom'
 import { Features } from './Features'
 import { Breadcumb } from "./Breadcumb.jsx"
-import { Filtros } from "./Filtros.jsx"
 import { Paginator } from "./Paginator.jsx"
 import { Filters, Close } from '../icons/Icons'
-import { useEffect, useState} from 'react'
+import { useEffect, useState, useCallback } from 'react'
+import { getData } from '../services/db'
 
 export const Listado = ({isInHome}) => {
     const [ filters, setFilters ] = useState({})
     const [ query, setQuery ] = useState({})
+    const [ data, setData ] = useState([])
+
+    const listarDatos = useCallback(() => {
+        getData('productos', setData)
+
+        // if(!data || data.length == 0) {
+        //     console.log('e', data)
+        // }
+    },[])
+
+    useEffect(() => {
+        listarDatos()
+    }, [listarDatos])
 
     const changeFilters = (e) => {
         const { name, value } = e.target;
@@ -202,10 +215,9 @@ export const Listado = ({isInHome}) => {
             ) : null}
             <section id="listado">
                 <ul>
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
+                    {data.map(item => (
+                        <ProductCard item={item} />
+                    ))}
                 </ul>
             </section>
             {!isInHome ? (

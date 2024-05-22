@@ -1,31 +1,44 @@
 import { Link } from 'react-router-dom'
-import Prod from '../images/prod.jpg'
+import { useCart } from 'resolvedev-cart'
 
-export const ProductCard = () => {
+export const ProductCard = ({images, nombre, categorias, precio, descuento}) => {
+    const { addToCart, removeFromCart } = useCart()
+
+    console.log(images, nombre, categorias, precio, descuento)
+
     return (
         <li className="producto">
-            <article>
+            <article data-discount={descuento}>
                 <Link to="/producto" >
                     <span className='loader'></span>
                     <ul className='imagenes'>
-                        <li>
-                            <img src={Prod} alt="" />
-                        </li>
-                        <li>
-                            <img src="" alt="" />
-                        </li>
+                        {images.map(img => (
+                            <li>
+                                <img src={img} alt="" />
+                            </li>
+                        ))}
                     </ul>
                 </Link>
             </article>
             <footer>
-                <strong>Sillon individual cuerina</strong>
-                <span>Cuero</span>
+                <strong>{nombre}</strong>
+                <span>{categorias[0]}</span>
                 <div className='price'>
-                    <del className="without-discount">$630.000</del>
-                    <em>$500.000</em>
+                    <del className="without-discount">$calcular</del>
+                    <em>${precio}</em>
                 </div>
                 <div className='btn-carrito'>
-                    <button>Agregar al carrito</button>
+                    <button 
+                        onClick={() => {
+                            false ? removeFromCart(item)
+                                : addToCart(item)
+                                }}>
+                            { 
+                                false 
+                                    ? "Eliminar del carrito"
+                                    :  "Añadir al carrito" 
+                            }
+                    </button>
                 </div>
             </footer>
         </li>

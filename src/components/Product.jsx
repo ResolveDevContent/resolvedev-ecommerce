@@ -85,14 +85,14 @@ export const Product = () => {
                         <li>
                             <div className='btn-carrito'>
                                 <button onClick={() => {
-                                        false ? removeFromCart(item)
-                                            : addToCart(item)
-                                            }}>
-                                        { 
-                                            false 
-                                                ? "Eliminar del carrito"
-                                                :  "Añadir al carrito" 
-                                        }
+                                    false ? removeFromCart(item)
+                                        : addToCart(item)
+                                        }}>
+                                    { 
+                                        false 
+                                            ? "Eliminar del carrito"
+                                            :  "Añadir al carrito" 
+                                    }
                                 </button>
                             </div>
                         </li>

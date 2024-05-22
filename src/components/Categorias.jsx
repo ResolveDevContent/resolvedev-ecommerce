@@ -1,11 +1,25 @@
 import '../css/Categorias.css'
-import { useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Arrows } from './Arrows'
 import { Link } from 'react-router-dom'
 import Cat from '../images/cat.jpg'
+import { getData } from '../services/db'
 
 export const Categorias = () => {
     const scrollable = useRef();
+    const [ data, setData ] = useState([])
+
+    const listarDatos = useCallback(() => {
+        getData('categorias', setData)
+
+        // if(!data || data.length == 0) {
+        //     console.log('e', data)
+        // }
+    },[])
+
+    useEffect(() => {
+        listarDatos()
+    }, [listarDatos])
 
     return (
         <section className="categorias">
@@ -16,46 +30,18 @@ export const Categorias = () => {
             <div className='carousel'>
                 <Arrows scrollable={scrollable}/>
                 <ul ref={scrollable}>
-                    <li className="carousel-item">
-                        <Link to="/tienda">
-                            <figure>
-                                <img src={Cat} alt="" />
-                                <figcaption>
-                                    <strong>Interior</strong>
-                                </figcaption>
-                            </figure>
-                        </Link>
-                    </li>
-                    <li className="carousel-item">
-                        <Link to="/tienda">
-                            <figure>
-                                <img src={Cat} alt="" />
-                                <figcaption>
-                                    <strong>Interior</strong>
-                                </figcaption>
-                            </figure>
-                        </Link>
-                    </li>
-                    <li className="carousel-item">
-                        <Link to="/tienda">
-                            <figure>
-                                <img src={Cat} alt="" />
-                                <figcaption>
-                                    <strong>Interior</strong>
-                                </figcaption>
-                            </figure>
-                        </Link>
-                    </li>
-                    <li className="carousel-item">
-                        <Link to="/tienda">
-                            <figure>
-                                <img src={Cat} alt="" />
-                                <figcaption>
-                                    <strong>Interior</strong>
-                                </figcaption>
-                            </figure>
-                        </Link>
-                    </li>
+                    {data.map(cat => (
+                        <li key={cat._id} className="carousel-item">
+                            <Link to="/tienda">
+                                <figure>
+                                    <img src={Cat} alt="" />
+                                    <figcaption>
+                                        <strong>{cat.nombre}</strong>
+                                    </figcaption>
+                                </figure>
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </section>
