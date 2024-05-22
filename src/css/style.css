@@ -82,6 +82,13 @@ textarea {
     background-color: #ffa91e;
     color: black;
 }
+.btn-carrito .in-cart {
+    background-color: #353535;
+}
+.btn-carrito .in-cart:hover {
+    background-color: #555555;
+    color: #B88E2F;
+}
 
 /* INPUTS ------------------------- */
 

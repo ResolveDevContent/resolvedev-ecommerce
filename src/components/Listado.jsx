@@ -221,7 +221,7 @@ export const Listado = ({isInHome}) => {
                     <section id="listado">
                         <ul>
                             {data.map(item => (
-                                <ProductCard item={item} />
+                                <ProductCard key={item._id} item={item} />
                             ))}
                         </ul>
                     </section>

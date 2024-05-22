@@ -1,8 +1,6 @@
 import '../css/Product.css'
 import { Plus, Minus, Share } from '../icons/Icons'
 import Prod from '../images/prod.jpg'
-import Img from '../images/otherimg.png'
-import Img2 from '../images/otherimg2.png'
 import { Promociones } from './Promociones'
 import { Features } from './Features'
 import { useState, useEffect } from 'react' 
@@ -14,8 +12,9 @@ export const Product = () => {
     const [ image, setImage ] = useState(Prod)
     const [ data, setData ] = useState({})
 
-    const { addToCart, removeFromCart, updateQuantity } = useCart()
+    const { addToCart, removeFromCart, updateQuantity, cart } = useCart()
     const { id } = useParams();
+    const inCart = cart.some(prod => prod._id == data._id)
 
     const changeImg = (e, img) => {
         e.preventDefault()
@@ -33,7 +32,7 @@ export const Product = () => {
     return data ? (
         <>
             <header className="product-header filtros">
-                <span>Home <span style={{color: "black"}}>&gt;</span> Tienda <span style={{color: "black", marginLeft: ".5em"}}>/ Nombre Producto</span></span>
+                <span>Home <span style={{color: "black"}}>&gt;</span> Tienda<span style={{color: "black"}}> /</span><span className='nombre-product'>{data.nombre}</span></span>
             </header>
             <section className="product-page">
                 <aside className="product-images">
@@ -91,15 +90,16 @@ export const Product = () => {
                         </li>
                         <li>
                             <div className='btn-carrito'>
-                                <button onClick={() => {
-                                    false ? removeFromCart(data)
-                                        : addToCart(data)
-                                        }}>
-                                    { 
-                                        false 
-                                            ? "Eliminar del carrito"
-                                            :  "Añadir al carrito" 
-                                    }
+                                <button className={inCart ? "in-cart" : null} 
+                                    onClick={() => {    
+                                        inCart ? removeFromCart(data)
+                                            : addToCart(data)
+                                            }}>
+                                        { 
+                                            inCart 
+                                                ? "Eliminar del carrito"
+                                                :  "Añadir al carrito" 
+                                        }
                                 </button>
                             </div>
                         </li>

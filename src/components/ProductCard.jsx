@@ -1,19 +1,19 @@
 import { Link } from 'react-router-dom'
 import { useCart } from 'resolvedev-cart'
 
-export const ProductCard = ({item}) => {
-    const { addToCart, removeFromCart } = useCart()
-
+export const ProductCard = ({key, item}) => {
+    const { addToCart, removeFromCart, cart } = useCart()
     const { _id, imagenes, nombre, categorias, precio, descuento } = item
+    const inCart = cart.some(prod => prod._id == item._id)
 
     return (
-        <li className="producto">
+        <li key={key} className="producto">
             <article data-discount={descuento}>
                 <Link to={`/producto/${_id}`} >
                     <span className='loader'></span>
                     <ul className='imagenes'>
-                        {imagenes.map(img => (
-                            <li>
+                        {imagenes.map((img, idx) => (
+                            <li key={idx}>
                                 <img src={img} alt="" />
                             </li>
                         ))}
@@ -28,13 +28,13 @@ export const ProductCard = ({item}) => {
                     <em>${precio}</em>
                 </div>
                 <div className='btn-carrito'>
-                    <button 
+                    <button className={inCart ? "in-cart" : null}
                         onClick={() => {
-                            false ? removeFromCart(item)
+                            inCart ? removeFromCart(item)
                                 : addToCart(item)
                                 }}>
                             { 
-                                false 
+                                inCart 
                                     ? "Eliminar del carrito"
                                     :  "Añadir al carrito" 
                             }
