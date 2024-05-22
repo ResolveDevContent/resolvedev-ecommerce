@@ -24,7 +24,7 @@ export const CartProducts = ({products}) => {
                 <li></li>
             </ul>
             {rows.map((row, index) => (
-                <ul className='row'>
+                <ul className='row' key={index}>
                     <li className='product-img'>
                         <img src={Prod} alt='product-img' />
                     </li>
