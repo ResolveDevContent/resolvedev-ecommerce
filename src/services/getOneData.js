@@ -1,3 +1,5 @@
+import { fmtImporte } from "../utils/site";
+
 export const getOneData = async (model, id) => {
     console.log(model, id)
     try {
@@ -6,6 +8,10 @@ export const getOneData = async (model, id) => {
         })
         const json = await response.json()
         json.id = json._id;
+        
+        if(json.precio) {
+            json.fmt_precio = fmtImporte(json.precio)
+        }
         
         return json
     } catch (err){

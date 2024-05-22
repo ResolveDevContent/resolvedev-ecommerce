@@ -55,6 +55,12 @@
     line-height: 1;
     height: 1em;
     overflow-wrap: anywhere;
+    max-width: 16em;
+}
+
+.table .row > li em {
+    font-style: normal;
+    font-weight: bolder;
 }
 
 .table .row > li:last-child svg {
