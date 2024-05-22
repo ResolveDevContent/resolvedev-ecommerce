@@ -1,5 +1,5 @@
 import '../css/Features.css'
-import { Box, Check, Support, Trophy } from '../icons/Icons'
+import { Package, Check, Support, Trophy } from '../icons/Icons'
 
 export const Features = () => {
     return (
@@ -20,7 +20,7 @@ export const Features = () => {
                     </div>
                 </li>
                 <li>
-                    <Box />
+                    <Package />
                     <div>
                         <em>Free Shipping</em>
                         <span>Order over $150</span>

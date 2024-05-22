@@ -34,18 +34,17 @@ export const Listado = ({isInHome}) => {
                     <Filtros/>
                 </>
             ) : null}
-            {(isInHome && data.length > 0) || !isInHome ?
-                data.length > 0 ? 
-                    <section id="listado">
+            <section id="listado">
+                {(isInHome && data.length > 0) || !isInHome ?
+                    data.length > 0 ? 
                         <ul>
                             {data.map(item => (
                                 <ProductCard key={item._id} item={item} />
                             ))}
                         </ul>
-                    </section>
                     :  <EmptyState texto={"No hay productos disponibles"} />
-                : null
-            }
+                : null}
+            </section>
             {data.length > 0 ? 
                 !isInHome ? (
                     <Paginator />

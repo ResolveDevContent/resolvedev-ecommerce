@@ -32,7 +32,7 @@ textarea {
 
 .empty-state {
     width: 100%;
-    padding: 8em 3em;
+    padding: 3em;
 }
 
 .empty-state > div {
