@@ -1,5 +1,7 @@
 
-export const CartDetails = () => {
+export const CartDetails = ({datos, children}) => {
+    console.log(datos);
+
     return (
         <div className='cart-details'>
             <header>
@@ -10,17 +12,19 @@ export const CartDetails = () => {
                     <span>Producto</span>
                     <em>Subtotal</em>
                 </li>
+                {datos.products.map((prod) => (
+                    <li key={prod._id}>
+                        <span>{prod.nombre}</span>
+                        <em>$ {prod.precio}</em>
+                    </li>
+                ))}
                 <li>
-                    <span>Nombre x 1</span>
-                    <em>$2.000.000</em>
-                </li>
-                <li>
-                    <span>Efectivo</span>
+                    <span>{datos.pay ? datos.pay : "Pago"}</span>
                     <em>1 pago</em>
                 </li>
                 <li>
                     <span>Envio</span>
-                    <em>$500.000</em>
+                    <em>{datos.shipping} $500.000</em>
                 </li>
                 <li>
                     <span>Subtotal</span>
@@ -39,7 +43,7 @@ export const CartDetails = () => {
                     </li>
                 </ul>
                 <div className='btn-carrito'>
-                    <a href="#">Pagar</a>
+                    {children}
                 </div>
             </footer>
         </div>

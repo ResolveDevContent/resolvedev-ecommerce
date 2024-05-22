@@ -45,6 +45,18 @@
     text-align: center;
 }
 
+.table .row > li span {
+    font-size: 1em;
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    line-height: 1;
+    height: 1em;
+    overflow-wrap: anywhere;
+}
+
 .table .row > li:last-child svg {
     fill: #B88E2F;
 }
@@ -129,7 +141,17 @@
 }
 
 .cart-details > ul li span {
-    font-weight: bolder;
+
+    font-size: 1em;
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    line-height: 1;
+    height: 1em;
+    overflow-wrap: anywhere;
+    max-width: 10em;
 }
 
 .cart-details > ul li em {
