@@ -8,9 +8,12 @@ import { Features } from './Features'
 import { useState, useEffect } from 'react' 
 import { useCart } from 'resolvedev-cart'
 import { useParams } from 'react-router-dom'
+import { getOneData } from '../services/db'
 
 export const Product = () => {
     const [ image, setImage ] = useState(Prod)
+    const [ data, setData ] = useState({})
+
     const { addToCart, removeFromCart, updateQuantity } = useCart()
     const { id } = useParams();
 
@@ -22,73 +25,75 @@ export const Product = () => {
 
     useEffect(() => {
         scrollTo(0,0)
-        console.log(id)
+        
+        getOneData("productos", id, setData)
     }, [])
 
 
-    return (
+    return data ? (
         <>
             <header className="product-header filtros">
                 <span>Home <span style={{color: "black"}}>&gt;</span> Tienda <span style={{color: "black", marginLeft: ".5em"}}>/ Nombre Producto</span></span>
             </header>
             <section className="product-page">
                 <aside className="product-images">
-                    <figure>
-                        <img src={image} alt="" />
-                    </figure>
-                    <ul>
-                        <li>
+                    {data.imagenes && data.imagenes.length > 0 ? (
+                        <>
                             <figure>
-                                <img src={Img} alt="" onClick={(e) => changeImg(e, Img)} />
+                                    <img src={data?.imagenes[0]} alt="" />
+
                             </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <img src={Img} alt="" onClick={(e) => changeImg(e, Img)}/>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <img src={Img2} alt="" onClick={(e) => changeImg(e, Img2)}/>
-                            </figure>
-                        </li>
-                    </ul>
+                            <ul>
+                                {data.imagenes.map((img, idx) => (
+                                    <li key={idx}>
+                                        <figure>
+                                            <img src={img} alt="" onClick={(e) => changeImg(e, img)} />
+                                        </figure>
+                                    </li>
+                                ))}
+                            </ul>
+                        </>
+                    ) : null}
                 </aside>
                 <article className="product-details">
                     <header>
-                        <strong>Nombre Producto</strong>
+                        <strong>{data.nombre}</strong>
                         <del>$1.000.000</del>
-                        <em>$ 3.000.000</em>
+                        <em>$ {data.precio}</em>
                         <div className="caracteristicas">
-                            <ul>
-                                <li>
-                                    Categoria: Remeras
-                                </li>
-                                <li>
-                                    Subcategoria: 100% Algodon, 100% Lino, Mangas cortas
-                                </li>
-                            </ul>
+                            {data.caracteristicas && data.caracteristicas.length > 0 ? (
+                                <ul>
+                                    <li>
+                                        Categoria: {data.categorias}
+                                    </li>
+                                    {data.caracteristicas.map((carac, idx) => (
+                                        <li key={idx}>
+                                            {carac}
+                                        </li>
+                                    ))}
+                                </ul>
+                            ) : null}
                         </div>
                     </header>
                     <ul className='product-actions'>
                         <li>
-                            <div className='input'>
-                                <button onClick={() => updateQuantity("", -1, true)}>
+                            {/* <div className='input'>
+                                <button onClick={() => updateQuantity(data, -1, true)}>
                                     <Minus />
                                 </button>
                                 <input type="number" 
-                                    onChange={e => updateQuantity("", e.target.value, false)} 
+                                    onChange={e => updateQuantity(data, e.target.value, false)} 
                                     value="" defaultValue=""/>
-                                <button onClick={() => updateQuantity("", 1, true)}>
+                                <button onClick={() => updateQuantity(data, 1, true)}>
                                     <Plus />  
                                 </button>
-                            </div>
+                            </div> */}
                         </li>
                         <li>
                             <div className='btn-carrito'>
                                 <button onClick={() => {
-                                    false ? removeFromCart("")
-                                        : addToCart("")
+                                    false ? removeFromCart(data)
+                                        : addToCart(data)
                                         }}>
                                     { 
                                         false 
@@ -109,13 +114,11 @@ export const Product = () => {
             <div className="product-description">
                 <strong>Descripci&oacute;n</strong>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Assumenda, facere dolorum eligendi voluptatem ex similique placeat qui. 
-                    Amet ipsam quas deserunt, nam aperiam excepturi, omnis dolores aliquid reprehenderit, pariatur rerum!
+                    {data.descripcion}
                 </p>
             </div>
             {/* <Promociones titulo={"Productos Relacionados"}/> */}
             <Features />
         </>
-    )
+    ) : null
 }
