@@ -32,7 +32,7 @@ textarea {
 
 .empty-state {
     width: 100%;
-    padding: 10em 3em;
+    padding: 8em 3em;
 }
 
 .empty-state > div {
@@ -49,6 +49,10 @@ textarea {
 .empty-state > div > span {
     font-size: 1.25em;
     font-weight: 600;
+}
+
+.empty-state > div > div {
+    margin-top: 1em;
 }
 
 /* BREADCUMBS ------------------------- */
