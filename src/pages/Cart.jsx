@@ -5,26 +5,24 @@ import { CartProducts } from '../components/CartProducts'
 import { CartFeatures } from '../components/CartFeatures'
 import { useEffect } from 'react'
 import { EmptyState } from '../components/EmptyState'
+import { useCart } from 'resolvedev-cart'
 
 export const Cart = () => {
-
-    const products = {
-        columns: ["Producto", "Precio", "Cantidad", "Subtotal"],
-        rows: ["Nombre", "$2.000.000", "1", "$2.000.000"]
-    }
+    const { cart } = useCart()
 
     useEffect(() => {
         scrollTo(0,0)
+        console.log(cart)
     }, [])
 
     return (
         <>
             <Breadcumb titulo={"Carrito"} breadcumb={"Home > Carrito"}/>
             <section className="cart">
-                {products.length > 0 ? 
+                {cart && cart.length > 0 ? 
                     <>
                         <article>
-                            <CartProducts products={products}/>
+                            <CartProducts products={cart}/>
                             <CartFeatures titulo={"Formas de pago"} id={"pay"}>
                                 <ul>
                                     <li>

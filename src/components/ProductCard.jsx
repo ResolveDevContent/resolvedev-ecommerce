@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
 import { useCart } from 'resolvedev-cart'
 
-export const ProductCard = ({key, item}) => {
+export const ProductCard = ({item}) => {
     const { addToCart, removeFromCart, cart } = useCart()
     const { _id, imagenes, nombre, categorias, precio, descuento } = item
     const inCart = cart.some(prod => prod._id == item._id)
 
     return (
-        <li key={key} className="producto">
+        <li className="producto" data-id={_id}>
             <article data-discount={descuento}>
                 <Link to={`/producto/${_id}`} >
                     <span className='loader'></span>
@@ -30,6 +30,7 @@ export const ProductCard = ({key, item}) => {
                 <div className='btn-carrito'>
                     <button className={inCart ? "in-cart" : null}
                         onClick={() => {
+                            console.log(item)
                             inCart ? removeFromCart(item)
                                 : addToCart(item)
                                 }}>
