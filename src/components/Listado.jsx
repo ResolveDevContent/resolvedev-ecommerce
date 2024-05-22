@@ -1,4 +1,5 @@
 import './prod.css'
+import '../css/Filtros.css'
 
 import { ProductCard } from './ProductCard'
 import { Link } from 'react-router-dom'
@@ -24,6 +25,7 @@ export const Listado = ({isInHome}) => {
 
     useEffect(() => {
         listarDatos()
+        console.log(data)
     }, [listarDatos])
 
     const changeFilters = (e) => {

@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom'
 import { useCart } from 'resolvedev-cart'
 
-export const ProductCard = ({images, nombre, categorias, precio, descuento}) => {
+export const ProductCard = ({item}) => {
     const { addToCart, removeFromCart } = useCart()
 
-    console.log(images, nombre, categorias, precio, descuento)
+    const { _id, imagenes, nombre, categorias, precio, descuento } = item
 
     return (
         <li className="producto">
             <article data-discount={descuento}>
-                <Link to="/producto" >
+                <Link to={`/producto/${_id}`} >
                     <span className='loader'></span>
                     <ul className='imagenes'>
-                        {images.map(img => (
+                        {imagenes.map(img => (
                             <li>
                                 <img src={img} alt="" />
                             </li>

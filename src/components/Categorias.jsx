@@ -34,7 +34,7 @@ export const Categorias = () => {
                         <li key={cat._id} className="carousel-item">
                             <Link to="/tienda">
                                 <figure>
-                                    <img src={Cat} alt="" />
+                                    <img src={cat.imagen} alt="" />
                                     <figcaption>
                                         <strong>{cat.nombre}</strong>
                                     </figcaption>

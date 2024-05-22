@@ -7,10 +7,12 @@ import { Promociones } from './Promociones'
 import { Features } from './Features'
 import { useState, useEffect } from 'react' 
 import { useCart } from 'resolvedev-cart'
+import { useParams } from 'react-router-dom'
 
 export const Product = () => {
     const [ image, setImage ] = useState(Prod)
     const { addToCart, removeFromCart, updateQuantity } = useCart()
+    const { id } = useParams();
 
     const changeImg = (e, img) => {
         e.preventDefault()
@@ -20,9 +22,9 @@ export const Product = () => {
 
     useEffect(() => {
         scrollTo(0,0)
+        console.log(id)
     }, [])
 
-    const item = "hola"
 
     return (
         <>
@@ -71,13 +73,13 @@ export const Product = () => {
                     <ul className='product-actions'>
                         <li>
                             <div className='input'>
-                                <button onClick={() => updateQuantity(item, -1, true)}>
+                                <button onClick={() => updateQuantity("", -1, true)}>
                                     <Minus />
                                 </button>
                                 <input type="number" 
-                                    onChange={e => updateQuantity(item, e.target.value, false)} 
-                                    value={item.quantity} defaultValue={item.quantity}/>
-                                <button onClick={() => updateQuantity(item, 1, true)}>
+                                    onChange={e => updateQuantity("", e.target.value, false)} 
+                                    value="" defaultValue=""/>
+                                <button onClick={() => updateQuantity("", 1, true)}>
                                     <Plus />  
                                 </button>
                             </div>
@@ -85,8 +87,8 @@ export const Product = () => {
                         <li>
                             <div className='btn-carrito'>
                                 <button onClick={() => {
-                                    false ? removeFromCart(item)
-                                        : addToCart(item)
+                                    false ? removeFromCart("")
+                                        : addToCart("")
                                         }}>
                                     { 
                                         false 
@@ -112,7 +114,7 @@ export const Product = () => {
                     Amet ipsam quas deserunt, nam aperiam excepturi, omnis dolores aliquid reprehenderit, pariatur rerum!
                 </p>
             </div>
-            <Promociones titulo={"Productos Relacionados"}/>
+            {/* <Promociones titulo={"Productos Relacionados"}/> */}
             <Features />
         </>
     )
