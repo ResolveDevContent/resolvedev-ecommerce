@@ -3,15 +3,16 @@ import { User, Search, Favorite, Cart, Menu, Close, Home, Group, Shop, Contact, 
 import { Link, useNavigate } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { useData } from '../hook/useData'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export const Navbar = () => {
-    const { data, getDatos } = useData()
+    const [ data, setData ] = useState([])
+    const { getDatos } = useData()
     const navigate = useNavigate()
 
-    const listarDatos = () => {
-        getDatos('categorias')
-        console.log(data)
+    const listarDatos = async () => {
+        const datos = await getDatos('categorias')
+        setData(datos)
     }
 
     const handleSubmitSearch = (e) => {

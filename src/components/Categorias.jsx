@@ -1,17 +1,18 @@
 import '../css/Categorias.css'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Arrows } from './Arrows'
 import { Link } from 'react-router-dom'
 import Cat from '../images/cat.jpg'
 import { useData } from '../hook/useData'
 
 export const Categorias = () => {
+    const [data, setData] = useState([])
     const scrollable = useRef();
-    const { data, getDatos } = useData()
+    const { getDatos } = useData()
 
-    const listarDatos = () => {
-        getDatos('categorias')
-        console.log(data)
+    const listarDatos = async () => {
+        const datos = await getDatos('categorias')
+        setData(datos)
     }
 
     useEffect(() => {

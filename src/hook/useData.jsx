@@ -9,7 +9,8 @@ export function useData() {
 
     const getDatos = async (model) => {
         const doc = await getData(model)
-        setData(doc)
+        
+        return doc
     }
     
     const getDatosByCategoria = async (model, categoria, subcategoria) => {

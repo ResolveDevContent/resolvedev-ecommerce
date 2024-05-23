@@ -13,17 +13,21 @@ import { EmptyState } from './EmptyState.jsx'
 import { FilterContext } from '../context/Filter.jsx'
 
 export const Listado = ({isInHome}) => {
+    const [ productsQty, setProductsQty ] = useState(20)
+    const [ currentPage, setCurrentPage] = useState(1)
+    const [ data, setData] = useState([])
+
     const { categoria, subcategoria } = useParams()
-    const { data, dataByCategoria, getDatos, getDatosByCategoria } = useData()
+    const { dataByCategoria, getDatos, getDatosByCategoria } = useData()
     const { query } = useContext(FilterContext)
 
-    const listarDatos = () => {
-        getDatos('productos')
+    const listarDatos = async () => {
+        const datos = await getDatos('productos')
+        setData(datos)
 
         if(categoria) {
             getDatosByCategoria('productos', categoria)
         }
-
         // if(categoria && subcategoria) {
         //     getDatosByCategoria('productos', categoria, subcategoria)
         // }
@@ -32,6 +36,12 @@ export const Listado = ({isInHome}) => {
     useEffect(() => {
         listarDatos()
     }, [categoria])
+    
+    const indexFin = currentPage * productsQty
+    const indexIni = indexFin - productsQty
+    
+    const nProducts = dataByCategoria.length > 0 ? dataByCategoria.slice(indexIni, indexFin) : data.slice(indexIni, indexFin)
+    const nPages = dataByCategoria.length > 0 ? Math.ceil(dataByCategoria.length / productsQty) : Math.ceil(data.length / productsQty)
 
     console.log('QUERY', query)
 
@@ -52,17 +62,21 @@ export const Listado = ({isInHome}) => {
                                 <ProductCard key={item._id} item={item} />
                             ))}
                         </ul> 
-                        : <ul>
+                        : !isInHome ? <ul>
+                            {nProducts.map(item => (
+                                <ProductCard key={item._id} item={item} />
+                            ))}
+                         </ul> : <ul>
                             {data.map(item => (
                                 <ProductCard key={item._id} item={item} />
                             ))}
-                         </ul> 
+                         </ul>
                     : <EmptyState texto={"No hay productos disponibles"} />
                 : null}
             </section>
             {data.length > 0 ? 
                 !isInHome ? (
-                    <Paginator />
+                    <Paginator setCurrentPage={setCurrentPage} currentPage={currentPage} nPages={nPages}/>
                 ) : (
                     <footer className='paginator'>
                         <div className='btn-carrito'>
