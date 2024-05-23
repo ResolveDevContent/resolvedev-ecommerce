@@ -130,13 +130,14 @@
     background-color: white;
     border-radius: 0em 0.5em 0.5em 0em;
     border: 1px solid darkgray;
+    cursor: pointer;
 }
 
 .navbar .search label {
     cursor: pointer;
 }
 
-.navbar .search input:checked + .input {
+.navbar .search input:checked + form > .input {
     display: flex;
     position: absolute;
     animation: baja 1s ease;

@@ -1,16 +1,27 @@
 import '../css/Navbar.css'
 import { User, Search, Favorite, Cart, Menu, Close, Home, Group, Shop, Contact, Send } from '../icons/Icons'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { useData } from '../hook/useData'
 import { useEffect } from 'react'
 
 export const Navbar = () => {
     const { data, getDatos } = useData()
+    const navigate = useNavigate()
 
     const listarDatos = () => {
         getDatos('categorias')
         console.log(data)
+    }
+
+    const handleSubmitSearch = (e) => {
+        e.preventDefault()
+
+        const form = e.target;
+        const formData = new FormData(form)
+
+        navigate(`/tienda?search=${formData.get("search")}`)
+        form.reset()
     }
 
     useEffect(() => {
@@ -71,15 +82,17 @@ export const Navbar = () => {
                                     <Search />
                                 </label>
                                 <input type="checkbox" id='search' name='search-input'/>
-                                <div className='input'>
-                                    <label htmlFor="search">
-                                        <Close />
-                                    </label>
-                                    <input type="text" placeholder='Buscar...'/>
-                                    <button>
-                                        <Send />
-                                    </button>
-                                </div>
+                                <form onSubmit={(e) => handleSubmitSearch(e)}>
+                                    <div className='input'>
+                                            <label htmlFor="search">
+                                                <Close />
+                                            </label>
+                                            <input type="text" placeholder='Buscar...' name='search' id='search'/>
+                                            <button type='submit'>
+                                                <Send />
+                                            </button>
+                                    </div>
+                                </form>
                             </li>
                             <li>
                                 <Link to='/usuario'>
