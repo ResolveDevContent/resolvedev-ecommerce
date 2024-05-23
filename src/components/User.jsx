@@ -26,7 +26,7 @@ export const User = () => {
                 <div>
                     <ul>
                         <li>
-                            <label htmlFor="datos">Usuario</label>
+                            <label htmlFor="datos" className='active'>Usuario</label>
                         </li>
                         <li>
                             <label htmlFor="pedidos">Pedidos</label>
@@ -106,13 +106,7 @@ export const User = () => {
                                             <li>
                                                 <div className='input'>
                                                     <label>Telefono</label>
-                                                    <input type="number" placeholder='123456'/>
-                                                </div>    
-                                            </li>  
-                                            <li>
-                                                <div className='input'>
-                                                    <label>Caracteristica</label>
-                                                    <input type="number" placeholder='1223'/>
+                                                    <input type="number" placeholder='1234123456'/>
                                                 </div>    
                                             </li>        
                                         </ul>    
@@ -127,7 +121,7 @@ export const User = () => {
                             <header>
                                 <ul>
                                     <li>Producto</li>
-                                    <li>C&oacute;d. Pedido</li>
+                                    <li>Estado</li>
                                     <li>Total</li>
                                     <li>Ver m&aacute;s</li>
                                 </ul>
@@ -135,15 +129,15 @@ export const User = () => {
                             <ul>
                                 <li>
                                     <img src={Prod} alt="" />
-                                    <span>124356789</span>
-                                    <em>$1.200.500</em>
+                                    <span>Pendiente de pago</span>
+                                    <em>$1.200.500,00</em>
                                     <div className='btn-carrito'>
                                         <Link to={'/endpoint'}>Ver</Link>
                                     </div>
                                 </li>
                                 <li>
                                     <img src={Prod} alt="" />
-                                    <span>124356789</span>
+                                    <span style={{backgroundColor: "#0000ff50"}}>Envio</span>
                                     <em>$1.200.500</em>
                                     <div className='btn-carrito'>
                                         <Link to={'/endpoint'}>Ver</Link>

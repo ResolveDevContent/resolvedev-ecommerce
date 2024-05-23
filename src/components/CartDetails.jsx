@@ -1,6 +1,8 @@
 
 export const CartDetails = ({datos, children}) => {
-    console.log(datos);
+    console.log(datos, children);
+
+    if(!datos || !children) return
 
     return (
         <div className='cart-details'>

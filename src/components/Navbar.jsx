@@ -43,32 +43,34 @@ export const Navbar = () => {
                         <li>
                             <NavLink to="/tienda">Tienda</NavLink>
                         </li>
-                        {data && data.length > 0 ? (
                             <li className='navbar-categorias'>
                                 <label>
                                     Categorias
-                                    <input type="checkbox" name="categorias" id="categorias" />
-                                    <ul>
-                                        {data.map((cat) => (
-                                            <li key={cat._id} className='navbar-subcategorias'>
-                                                <Link to={`/tienda/${cat.nombre.toLowerCase()}`}>
-                                                    {cat.nombre}
-                                                </Link>
-                                                <ul>
-                                                    {cat.subcategorias.map((subcat, idx) => (
-                                                        <li key={idx}>
-                                                            <Link to={`/tienda/${subcat.toLowerCase()}`}>
-                                                                {subcat}
-                                                            </Link>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    {data && data.length > 0 ? 
+                                        <>
+                                            <input type="checkbox" name="categorias" id="categorias" />
+                                            <ul>
+                                                {data.map((cat) => (
+                                                    <li key={cat._id} className='navbar-subcategorias'>
+                                                        <Link to={`/tienda/${cat.nombre.toLowerCase()}`}>
+                                                            {cat.nombre}
+                                                        </Link>
+                                                        <ul>
+                                                            {cat.subcategorias.map((subcat, idx) => (
+                                                                <li key={idx}>
+                                                                    <Link to={`/tienda/${subcat.toLowerCase()}`}>
+                                                                        {subcat}
+                                                                    </Link>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    </li>
+                                                ))}
+                                            </ul> 
+                                        </> : null
+                                    }
                                 </label>
                             </li>
-                        ) : null}
                         <li>
                             <NavLink to="/nosotros">Nosotros</NavLink>
                         </li>

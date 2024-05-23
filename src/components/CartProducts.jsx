@@ -4,8 +4,12 @@ import { fmtImporte } from "../utils/site";
 import { useCart } from 'resolvedev-cart'
 
 export const CartProducts = ({products}) => {
+    if(!products || products.length == 0) {
+      console.log("qwd")  
+      return
+    }
     const { updateQuantity } = useCart()
-
+    
     const columns = Object.keys(products[0]).slice(1,3);
         
     const rows = products.map((data, idx) => {
