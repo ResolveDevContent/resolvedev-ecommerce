@@ -36,6 +36,45 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+} 
+
+.navbar-items .navbar-categorias {
+    position: relative;
+}
+
+.navbar-items .navbar-categorias input,
+.navbar-items .navbar-categorias label > ul{
+    display: none;
+}
+
+.navbar-items .navbar-categorias label > ul {
+    position: fixed;
+    top: 3em;
+    padding: 2em;
+    background-color: white;
+    border-radius: 0.5em;
+    align-items: start;
+    justify-content: start;
+    gap: 1em;
+    min-height: 10em;
+}
+
+.navbar-items .navbar-categorias label > ul > li > a{
+    font-weight: bolder;
+}
+
+.navbar-items .navbar-subcategorias > ul {
+    align-items: start;
+    justify-content: start;
+    gap: 1em;
+}
+
+.navbar-items .navbar-subcategorias > ul li {
+    font-size: 0.9em;
+}
+
+.navbar-items .navbar-categorias label:hover > ul{
+    display: flex;
 }
 
 .navbar .buttons ul > li > svg {

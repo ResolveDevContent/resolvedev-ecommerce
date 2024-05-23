@@ -2,9 +2,20 @@ import '../css/Navbar.css'
 import { User, Search, Favorite, Cart, Menu, Close, Home, Group, Shop, Contact, Send } from '../icons/Icons'
 import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
+import { useData } from '../hook/useData'
+import { useEffect } from 'react'
 
 export const Navbar = () => {
+    const { data, getDatos } = useData()
 
+    const listarDatos = () => {
+        getDatos('categorias')
+        console.log(data)
+    }
+
+    useEffect(() => {
+        listarDatos()
+    }, [])
 
     return (
         <header>
@@ -20,6 +31,32 @@ export const Navbar = () => {
                         <li>
                             <NavLink to="/tienda">Tienda</NavLink>
                         </li>
+                        {data && data.length > 0 ? (
+                            <li className='navbar-categorias'>
+                                <label>
+                                    Categorias
+                                    <input type="checkbox" name="categorias" id="categorias" />
+                                    <ul>
+                                        {data.map((cat) => (
+                                            <li key={cat._id} className='navbar-subcategorias'>
+                                                <Link to={`/tienda/${cat.nombre.toLowerCase()}`}>
+                                                    {cat.nombre}
+                                                </Link>
+                                                <ul>
+                                                    {cat.subcategorias.map((subcat, idx) => (
+                                                        <li key={idx}>
+                                                            <Link to={`/tienda/${subcat.toLowerCase()}`}>
+                                                                {subcat}
+                                                            </Link>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </label>
+                            </li>
+                        ) : null}
                         <li>
                             <NavLink to="/nosotros">Nosotros</NavLink>
                         </li>

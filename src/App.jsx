@@ -37,6 +37,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<Home />} />
             <Route path="/tienda" element={<Listado />} />
+            <Route path="/tienda/:categoria" element={<Listado />} />
+            <Route path="/tienda/:categoria/:subcategoria" element={<Listado />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/producto/:id" element={<Product />} />
             <Route path="/carrito" element={<Cart />} />

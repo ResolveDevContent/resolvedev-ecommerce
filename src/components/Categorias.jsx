@@ -31,7 +31,7 @@ export const Categorias = () => {
                         <ul ref={scrollable}>
                             {data.map(cat => (
                                 <li key={cat._id} className="carousel-item">
-                                    <Link to="/tienda">
+                                    <Link to={`/tienda/${cat.nombre.toLowerCase()}`}>
                                         <figure>
                                             <img src={cat.imagen} alt="" />
                                             <figcaption>
