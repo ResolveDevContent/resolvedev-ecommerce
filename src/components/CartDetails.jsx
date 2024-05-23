@@ -16,7 +16,7 @@ export const CartDetails = ({datos, children}) => {
                     </li>
                     {datos.products.map((prod) => (
                         <li key={prod._id}>
-                            <span>{prod.nombre + " x" + prod.quantity}</span>
+                            <span>{prod.nombre}<strong>{" x" + prod.quantity}</strong></span>
                             <em>$ {fmtImporte(prod.precio * prod.quantity)}</em>
                         </li>
                     ))}
