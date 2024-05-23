@@ -15,35 +15,61 @@ import { FilterContext } from '../context/Filter.jsx'
 export const Listado = ({isInHome}) => {
     const [ productsQty, setProductsQty ] = useState(20)
     const [ currentPage, setCurrentPage] = useState(1)
-    const [ data, setData] = useState([])
-
-    const { categoria, subcategoria } = useParams()
-    const { dataByCategoria, getDatos, getDatosByCategoria } = useData()
+    const [ data, setData ] = useState([])
+    const [ dataCategoria, setDataCategoria ] = useState([])
+    const [ products, setProducts] = useState([])
+    
+    const { categoria } = useParams()
+    const { getDatos, getDatosByCategoria } = useData()
     const { query } = useContext(FilterContext)
 
     const listarDatos = async () => {
         const datos = await getDatos('productos')
         setData(datos)
+        setProducts(datos)
+    }
 
-        if(categoria) {
-            getDatosByCategoria('productos', categoria)
-        }
-        // if(categoria && subcategoria) {
-        //     getDatosByCategoria('productos', categoria, subcategoria)
-        // }
+    const getCategoria = async () => {
+        const datos = await getDatosByCategoria(categoria)
+        setDataCategoria(datos)
     }
 
     useEffect(() => {
         listarDatos()
+    }, [])
+
+    useEffect(() => {
+        console.log(categoria)
+        if(!categoria) {
+            setProducts(data)
+            return
+        }
+
+        getCategoria()
+        if(categoria && !dataCategoria) {
+            const empty = []            
+            setProducts(empty)
+            return
+        }
+
+        const newProducts = data.filter(row => row.categorias == dataCategoria._id)
+        setProducts(newProducts)
     }, [categoria])
+
+    useEffect(() => {
+        if(!query) return
+        
+        const newQuery = query.split('~')
+        const newList = []
+        newQuery.forEach(row => newList.push(row.split('-')))
+        newList.forEach(row => row.shift())
+    }, [query])
     
     const indexFin = currentPage * productsQty
     const indexIni = indexFin - productsQty
-    
-    const nProducts = dataByCategoria.length > 0 ? dataByCategoria.slice(indexIni, indexFin) : data.slice(indexIni, indexFin)
-    const nPages = dataByCategoria.length > 0 ? Math.ceil(dataByCategoria.length / productsQty) : Math.ceil(data.length / productsQty)
 
-    console.log('QUERY', query)
+    const nProducts = products.length > 0 ? products.slice(indexIni, indexFin) : []
+    const nPages = products.length > 0 ? Math.ceil(products.length / productsQty) : 0
 
     return (
         <>
@@ -54,27 +80,18 @@ export const Listado = ({isInHome}) => {
                 </>
             ) : null}
             <section id="listado">
-                {(isInHome && data.length > 0) || !isInHome ?
-                    data.length > 0 ?
-                        dataByCategoria.length > 0 ? 
+                {(isInHome && nProducts.length > 0) || !isInHome ? 
+                    nProducts.length > 0 ?
                         <ul>
-                            {dataByCategoria.map(item => (
-                                <ProductCard key={item._id} item={item} />
-                            ))}
-                        </ul> 
-                        : !isInHome ? <ul>
                             {nProducts.map(item => (
                                 <ProductCard key={item._id} item={item} />
                             ))}
-                         </ul> : <ul>
-                            {data.map(item => (
-                                <ProductCard key={item._id} item={item} />
-                            ))}
-                         </ul>
-                    : <EmptyState texto={"No hay productos disponibles"} />
-                : null}
+                        </ul>
+                        : <EmptyState texto={"No hay productos disponibles"} />
+                    : null
+                }
             </section>
-            {data.length > 0 ? 
+            {nProducts.length > 0 ? 
                 !isInHome ? (
                     <Paginator setCurrentPage={setCurrentPage} currentPage={currentPage} nPages={nPages}/>
                 ) : (
