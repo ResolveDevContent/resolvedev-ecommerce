@@ -28,9 +28,11 @@ export const Cart = () => {
     }
 
     useEffect(() => {
-        scrollTo(0,0)
-        console.log(cart)
-    }, [])
+        setData({
+            ...data,
+            products: cart
+        })
+    }, [cart])
 
     return (
         <>
@@ -55,15 +57,15 @@ export const Cart = () => {
                             <CartFeatures titulo={"Formas de envío"} id={"shipping"}>
                                 <ul>
                                     <li>
-                                        <input type="radio" name="shipping" id="shipping-sucursal" value="sucursal" onChange={handleChange}/>
+                                        <input type="radio" name="shipping" id="shipping-sucursal" value="sucursal:1000" onChange={handleChange}/>
                                         <label htmlFor="shipping-sucursal">A sucursal</label>
                                     </li>
                                     <li>
-                                        <input type="radio" name="shipping" id="shipping-domicilio" value="domicilio" onChange={handleChange}/>
+                                        <input type="radio" name="shipping" id="shipping-domicilio" value="domicilio:2000" onChange={handleChange}/>
                                         <label htmlFor="shipping-domicilio">A domicilio</label>
                                     </li>
                                     <li>
-                                        <input type="radio" name="shipping" id="shipping-local" value="local" onChange={handleChange}/>
+                                        <input type="radio" name="shipping" id="shipping-local" value="local:0" onChange={handleChange}/>
                                         <label htmlFor="shipping-local">Retirar en local</label>
                                     </li>
                                 </ul>

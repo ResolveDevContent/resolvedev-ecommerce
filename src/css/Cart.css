@@ -172,7 +172,7 @@
     -webkit-line-clamp: 1;
     overflow: hidden;
     line-height: 1;
-    height: 1em;
+    height: 2em;
     overflow-wrap: anywhere;
     flex: 1;
 }
