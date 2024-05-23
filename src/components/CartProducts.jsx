@@ -4,7 +4,7 @@ import { fmtImporte } from "../utils/site";
 import { useCart } from 'resolvedev-cart'
 
 export const CartProducts = ({products}) => {
-    const { updateQuantity } = useCart()
+    const { updateQuantity, removeFromCart } = useCart()
 
     const columns = Object.keys(products[0]).slice(1,3);
         
@@ -44,23 +44,23 @@ export const CartProducts = ({products}) => {
                         ))}
                         <li>
                             <div className='input'>
-                                <button onClick={(e) => { updateQuantity(products[row.id]), Number(products[row.id].piezas  * -1), true} }>
+                                <button onClick={(e) => { updateQuantity(products[row.id], Number(products[row.id].piezas * -1), true)} }>
                                     <Minus />
                                 </button>
                                 <input type="number" defaultValue={products[row.id].quantity} value={products[row.id].quantity}
                                     onChange={(e) => { updateQuantity(products[row.id]), e.target.value, false} }
                                 />
-                                <button onClick={(e) => { updateQuantity(products[row.id]), Number(products[row.id].piezas), true} }>
+                                <button onClick={(e) => { updateQuantity(products[row.id], Number(products[row.id].piezas), true)} }>
                                     <Plus />   
                                 </button>
                             </div>
                         </li>
                         <li>
-                            <span>$ 1.800.000,00</span>
+                            <span>$ {fmtImporte(products[row.id].precio * products[row.id].quantity)}</span>
                         </li>
                     </ul>
                     <div className="btn-carrito">
-                        <a href="#">
+                        <a href="#" onClick={(e) => { removeFromCart(products[row.id]) }}>
                             <Trash />
                         </a>
                     </div>

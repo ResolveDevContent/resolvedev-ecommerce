@@ -1,3 +1,4 @@
+import { fmtImporte } from "../utils/site";
 
 export const CartDetails = ({datos, children}) => {
     console.log(datos);
@@ -15,8 +16,8 @@ export const CartDetails = ({datos, children}) => {
                     </li>
                     {datos.products.map((prod) => (
                         <li key={prod._id}>
-                            <span>{prod.nombre}</span>
-                            <em>$ {prod.precio} * cant</em>
+                            <span>{prod.nombre + " x" + prod.quantity}</span>
+                            <em>$ {fmtImporte(prod.precio * prod.quantity)}</em>
                         </li>
                     ))}
                     <li>
@@ -25,7 +26,7 @@ export const CartDetails = ({datos, children}) => {
                     </li>
                     <li>
                         <span>Envio</span>
-                        <em>{datos.shipping} $500.000</em>
+                        <em>{datos.shipping ? datos.shipping.split(":")[0] + " " + "$ " + fmtImporte(datos.shipping.split(":")[1]) : "$500"}</em>
                     </li>
                     <li>
                         <span>Subtotal</span>
