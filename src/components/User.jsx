@@ -2,15 +2,52 @@ import '../css/User.css'
 import { Exit } from '../icons/Icons'
 import Prod  from '../images/prod.jpg'
 import UserImg  from '../images/user.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { CartFeatures } from './CartFeatures'
 import { useEffect, useState, useContext } from 'react'
 import { LogoutAuth } from '../hook/useAuth'
 import AuthContext from '../context/Auth'
+import { useData } from '../hook/useData'
 
 export const User = () => {
-    const { setAuth } = useContext(AuthContext)
+    const [profile, setProfile] = useState({})
+    const [dataProfile, setDataProfile] = useState({})
     const [error, setError] = useState('')
+ 
+    const { auth, setAuth } = useContext(AuthContext)
+    const { getProfile, updateProfile } = useData()
+    const navigate = useNavigate()
+    
+    const listarProfile = async () => {
+        const dataProfile = await getProfile()
+        setProfile(dataProfile)
+    }
+
+    const update = async (e) => {
+        e.preventDefault()
+
+        const form = e.target;
+        const formData = new FormData(form)
+
+        const domicilio = {
+            pais: formData.get("pais"),
+            direccion: formData.get("direccion"),
+            provincia: formData.get("provincia"),
+            localidad: formData.get("localidad"),
+            codigo_postal: formData.get("codigo_postal")
+        }
+
+        formData.append("domicilio", domicilio)
+        
+        formData.delete("pais")
+        formData.delete("direccion")
+        formData.delete("provincia")
+        formData.delete("localidad")
+        formData.delete("codigo_postal")
+
+        const succes = await updateProfile(profile.id, formData);
+        console.log(succes)
+    }
 
     const handleLogout = (e) => {
         e.preventDefault()
@@ -23,8 +60,14 @@ export const User = () => {
     }
 
     useEffect(() => {
+        if(!auth) {
+            navigate("/login")
+        }
+
         scrollTo(0,0)
-    }, [])
+        listarProfile()
+        console.log(profile)
+    }, [auth])
 
     return (
         <section id="user">
@@ -54,70 +97,22 @@ export const User = () => {
                     <li>
                         <input type="radio" name="usuario" id="datos" defaultChecked={true}/>
                         <section className='datos-personales'>
-                            <form>
+                            <form onSubmit={update}>
                                 <div>
-                                    <CartFeatures titulo={"Domicilio"} id={"domicilio"} checked={true}>
+                                    <CartFeatures titulo={"Datos Personales"} id={"datos-personales"} checked={true}>
                                         <ul>
                                             <li>
                                                 <div className='input'>
-                                                    <label>Pais</label>
-                                                    <input type="text" placeholder='Argentina'/>
+                                                    <label>Nombre</label>
+                                                    <input type="text" placeholder='Nombre y apellido' defaultValue={profile.name}/>
                                                 </div>    
                                             </li>
-                                            <li>
-                                                <div className='input'>
-                                                    <label>Provincia</label>
-                                                    <input type="text" placeholder='Buenos Aires'/>
-                                                </div> 
-                                            </li>
-                                            <li>
-                                                <div className='input'>
-                                                    <label>Ciudad</label>
-                                                    <input type="text" placeholder='Caballito'/>
-                                                </div>    
-                                            </li>
-                                            <li>
-                                                <div className='input'>
-                                                    <label>Codigo Postal</label>
-                                                    <input type="text" placeholder='1234'/>
-                                                </div>    
-                                            </li>
-                                            <li>
-                                                <div className='input'>
-                                                    <label>Calle</label>
-                                                    <input type="text" placeholder='Alberdi'/>
-                                                </div>    
-                                            </li>
-                                            <li>
-                                                <div className='input'>
-                                                    <label>Numero</label>
-                                                    <input type="number" placeholder='536'/>
-                                                </div>    
-                                            </li>
-                                            <li>
-                                                <div className='input'>
-                                                    <label>Depto.</label>
-                                                    <input type="text" placeholder='Numero 3b'/>
-                                                </div>    
-                                            </li>
-                                        </ul>
-                                    </CartFeatures>
-                                </div>
-                                <div>
-                                    <CartFeatures titulo={"Datos Personales"} id={"datos"} checked={false}>
-                                        <ul>
                                             <li>
                                                 <div className='input'>
                                                     <label>Email</label>
-                                                    <input type="email" placeholder='Abc@email.com'/>
+                                                    <input type="email" placeholder='Abc@email.com' defaultValue={profile.email}/>
                                                 </div>    
                                             </li>  
-                                            <li>
-                                                <div className='input'>
-                                                    <label>Contraseña</label>
-                                                    <input type="password" placeholder='***'/>
-                                                </div>    
-                                            </li>
                                             <li>
                                                 <div className='input'>
                                                     <label>Telefono</label>
@@ -125,6 +120,62 @@ export const User = () => {
                                                 </div>    
                                             </li>        
                                         </ul>    
+                                    </CartFeatures>
+                                </div>
+                                <div className='datos-domicilio'>
+                                    <CartFeatures titulo={"Domicilio"} id={"domicilio"} >
+                                        <ul>
+                                            <li>
+                                                <div className='input'>
+                                                    <label>Pais</label>
+                                                    <input type="text" placeholder='Argentina' 
+                                                        name='pais'
+                                                        defaultValue={profile && profile.domicilio ? profile.domicilio.pais : ""}
+                                                    />
+                                                </div>    
+                                            </li>
+                                            <li>
+                                                <div className='input'>
+                                                    <label>Provincia</label>
+                                                    <input type="text" placeholder='Buenos Aires' 
+                                                        name='provincia'
+                                                        defaultValue={profile && profile.domicilio ? profile.domicilio.provincia : ""}
+                                                    />
+                                                </div> 
+                                            </li>
+                                            <li>
+                                                <div className='input'>
+                                                    <label>Ciudad</label>
+                                                    <input type="text" placeholder='Caballito'
+                                                        name='localidad'
+                                                        defaultValue={profile && profile.domicilio ? profile.domicilio.localidad : ""}
+                                                    />
+                                                </div>    
+                                            </li>
+                                            <li> 
+                                                <div className='input'>
+                                                    <label>Codigo Postal</label>
+                                                    <input type="text" placeholder='1234' 
+                                                        name='codigo_postal'
+                                                        defaultValue={profile && profile.domicilio ? profile.domicilio.codigo_postal : ""}
+                                                    />
+                                                </div>    
+                                            </li>
+                                            <li>
+                                                <div className='input'>
+                                                    <label>Calle</label>
+                                                    <input type="text" placeholder='Alberdi' 
+                                                        name='direccion'
+                                                        defaultValue={profile && profile.domicilio ? profile.domicilio.direccion : ""}
+                                                    />
+                                                </div>    
+                                            </li>
+                                        </ul>
+                                        <footer>
+                                            <div className='btn-carrito'>
+                                                <button type='submit'>Actualizar</button>
+                                            </div>   
+                                        </footer>
                                     </CartFeatures>
                                 </div>
                             </form>

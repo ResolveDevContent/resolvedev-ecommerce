@@ -186,6 +186,10 @@
     font-style: normal;
 }
 
+#user .datos-domicilio .accordeon footer {
+    margin-top: 2em;
+}
+
 @media screen and (min-width: 960px) {
     #user > aside > header::after {
         content: '';
@@ -263,4 +267,5 @@
     #user .datos-personales > form > div ul {
         grid-template-columns: 1fr;
     }
+
 }

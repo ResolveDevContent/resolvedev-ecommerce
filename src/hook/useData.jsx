@@ -24,5 +24,17 @@ export function useData() {
         return doc
     }
 
-    return { getDatos, getDatosByCategoria, getOneDato }
+    const getProfile = async () => {
+        const doc = await getUser()
+        
+        return doc
+    }
+    
+    const updateProfile = async (id, body) => {
+        const doc = await updateUser(id, body)
+    
+        return doc
+    }
+
+    return { getDatos, getDatosByCategoria, getOneDato, getProfile, updateProfile }
 } 

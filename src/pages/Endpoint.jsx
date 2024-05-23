@@ -3,9 +3,13 @@ import '../css/Cart.css'
 import { CartProducts } from '../components/CartProducts'
 import { CartDetails } from '../components/CartDetails'
 import { CartFeatures } from '../components/CartFeatures'
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
+import AuthContext from '../context/Auth'
+import { useNavigate } from 'react-router-dom'
 
 export const Endpoint = () => {
+    const { auth } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const products = {
         columns: ["Producto", "Precio", "Cantidad", "Subtotal"],
@@ -14,7 +18,11 @@ export const Endpoint = () => {
 
     useEffect(() => {
         scrollTo(0,0)
-    }, [])
+
+        if(!auth) {
+            navigate("/login")
+        }
+    }, [auth])
 
     return (
         <section className='endpoint'>
