@@ -13,8 +13,8 @@ export const Cart = () => {
         products: cart
     })
 
-    const handleChange = (e) => {
-        const { name, value } = e.target
+    const handleChange = e => {
+        const { value, name } = e.target
 
         setData({
             ...data,
@@ -111,7 +111,7 @@ export const Cart = () => {
                         </article>
                         <aside>
                             <CartDetails datos={data}>
-                                <a href="#" onClick={(e) => handleSubmit(e)}>Pagar</a>
+                                <a className="disabled" href="#" onClick={(e) => handleSubmit(e)}>Pagar</a>
                             </CartDetails>
                         </aside>    
                     </>
