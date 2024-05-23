@@ -1,5 +1,6 @@
 import { getData } from "../services/getData"
 import { getOneData } from "../services/getOneData"
+import { getUser, updateUser } from "../services/getUser"
 
 export function useData() {
     const getDatos = async (model) => {
