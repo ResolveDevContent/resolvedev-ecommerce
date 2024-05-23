@@ -56,21 +56,31 @@
     align-items: start;
     justify-content: start;
     gap: 1em;
-    min-height: 10em;
+    max-width: 20em;
+    overflow: auto;
 }
 
 .navbar-items .navbar-categorias label > ul > li > a{
     font-weight: bolder;
+    color: black;
+}
+
+.navbar-items .navbar-categorias label > ul > li > a:hover,
+.navbar-items .navbar-subcategorias > ul li a:hover {
+    border-bottom: 1px solid #000;
 }
 
 .navbar-items .navbar-subcategorias > ul {
+    display: flex;
     align-items: start;
     justify-content: start;
-    gap: 1em;
+    gap: 0.125em;
+    flex-direction: column;
 }
 
-.navbar-items .navbar-subcategorias > ul li {
+.navbar-items .navbar-subcategorias > ul li a{
     font-size: 0.9em;
+    color: black;
 }
 
 .navbar-items .navbar-categorias label:hover > ul{
