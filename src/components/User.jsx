@@ -4,9 +4,24 @@ import Prod  from '../images/prod.jpg'
 import UserImg  from '../images/user.png'
 import { Link } from 'react-router-dom'
 import { CartFeatures } from './CartFeatures'
-import { useEffect } from 'react'
+import { useEffect, useState, useContext } from 'react'
+import { LogoutAuth } from '../hook/useAuth'
+import AuthContext from '../context/Auth'
 
 export const User = () => {
+    const { setAuth } = useContext(AuthContext)
+    const [error, setError] = useState('')
+
+    const handleLogout = (e) => {
+        e.preventDefault()
+
+        LogoutAuth(setAuth, setError)
+
+        setTimeout(() => {
+            setError('')
+        },6000)
+    }
+
     useEffect(() => {
         scrollTo(0,0)
     }, [])
@@ -18,7 +33,7 @@ export const User = () => {
                     <img src={UserImg} alt="" />
                     <div>
                         <em>Nombre Usuario</em>
-                        <button>
+                        <button onClick={handleLogout}>
                             <Exit />
                         </button>
                     </div>

@@ -1,19 +1,69 @@
 import '../css/Login.css'
 import { Link } from 'react-router-dom'
-import { useRef } from 'react'
+import { useRef, useEffect, useState, useContext } from 'react'
 import { Google, Facebook } from '../icons/Icons'
+import { useNavigate } from 'react-router-dom'
+import AuthContext from '../context/Auth'
+import { LoginAuth, RegisterAuth } from '../hook/useAuth' 
 
 export const Login = () => {
+    const [dataLogin, setDataLogin] = useState({})
+    const [error, setError] = useState('')
+    
+    const navigate = useNavigate()
+    const { auth, setAuth } = useContext(AuthContext)
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        setDataLogin({
+            ...dataLogin,
+            [name]: value,
+        })
+    }
+
+    const handleSubmit = (e, type) => {
+        e.preventDefault()
+
+        if(Object.values(dataLogin).length <= 1) {
+            setError("Complete todos los datos")
+            setTimeout(() => {
+                setError('')
+            },3000)
+            return;
+        }
+
+        if(type === "login") {
+            LoginAuth(dataLogin, setAuth, setError)
+            setTimeout(() => {
+                setError('')
+            },6000)
+            return;
+        }
+
+        RegisterAuth(dataLogin, setAuth, setError)
+        
+        setTimeout(() => {
+            setError('')
+        },6000)
+
+    }
 
     const container = useRef()
 
     const handleCreate = () => {
         container.current.classList.remove("right-active")
     }
-
+    
     const handleLogin = () => {
         container.current.classList.add("right-active")
     }
+
+    useEffect(() => {
+        if(auth) {
+            navigate("/")
+        }
+    }, [auth])
 
     return (
         <section id="login">
@@ -32,17 +82,23 @@ export const Login = () => {
                         <span>Please complete all fields below</span>
                         <div className="input">
                             <label>Name</label>
-                            <input type="text" placeholder="Abc"/>
+                            <input type="text" placeholder="Abc"
+                                name="name" onChange={handleChange}
+                            />
                         </div>
                         <div className="input">
                             <label>Email</label>
-                            <input type="email" placeholder="abc@email.com"/>
+                            <input type="email" placeholder="abc@email.com"
+                                name="email" onChange={handleChange}
+                            />
                         </div>
                         <div className="input">
                             <label>Password</label>
-                            <input type="password" placeholder="***"/>
+                            <input type="password" placeholder="***"
+                                name="password" onChange={handleChange}
+                            />
                         </div>
-                        <button>Create</button>
+                        <button onClick={(e) => handleSubmit(e, "register")}>Create</button>
                     </form>
                 </div>
                 <div className="loginForm">
@@ -59,17 +115,21 @@ export const Login = () => {
                         <span>Please complete all fields below</span>
                         <div className="input">
                             <label>Email</label>
-                            <input type="email" placeholder="abc@email.com"/>
+                            <input type="email" placeholder="abc@email.com"
+                                name="email" onChange={handleChange}
+                            />
                         </div>
                         <div className="input">
                             <label>Password</label>
-                            <input type="password" placeholder="***"/>
+                            <input type="password" placeholder="***"
+                                name="password" onChange={handleChange}
+                            />
                         </div>
                         <Link>Did you forget your password? 
                             <br/>
                             <span style={{color: "#B88E2F", fontWeight: "600"}}> Click here</span>
                         </Link>
-                        <button>Login</button>
+                        <button onClick={(e) => handleSubmit(e, "login")}>Login</button>
                     </form>
                 </div>
                 <div className='overlay-container'>
