@@ -4,9 +4,14 @@ import '../css/Filtros.css'
 import { Filters, Close } from '../icons/Icons'
 import { useContext, useState } from 'react'
 
-export const Filtros = () => {
+export const Filtros = ({setSelectValue}) => {
     const [ filters, setFilters ] = useState({})
     const { setQuery } = useContext(FilterContext)
+
+    const handleChange = (e) => {
+        setSelectValue(e.target.value)
+        console.log(e.target.value)
+    }
 
     const changeFilters = (e) => {
         const { name, value } = e.target;
@@ -175,11 +180,11 @@ export const Filtros = () => {
                 <ul>
                     <li>
                         <label htmlFor="sort">Ordenar por</label>
-                        <select name="sort" id="sort" onChange={changeFilters}>
+                        <select name="sort" id="sort" onChange={handleChange}>
                             <option value="">Por defecto</option>
                             <option value="nombre">Nombre</option>
-                            <option value="major-price">Mayor precio</option>
-                            <option value="minor-price">Menor precio</option>
+                            <option value="mayor">Mayor precio</option>
+                            <option value="menor">Menor precio</option>
                         </select>
                     </li>
                 </ul>

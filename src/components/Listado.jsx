@@ -16,6 +16,7 @@ export const Listado = ({isInHome}) => {
     const [ productsQty, setProductsQty ] = useState(20)
     const [ currentPage, setCurrentPage] = useState(1)
     const [ products, setProducts] = useState([])
+    const [ selectValue, setSelectValue ] = useState("")
     
     const { categoria } = useParams()
     const { getDatos, getDatosByCategoria } = useData()
@@ -40,13 +41,21 @@ export const Listado = ({isInHome}) => {
 
         const productos = await listarDatos()
 
-        if(isInHome) { return }
-        
         const datos_categoria = await getCategoria()
-
-        if(!categoria && !query) {
+        
+        if(!categoria && !query && !selectValue) {
             console.log("hola", categoria, productos)
             setProducts(productos)
+            return
+        }
+                
+        if(isInHome) { return }
+        
+        // SELECT --------------------------------------------------
+
+        if(selectValue) {
+            console.log("select")
+            setProducts(filterBySelect(productos))
             return
         }
 
@@ -78,9 +87,32 @@ export const Listado = ({isInHome}) => {
         console.log(newQuery, newList)
     }
 
+    const filterBySelect = (productos) => {
+        if(!selectValue) { return }
+
+        if(selectValue == "mayor") {
+            const filterProducts = productos.sort((a ,b) => b.precio - a.precio)
+            console.log(filterProducts)
+            return filterProducts
+        }
+
+        if(selectValue == "menor") {
+            const filterProducts = productos.sort((a ,b) => a.precio - b.precio)
+            console.log(filterProducts)
+            return filterProducts
+        }
+
+        if(selectValue == "nombre") {
+            const filterProducts = productos.sort((a ,b) => a.nombre.localeCompare(b.nombre))
+
+            return filterProducts
+        }
+
+    }
+
     useEffect(() => {
         filters()
-    }, [categoria, query])
+    }, [categoria, query, selectValue])
 
     const indexFin = currentPage * productsQty
     const indexIni = indexFin - productsQty
@@ -93,7 +125,7 @@ export const Listado = ({isInHome}) => {
             {!isInHome ? (
                 <>
                     <Breadcumb titulo={"Tienda"} breadcumb={"Home > Tienda"}/>
-                    <Filtros/>
+                    <Filtros setSelectValue={setSelectValue}/>
                 </>
             ) : null}
             <section id="listado">
