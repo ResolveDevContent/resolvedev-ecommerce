@@ -3,6 +3,7 @@
     color: black!important;
     user-select: none!important;
     cursor: default!important;
+    pointer-events: none!important;
 }
 
 .cart,

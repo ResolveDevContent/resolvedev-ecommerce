@@ -19,7 +19,7 @@ export const Paginator = ({currentPage, setCurrentPage, nPages}) => {
             <ul>
                 <li>
                     <div className='btn-carrito'>
-                        <button onClick={prev}>Anterior</button>
+                        <button onClick={prev} className={currentPage == 1 ? "disabled" : ""}>Anterior</button>
                     </div>
                 </li>
                 <li>
@@ -27,7 +27,7 @@ export const Paginator = ({currentPage, setCurrentPage, nPages}) => {
                 </li>
                 <li>
                     <div className='btn-carrito'>
-                        <button onClick={next}>Siguiente</button>
+                        <button onClick={next} className={currentPage == nPages ? "disabled" : ""}>Siguiente</button>
                     </div>
                 </li>
             </ul>
