@@ -9,13 +9,13 @@ export function useData() {
     }
     
     const getDatosByCategoria = async (categoria) => {
-        if(!categoria) throw new Error ('Categoria does not exist')
+        if(!categoria) return ('Categoria does not exist')
 
         const categorias = await getData("categorias")
-        if(!categorias || categorias.length == 0) throw new Error ('Did not find any Categoria')
+        if(!categorias || categorias.length == 0) return null
         
         const prodCategoria = categorias.find((cat) => cat.nombre.toLowerCase() == categoria)
-        if(!prodCategoria) throw new Error ('Did not find any specific categoria')
+        if(!prodCategoria) return null
             
         return prodCategoria
     }

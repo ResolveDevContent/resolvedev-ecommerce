@@ -15,8 +15,6 @@ import { FilterContext } from '../context/Filter.jsx'
 export const Listado = ({isInHome}) => {
     const [ productsQty, setProductsQty ] = useState(20)
     const [ currentPage, setCurrentPage] = useState(1)
-    const [ data, setData ] = useState([])
-    const [ dataCategoria, setDataCategoria ] = useState([])
     const [ products, setProducts] = useState([])
     
     const { categoria } = useParams()
@@ -25,46 +23,65 @@ export const Listado = ({isInHome}) => {
 
     const listarDatos = async () => {
         const datos = await getDatos('productos')
-        setData(datos)
-        setProducts(datos)
+        
+        return datos
     }
 
     const getCategoria = async () => {
         const datos = await getDatosByCategoria(categoria)
-        setDataCategoria(datos)
+
+        if(!datos || datos.length == 0) { return; }
+
+        return datos
     }
 
-    useEffect(() => {
-        listarDatos()
-    }, [])
+    const filters = async () => {
+        // TIENDA SIN FILTROS ---------------------------------------
 
-    useEffect(() => {
-        console.log(categoria)
-        if(!categoria) {
-            setProducts(data)
-            return
-        }
+        const productos = await listarDatos()
 
-        getCategoria()
-        if(categoria && !dataCategoria) {
-            const empty = []            
-            setProducts(empty)
-            return
-        }
-
-        const newProducts = data.filter(row => row.categorias == dataCategoria._id)
-        setProducts(newProducts)
-    }, [categoria])
-
-    useEffect(() => {
-        if(!query) return
+        if(isInHome) { return }
         
+        const datos_categoria = await getCategoria()
+
+        if(!categoria && !query) {
+            console.log("hola", categoria, productos)
+            setProducts(productos)
+            return
+        }
+
+        // CATEGORIAS ----------------------------------------------
+
+        if(categoria && !datos_categoria && !query) {
+            const empty = []
+            setProducts(empty)
+            console.log("entra", products)
+            return
+        }
+
+        const newProducts = productos.filter(row => row.categorias == datos_categoria._id)
+        setProducts(newProducts)
+
+        // QUERY ---------------------------------------------------
+
+        if(!query) return (console.log("ENTRE ACAC=????"))
+            
+        if(!categoria && query) {
+            setProducts(productos)
+        }
+
         const newQuery = query.split('~')
         const newList = []
         newQuery.forEach(row => newList.push(row.split('-')))
         newList.forEach(row => row.shift())
-    }, [query])
-    
+
+        console.log(newQuery, newList)
+    }
+
+    useEffect(() => {
+        filters()
+    }, [categoria, query])
+
     const indexFin = currentPage * productsQty
     const indexIni = indexFin - productsQty
 
