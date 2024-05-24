@@ -5,6 +5,8 @@ import { getUser, updateUser } from "../services/getUser"
 export function useData() {
     const getDatos = async (model) => {
         const doc = await getData(model)
+        if (!doc) return null
+
         return doc
     }
     
@@ -22,17 +24,21 @@ export function useData() {
 
     const getOneDato = async (model, id) => {
         const doc = await getOneData(model, id)
+        if (!doc) return null
+
         return doc
     }
 
     const getProfile = async () => {
         const doc = await getUser()
+        if (!doc) return null
         
         return doc
     }
     
     const updateProfile = async (id, body) => {
         const doc = await updateUser(id, body)
+        if (!doc) return null
     
         return doc
     }

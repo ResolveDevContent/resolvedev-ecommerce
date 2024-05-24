@@ -7,18 +7,30 @@ import { useState, useEffect, useRef } from 'react'
 import { useCart } from 'resolvedev-cart'
 import { useParams } from 'react-router-dom'
 import { useData } from '../hook/useData'
+import { EmptyState } from '../components/EmptyState'
 
 export const Product = () => {
     const [ image, setImage ] = useState(Prod)
-    const { oneData, getOneDato } = useData()
     const [ inputState, setInputState ] = useState(0)
+    const [ data, setData ] = useState({})
     
+    const { getOneDato } = useData()
     const input = useRef()
     const { id } = useParams();
-
     const { addToCart, removeFromCart, cart } = useCart()
+    
+    const listarDato = async () => {
+        const dato = await getOneDato('productos', id)        
+        setData(dato)
+    }
 
-    const inCart = cart.some(prod => prod._id == oneData.id)
+    let inCart = false
+
+    console.log(data)
+    
+    if(data) {
+        inCart = cart.some(prod => prod._id == data.id)
+    }
 
     const changeImg = (e, img) => {
         e.preventDefault()
@@ -37,35 +49,35 @@ export const Product = () => {
     }
 
     const handleChangeCarrito = () => {
-        oneData.quantity = inputState
+        data.quantity = inputState
 
-        inCart ? removeFromCart(oneData)
-               : addToCart(oneData)                                    
+        inCart ? removeFromCart(data)
+               : addToCart(data)                                    
     }
 
     useEffect(() => {
         scrollTo(0,0)
         
-        getOneDato("productos", id)
-        console.log(oneData)
+        listarDato()
+        console.log(data)
     }, [])
 
 
-    return oneData ? (
+    return data ? (
         <>
             <header className="product-header filtros">
-                <span>Home <span style={{color: "black"}}>&gt;</span> Tienda<span style={{color: "black"}}> /</span><span className='nombre-product'>{oneData.nombre}</span></span>
+                <span>Home <span style={{color: "black"}}>&gt;</span> Tienda<span style={{color: "black"}}> /</span><span className='nombre-product'>{data.nombre}</span></span>
             </header>
             <section className="product-page">
                 <aside className="product-images">
-                    {oneData.imagenes && oneData.imagenes.length > 0 ? (
+                    {data.imagenes && data.imagenes.length > 0 ? (
                         <>
                             <figure>
-                                    <img src={oneData?.imagenes[0]} alt="" />
+                                    <img src={data?.imagenes[0]} alt="" />
 
                             </figure>
                             <ul>
-                                {oneData.imagenes.map((img, idx) => (
+                                {data.imagenes.map((img, idx) => (
                                     <li key={idx}>
                                         <figure>
                                             <img src={img} alt="" onClick={(e) => changeImg(e, img)} />
@@ -78,15 +90,15 @@ export const Product = () => {
                 </aside>
                 <article className="product-details">
                     <header>
-                        <strong>{oneData.nombre}</strong>
+                        <strong>{data.nombre}</strong>
                         <del>$1.000.000</del>
-                        <em>$ {oneData.fmt_precio}</em>
+                        <em>$ {data.fmt_precio}</em>
                         <div className="caracteristicas">
-                            {oneData.caracteristicas && oneData.caracteristicas.length > 0 ? (
+                            {data.caracteristicas && data.caracteristicas.length > 0 ? (
                                 <>
                                     <span>Caracter&iacute;sticas:</span>
                                     <ul>
-                                        {oneData.caracteristicas.map((carac, idx) => (
+                                        {data.caracteristicas.map((carac, idx) => (
                                             <li key={idx}>
                                                 {carac}
                                             </li>
@@ -99,14 +111,14 @@ export const Product = () => {
                     <ul className='product-actions'>
                         <li>
                             <div className='input'>
-                                <button onClick={() => handleClick(-oneData.piezas)}>
+                                <button onClick={() => handleClick(-data.piezas)}>
                                     <Minus />
                                 </button>
-                                <input type="number" defaultValue={oneData.piezas} 
+                                <input type="number" defaultValue={data.piezas} 
                                     value={inputState} ref={input}
                                     onChange={e => handleChange(e.target.value)}
                                     />
-                                <button onClick={() => handleClick(oneData.piezas)}>
+                                <button onClick={() => handleClick(data.piezas)}>
                                     <Plus />  
                                 </button>
                             </div>
@@ -131,10 +143,34 @@ export const Product = () => {
                     </ul>
                 </article>
             </section>
+            <div className='ficha-tecnica'>
+                <em>Ficha t&eacute;cnica</em>
+                {data.filtros && data.filtros.length > 0 ?
+                    <ul>
+                        {data.filtros.map(item => {
+                            return (
+                                <li>
+                                    <em>{item.filtro}</em>
+                                    <ul>
+                                        {item.opciones.map(row => {
+                                            return(
+                                                <li>
+                                                    <span>{row}</span>
+                                                </li>
+                                            )
+                                        })}
+                                    </ul>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                    : <EmptyState texto="No hay detalles" />
+                }
+            </div>
             <div className="product-description">
                 <strong>Descripci&oacute;n</strong>
                 <p>
-                    {oneData.descripcion}
+                    {data.descripcion}
                 </p>
             </div>
             {/* <Promociones titulo={"Productos Relacionados"}/> */}
