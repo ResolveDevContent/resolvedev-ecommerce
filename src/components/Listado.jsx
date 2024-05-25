@@ -168,8 +168,6 @@ export const Listado = ({isInHome}) => {
     const nProducts = editedProducts.length > 0 ? editedProducts.slice(indexIni, indexFin) : []
     const nPages = editedProducts.length > 0 ? Math.ceil(editedProducts.length / productsQty) : 0
 
-    console.log(nProducts)
-
     return (
         <>
             {!isInHome ? (
