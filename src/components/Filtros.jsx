@@ -1,12 +1,19 @@
-import { FilterContext } from '../context/Filter'
 import '../css/Filtros.css'
-
+import { useContext, useEffect, useState } from 'react'
 import { Filters, Close } from '../icons/Icons'
-import { useContext, useState } from 'react'
+import { FilterContext } from '../context/Filter'
+import { useData } from '../hook/useData'
 
 export const Filtros = ({setSelectValue}) => {
+    const [ filtros, setFiltros] = useState([])
+    const { getDatos } = useData()
     const [ filters, setFilters ] = useState({})
     const { setQuery } = useContext(FilterContext)
+
+    const listarDatos = async () => {
+        const datos = await getDatos('filtros')
+        setFiltros(datos)
+    }
 
     const handleChange = (e) => {
         setSelectValue(e.target.value)
@@ -62,6 +69,10 @@ export const Filtros = ({setSelectValue}) => {
         setQuery(queryFilter)
     }
 
+    useEffect(() => {
+        listarDatos()
+    }, [])
+
     return (
         <section className="filtros">
             <div className="filter">
@@ -77,92 +88,33 @@ export const Filtros = ({setSelectValue}) => {
                                 <Close />
                             </label>
                             <ul>
-                                <li>
-                                    <article className='aside-filtros-filter'>
-                                        <input type="radio" name="radio-fitros" id="filtro-color"/>
-                                        <label htmlFor="filtro-color">Color</label>
-                                        <div className='filter-accordeon'>
-                                            <ul>
-                                                <li>
-                                                    <input type="checkbox" 
-                                                        name='color' 
-                                                        id='color-marron' 
-                                                        value='marron'
-                                                        onChange={changeFilters}
-                                                    />
-                                                    <label htmlFor='color-marron'>
-                                                        Marron
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input type="checkbox" 
-                                                        name='color' 
-                                                        id='color-rojo' 
-                                                        value='rojo'
-                                                        onChange={changeFilters}
-                                                    />
-                                                    <label htmlFor='color-rojo'>
-                                                        Rojo
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input type="checkbox" 
-                                                        name='color' 
-                                                        id='color-beige' 
-                                                        value='beige'
-                                                        onChange={changeFilters}
-                                                    />
-                                                    <label htmlFor='color-beige'>
-                                                        Beige
-                                                    </label>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </article>
-                                </li>
-                                <li>
-                                    <article className='aside-filtros-filter'>
-                                        <input type="radio" name="radio-fitros" id="filtro-tipo"/>
-                                        <label htmlFor="filtro-tipo">Tipo</label>
-                                        <div className='filter-accordeon'>
-                                            <ul>
-                                                <li>
-                                                    <input type="checkbox" 
-                                                        name='tipo' 
-                                                        id='tipo-deco' 
-                                                        value='deco'
-                                                        onChange={changeFilters}
-                                                    />
-                                                    <label htmlFor='tipo-deco'>
-                                                        Deco
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input type="checkbox" 
-                                                        name='tipo' 
-                                                        id='tipo-lana'
-                                                        value='lana'
-                                                        onChange={changeFilters}
-                                                    />
-                                                    <label htmlFor='tipo-lana'>
-                                                        Lana
-                                                    </label>
-                                                </li>
-                                                <li>
-                                                    <input type="checkbox" 
-                                                        name='tipo' 
-                                                        id='tipo-tejido'
-                                                        value='tejido'
-                                                        onChange={changeFilters}
-                                                    />
-                                                    <label htmlFor='tipo-tejido'>
-                                                        Tejido
-                                                    </label>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </article>
-                                </li>
+                                {filtros && filtros.length > 0 ? (
+                                    filtros.map((filtrosItem, i) => (
+                                        <li key={filtrosItem._id}>
+                                            <article className='aside-filtros-filter'>
+                                                <input type="radio" name="radio-fitros" id={"filtro-" + filtrosItem._id}/>
+                                                <label htmlFor={"filtro-" + filtrosItem._id}>{filtrosItem.nombre}</label>
+                                                <div className='filter-accordeon'>
+                                                    <ul>
+                                                        {filtrosItem.opciones.map(opcion => (
+                                                            <li key={opcion._id}>
+                                                                <input type="checkbox" 
+                                                                    name={filtrosItem.nombre.toLowerCase()}
+                                                                    id={filtrosItem.nombre.toLowerCase() + "-" + opcion.nombre.toLowerCase()} 
+                                                                    value={opcion.nombre.toLowerCase()}
+                                                                    onChange={changeFilters}
+                                                                />
+                                                                <label htmlFor={filtrosItem.nombre.toLowerCase() + "-" + opcion.nombre.toLowerCase()} >
+                                                                    {opcion.nombre}
+                                                                </label>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            </article>
+                                        </li>
+                                    ))
+                                ) : null}
                                 <li className='btn-carrito'>
                                     <button onClick={(e) => applyFilters(e)}>Aplicar filtros</button>
                                 </li>

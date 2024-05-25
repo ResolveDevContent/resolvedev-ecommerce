@@ -19,7 +19,7 @@ export const Listado = ({isInHome}) => {
     const [ selectValue, setSelectValue ] = useState("")
     
     const { categoria } = useParams()
-    const { getDatos, getDatosByCategoria } = useData()
+    const { getDatos, getDatosByCategoria, getFiltros } = useData()
     const { query } = useContext(FilterContext)
 
     const listarDatos = async () => {
@@ -30,6 +30,14 @@ export const Listado = ({isInHome}) => {
 
     const getCategoria = async () => {
         const datos = await getDatosByCategoria(categoria)
+
+        if(!datos || datos.length == 0) { return; }
+
+        return datos
+    }
+
+    const getDataFiltros = async (filtros, opciones) => {
+        const datos = await getFiltros(filtros, opciones)
 
         if(!datos || datos.length == 0) { return; }
 
@@ -81,10 +89,21 @@ export const Listado = ({isInHome}) => {
 
         const newQuery = query.split('~')
         const newList = []
+        const filtros = []
         newQuery.forEach(row => newList.push(row.split('-')))
-        newList.forEach(row => row.shift())
 
-        console.log(newQuery, newList)
+        newList.forEach((row) => {
+            filtros.push(row[0])
+        })
+
+        newList.forEach((row) => {
+            row.shift()
+        })
+
+        const dbFiltros = await getDataFiltros(filtros, newList)
+        console.log(dbFiltros)
+
+        // console.log(newQuery, newList, filtros)
     }
 
     const filterBySelect = (productos) => {
