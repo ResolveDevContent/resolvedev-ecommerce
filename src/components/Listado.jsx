@@ -16,6 +16,7 @@ export const Listado = ({isInHome}) => {
     const [ productsQty, setProductsQty ] = useState(20)
     const [ currentPage, setCurrentPage] = useState(1)
     const [ products, setProducts] = useState([])
+    const [ editedProducts, setEditedProducts] = useState([])
     const [ selectValue, setSelectValue ] = useState("")
     
     const { categoria } = useParams()
@@ -54,16 +55,17 @@ export const Listado = ({isInHome}) => {
         if(!categoria && !query && !selectValue) {
             console.log("hola", categoria, productos)
             setProducts(productos)
+            setEditedProducts(productos)
             return
         }
                 
-        if(isInHome) { return }
+        if(isInHome) return
         
         // SELECT --------------------------------------------------
 
         if(selectValue) {
             console.log("select")
-            setProducts(filterBySelect(productos))
+            setEditedProducts(filterBySelect(productos))
             return
         }
 
@@ -71,24 +73,23 @@ export const Listado = ({isInHome}) => {
 
         if(categoria && !datos_categoria && !query) {
             const empty = []
-            setProducts(empty)
+            setEditedProducts(empty)
             console.log("entra", products)
             return
         }
 
         const newProducts = productos.filter(row => row.categorias == datos_categoria._id)
-        setProducts(newProducts)
+        setEditedProducts(newProducts)
 
         // QUERY ---------------------------------------------------
 
         if(!query) return (console.log("ENTRE ACAC=????"))
             
         if(!categoria && query) {
-            setProducts(productos)
+            setEditedProducts(productos)
         }
 
         const newQuery = query.split('~')
-        const newList = []
         const filtros = []
         const opciones = []
 
@@ -109,15 +110,12 @@ export const Listado = ({isInHome}) => {
         })
 
         const dbFiltros = await getDataFiltros(filtros, opciones)
-        console.log(dbFiltros)
 
         if(dbFiltros && dbFiltros.length > 0) {
             let flag;
 
             for(const filters of dbFiltros) {  
-                console.log(products, "entraaaaaaaaaaaaa")  
                 const prodFilters = products.filter((producto) => {
-                    console.log("entra??")
                     producto.filtros.forEach((filtro) => {
                         if(filtro.filtro == filters.filtro) {
                             flag = true
@@ -130,11 +128,9 @@ export const Listado = ({isInHome}) => {
                             })
                         }
                     })
-                    console.log(flag)
                     return flag
                 })
-                console.log(prodFilters)
-                setProducts(prodFilters)
+                setEditedProducts(prodFilters)
             }
         }
     }
@@ -169,8 +165,10 @@ export const Listado = ({isInHome}) => {
     const indexFin = currentPage * productsQty
     const indexIni = indexFin - productsQty
 
-    const nProducts = products.length > 0 ? products.slice(indexIni, indexFin) : []
-    const nPages = products.length > 0 ? Math.ceil(products.length / productsQty) : 0
+    const nProducts = editedProducts.length > 0 ? editedProducts.slice(indexIni, indexFin) : []
+    const nPages = editedProducts.length > 0 ? Math.ceil(editedProducts.length / productsQty) : 0
+
+    console.log(nProducts)
 
     return (
         <>

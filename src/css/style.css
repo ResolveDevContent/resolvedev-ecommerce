@@ -55,6 +55,27 @@ textarea {
     margin-top: 1em;
 }
 
+/* DATA-BADGE ------------------------- */
+[data-badge] {
+    position: relative;
+}
+
+[data-badge]::before {
+    content: attr(data-badge);
+    position: absolute;
+    top: -.5em;
+    right: -.75em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #B88E2F;
+    color: white;
+    width: 1.5em;
+    height: 1.5em;
+    font-size: .75em;
+    border-radius: 50%;
+}
+
 /* BREADCUMBS ------------------------- */
 
 .breadcumbs {

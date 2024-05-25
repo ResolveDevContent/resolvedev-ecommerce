@@ -4,11 +4,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { useData } from '../hook/useData'
 import { useEffect, useState } from 'react'
+import { useCart } from 'resolvedev-cart'
 
 export const Navbar = () => {
     const [ data, setData ] = useState([])
     const { getDatos } = useData()
     const navigate = useNavigate()
+    const { cart } = useCart()
 
     const listarDatos = async () => {
         const datos = await getDatos('categorias')
@@ -108,7 +110,7 @@ export const Navbar = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to='/carrito'>
+                                <Link to='/carrito' data-badge={cart.length}>
                                     <Cart />
                                 </Link>
                             </li>
