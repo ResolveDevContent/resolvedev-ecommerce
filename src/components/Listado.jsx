@@ -90,20 +90,53 @@ export const Listado = ({isInHome}) => {
         const newQuery = query.split('~')
         const newList = []
         const filtros = []
-        newQuery.forEach(row => newList.push(row.split('-')))
+        const opciones = []
 
-        newList.forEach((row) => {
-            filtros.push(row[0])
+        let split = []
+        newQuery.forEach(row => {
+            filtros.push(row.split('-')[0])
+            split.push(row.split("-"))
         })
 
-        newList.forEach((row) => {
+        split.forEach(row => {
             row.shift()
         })
 
-        const dbFiltros = await getDataFiltros(filtros, newList)
+        split.forEach(row => {
+            row.forEach(doc => {
+                opciones.push(doc)
+            })
+        })
+
+        const dbFiltros = await getDataFiltros(filtros, opciones)
         console.log(dbFiltros)
 
-        // console.log(newQuery, newList, filtros)
+        if(dbFiltros && dbFiltros.length > 0) {
+            let flag;
+
+            for(const filters of dbFiltros) {  
+                console.log(products, "entraaaaaaaaaaaaa")  
+                const prodFilters = products.filter((producto) => {
+                    console.log("entra??")
+                    producto.filtros.forEach((filtro) => {
+                        if(filtro.filtro == filters.filtro) {
+                            flag = true
+
+                            filters.opciones.forEach((opt) => {
+                                if (!filtro.opciones.includes(opt)) {
+                                    flag = false
+                                    return false
+                                }
+                            })
+                        }
+                    })
+                    console.log(flag)
+                    return flag
+                })
+                console.log(prodFilters)
+                setProducts(prodFilters)
+            }
+        }
     }
 
     const filterBySelect = (productos) => {

@@ -25,7 +25,6 @@ export function useData() {
     const getFiltros = async (filtros, opciones) => {
         if(filtros.length == 0) return ('Filtros does not exist')
 
-        console.log(filtros, opciones)
         const dbFiltros = await getData("filtros")
         if(!dbFiltros || dbFiltros.length == 0) return null
         
@@ -35,13 +34,15 @@ export function useData() {
             const prodFiltros = dbFiltros.find((filter) => filter.nombre.toLowerCase() == filtro)
             if(!prodFiltros) return null
 
+            const filtroOpciones = []
             for(const opcion of opciones) {
                 const filtroOpcion = prodFiltros.opciones.find((opt) => opt.nombre.toLowerCase() == opcion)
                 if(!filtroOpcion) return null
 
-                    
-                filters.push({filtro: prodFiltros._id, opcion: filtroOpcion._id})
+                filtroOpciones.push(filtroOpcion._id)
             }
+
+            filters.push({filtro: prodFiltros._id, opciones: filtroOpciones})
         }
         
         return filters
