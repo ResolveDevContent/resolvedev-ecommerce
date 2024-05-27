@@ -112,6 +112,7 @@
 .producto .price > del {
     font-weight: 400;
     color: #B0B0B0;
+    height: 1.25em;
 }
 .producto > footer .btn-carrito {
     margin-top: 1em;

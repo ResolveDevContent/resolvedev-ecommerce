@@ -156,7 +156,7 @@ textarea {
 }
 
 .carousel .producto {
-    min-width: 18em;
+    width: 18em;
     scroll-snap-align: center;
 }
 

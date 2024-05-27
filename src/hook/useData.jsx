@@ -1,10 +1,20 @@
 import { getData } from "../services/getData"
+import { getDatosRelacionados } from "../services/getDatosRelacionados"
 import { getOneData } from "../services/getOneData"
 import { getUser, updateUser } from "../services/getUser"
 
 export function useData() {
     const getDatos = async (model) => {
         const doc = await getData(model)
+        if (!doc) return null
+
+        return doc
+    }
+
+    const getDataRelacionados = async (model, categoria) => {
+        console.log(categoria)
+        const doc = await getDatosRelacionados(model, categoria)
+        console.log(doc)
         if (!doc) return null
 
         return doc
@@ -69,5 +79,5 @@ export function useData() {
         return doc
     }
 
-    return { getDatos, getDatosByCategoria, getOneDato, getProfile, updateProfile, getFiltros }
+    return { getDatos, getDataRelacionados, getDatosByCategoria, getOneDato, getProfile, updateProfile, getFiltros }
 } 

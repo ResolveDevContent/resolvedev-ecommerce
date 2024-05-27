@@ -14,14 +14,16 @@ export const Product = () => {
     const [ image, setImage ] = useState(Prod)
     const [ inputState, setInputState ] = useState(0)
     const [ data, setData ] = useState({})
+    const [ relacionados, setRelacionados ] = useState([])
     
-    const { getOneDato } = useData()
+    const { getOneDato, getDataRelacionados } = useData()
     const input = useRef()
     const { id } = useParams();
     const { addToCart, removeFromCart, cart } = useCart()
     
     const listarDato = async () => {
         const dato = await getOneDato('productos', id)
+        const listRelacionados = await getDataRelacionados('productos', dato.categorias)
         const filtros = await getData('filtros')
 
         dato.filtros.forEach((row) => {
@@ -42,11 +44,15 @@ export const Product = () => {
         })
 
         setData(dato)
+
+        const newRelacionados = listRelacionados.filter(item => item._id != dato._id)
+
+        setRelacionados(newRelacionados)
     }
 
     let inCart = false
 
-    console.log(data)
+    console.log(data,relacionados)
     
     if(data) {
         inCart = cart.some(prod => prod._id == data.id)
@@ -79,7 +85,6 @@ export const Product = () => {
         scrollTo(0,0)
         
         listarDato()
-        console.log(data)
     }, [])
 
 
@@ -172,9 +177,9 @@ export const Product = () => {
                                 <li key={item._id}>
                                     <em>{item.fmt_filtro}</em>
                                     <ul>
-                                        {item.fmt_opciones.map(row => {
+                                        {item.fmt_opciones.map((row, idx) => {
                                             return(
-                                                <li>
+                                                <li key={idx}>
                                                     <span>{row}</span>
                                                 </li>
                                             )
@@ -193,7 +198,10 @@ export const Product = () => {
                     {data.descripcion}
                 </p>
             </div>
-            {/* <Promociones titulo={"Productos Relacionados"}/> */}
+            {relacionados.length > 0 ? 
+                <Promociones titulo={"Productos Relacionados"} list={relacionados}/>
+                : null
+            }
             <Features />
         </>
     ) : null

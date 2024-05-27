@@ -3,7 +3,7 @@ import { useRef } from 'react'
 import { Arrows } from './Arrows';
 import { ProductCard } from './ProductCard';
 
-export const Promociones = ({titulo}) => {
+export const Promociones = ({titulo, list}) => {
     const scrollable = useRef();
 
     return (
@@ -14,12 +14,11 @@ export const Promociones = ({titulo}) => {
             <div className='carousel'>
                 <Arrows scrollable={scrollable}/>
                 <ul ref={scrollable}>
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
+                    {list.map(item => {
+                        return(
+                            <ProductCard key={item._id} item={item}/>
+                        )
+                    })}
                 </ul>
             </div>
         </section>
