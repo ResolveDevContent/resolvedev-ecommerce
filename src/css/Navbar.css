@@ -40,13 +40,13 @@
 
 .navbar-items .navbar-categorias {
     position: relative;
-}
-
-.navbar-items .navbar-categorias {
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.navbar-items .navbar-categorias label {
+    cursor: pointer;
 }
 
 .navbar-items .navbar-categorias input,
