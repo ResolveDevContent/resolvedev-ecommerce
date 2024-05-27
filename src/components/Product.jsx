@@ -8,6 +8,7 @@ import { useCart } from 'resolvedev-cart'
 import { useParams } from 'react-router-dom'
 import { useData } from '../hook/useData'
 import { EmptyState } from '../components/EmptyState'
+import { getData } from '../services/getData'
 
 export const Product = () => {
     const [ image, setImage ] = useState(Prod)
@@ -20,7 +21,26 @@ export const Product = () => {
     const { addToCart, removeFromCart, cart } = useCart()
     
     const listarDato = async () => {
-        const dato = await getOneDato('productos', id)        
+        const dato = await getOneDato('productos', id)
+        const filtros = await getData('filtros')
+
+        dato.filtros.forEach((row) => {
+            row.fmt_opciones = []
+        })
+
+        dato.filtros.forEach((row) => {
+            const filtro = filtros.find((filter) => filter._id === row.filtro)
+            const opciones = filtro.opciones.filter((filter) => { return row.opciones.filter((opt) => filter._id === opt._id)})
+            
+            row.fmt_filtro = filtro.nombre;
+
+            if(opciones.length > 0) {
+                opciones.forEach((opt) => {
+                    row.fmt_opciones.push(opt.nombre)
+                })
+            }
+        })
+
         setData(dato)
     }
 
@@ -150,9 +170,9 @@ export const Product = () => {
                         {data.filtros.map(item => {
                             return (
                                 <li>
-                                    <em>{item.filtro}</em>
+                                    <em>{item.fmt_filtro}</em>
                                     <ul>
-                                        {item.opciones.map(row => {
+                                        {item.fmt_opciones.map(row => {
                                             return(
                                                 <li>
                                                     <span>{row}</span>
