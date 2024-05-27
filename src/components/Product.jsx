@@ -116,7 +116,7 @@ export const Product = () => {
                 <article className="product-details">
                     <header>
                         <strong>{data.nombre}</strong>
-                        <del>$1.000.000</del>
+                        <del>{data.fmt_modified_price}</del>
                         <em>$ {data.fmt_precio}</em>
                         <div className="caracteristicas">
                             {data.caracteristicas && data.caracteristicas.length > 0 ? (

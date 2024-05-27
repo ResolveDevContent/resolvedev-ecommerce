@@ -1,19 +1,10 @@
 import { Link } from 'react-router-dom'
 import { useCart } from 'resolvedev-cart'
-import { fmtImporte } from '../utils/site'
 
 export const ProductCard = ({item}) => {
     const { addToCart, removeFromCart, cart } = useCart()
-    const { _id, imagenes, nombre, caracteristicas, precio, fmt_precio, descuento } = item
+    const { _id, imagenes, nombre, caracteristicas, fmt_modified_price, fmt_precio, descuento } = item
     const inCart = cart.some(prod => prod._id == item._id)
-
-    let modifiedPrice = 0
-    let fmt_modified_price = ''
-    if(descuento > 0) {
-        modifiedPrice = Number(precio) + Number((Number(precio) * (Number(descuento) / 100)).toFixed(2))
-        fmt_modified_price = fmtImporte(modifiedPrice)
-        fmt_modified_price = '$ ' + fmt_modified_price
-    }
 
     return (
         <li className="producto" data-id={_id}>

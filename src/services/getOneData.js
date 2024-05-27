@@ -12,6 +12,16 @@ export const getOneData = async (model, id) => {
             json.fmt_precio = fmtImporte(json.precio)
         }
 
+        let price = 0
+        let modifiedPrice = ''
+        if(json.descuento > 0) {
+            price = Number(json.precio) + Number((Number(json.precio) * (Number(json.descuento) / 100)).toFixed(2))
+            modifiedPrice = fmtImporte(price)
+            modifiedPrice = '$ ' + modifiedPrice
+        }
+
+        json.fmt_modified_price = modifiedPrice
+
         return json
     } catch (err){
         throw new Error('Error al obtener los datos')
