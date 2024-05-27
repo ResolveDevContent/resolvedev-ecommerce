@@ -53,7 +53,7 @@ export const CartProducts = ({products}) => {
                                     <Minus />
                                 </button>
                                 <input type="number" defaultValue={products[row.id].quantity} value={products[row.id].quantity}
-                                    onChange={(e) => { updateQuantity(products[row.id]), e.target.value, false} }
+                                    onChange={(e) => { updateQuantity(products[row.id], e.target.value, false)} }
                                 />
                                 <button onClick={(e) => { updateQuantity(products[row.id], Number(products[row.id].piezas), true)} }>
                                     <Plus />   
