@@ -2,6 +2,7 @@ import Cookies from 'js-cookie'
 
 export const getUser = async () => {
     const token = Cookies.get("token-tienda");
+    console.log(token)
 
     try {
         const response = await fetch(`http://localhost:3000/auth/tienda/perfil`, {
