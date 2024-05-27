@@ -19,7 +19,6 @@ export const Listado = ({isInHome}) => {
     const [ products, setProducts] = useState([])
     const [ editedProducts, setEditedProducts] = useState([])
     const [ selectValue, setSelectValue ] = useState("")
-    const [ search, setSearch ] = useState("")
     
     const { categoria } = useParams()
     const { getDatos, getDatosByCategoria, getFiltros } = useData()
