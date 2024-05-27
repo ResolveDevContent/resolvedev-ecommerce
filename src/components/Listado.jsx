@@ -2,17 +2,18 @@ import './prod.css'
 import '../css/Filtros.css'
 
 import { ProductCard } from './ProductCard'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { Features } from './Features'
 import { Breadcumb } from "./Breadcumb.jsx"
 import { Paginator } from "./Paginator.jsx"
 import { Filtros } from "./Filtros.jsx"
-import { useContext, useEffect, useState } from 'react'
+import { useCallback, useContext, useEffect, useState } from 'react'
 import { useData } from '../hook/useData'
 import { EmptyState } from './EmptyState.jsx'
 import { FilterContext } from '../context/Filter.jsx'
 
 export const Listado = ({isInHome}) => {
+    const [searchParams, setSearchParams] = useSearchParams();
     const [ productsQty, setProductsQty ] = useState(20)
     const [ currentPage, setCurrentPage] = useState(1)
     const [ products, setProducts] = useState([])
@@ -46,14 +47,21 @@ export const Listado = ({isInHome}) => {
         return datos
     }
 
+    const updateSearch = useCallback((productos) => {
+        if(searchParams.get("search")) {
+            
+            
+            return productsBySearch
+        }
+    }, [searchParams.get("search")])
+
     const filters = async () => {
         // TIENDA SIN FILTROS ---------------------------------------
 
         const productos = await listarDatos()
         const datos_categoria = await getCategoria()
 
-        const url = new URL(window.location.href)
-        setSearch(url.searchParams.get("search"))
+        const search = searchParams.get("search")
 
         if(!categoria && !query && !selectValue && !search) {
             console.log("hola", categoria, productos)
@@ -72,17 +80,9 @@ export const Listado = ({isInHome}) => {
             return
         }
 
-        // SEARCH --------------------------------------------------
-
-        if(search) {
-            const productsBySearch = productos.filter((row => row.nombre.toLowerCase().includes(search)))
-            setEditedProducts(productsBySearch)
-            console.log(productsBySearch, search, editedProducts)
-        }
-
         // CATEGORIAS ----------------------------------------------
 
-        if(categoria && !datos_categoria && !query) {
+        if(categoria && !datos_categoria && !query && !search) {
             const empty = []
             setEditedProducts(empty)
             console.log("entra", products)
@@ -91,6 +91,14 @@ export const Listado = ({isInHome}) => {
 
         const newProducts = productos.filter(row => row.categorias == datos_categoria._id)
         setEditedProducts(newProducts)
+
+        // SEARCH --------------------------------------------------
+
+        if(search) {
+            const productsBySearch = productos.filter((row => row.nombre.toLowerCase().includes(search)))
+            setEditedProducts(productsBySearch)
+            console.log(productsBySearch, search, editedProducts)
+        }
 
         // QUERY ---------------------------------------------------
 
@@ -180,7 +188,7 @@ export const Listado = ({isInHome}) => {
 
     useEffect(() => {
         filters()
-    }, [categoria, query, selectValue, search])
+    }, [categoria, query, selectValue, searchParams.get("search")])
 
     const indexFin = currentPage * productsQty
     const indexIni = indexFin - productsQty
