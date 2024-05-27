@@ -49,10 +49,12 @@ export const Listado = ({isInHome}) => {
         // TIENDA SIN FILTROS ---------------------------------------
 
         const productos = await listarDatos()
-
         const datos_categoria = await getCategoria()
-        
-        if(!categoria && !query && !selectValue) {
+
+        const url = new URL(window.location.href)
+        const search = url.searchParams.get("search")
+
+        if(!categoria && !query && !selectValue && !search) {
             console.log("hola", categoria, productos)
             setProducts(productos)
             setEditedProducts(productos)
@@ -67,6 +69,13 @@ export const Listado = ({isInHome}) => {
             console.log("select")
             setEditedProducts(filterBySelect(productos))
             return
+        }
+
+        // SEARCH --------------------------------------------------
+
+        if(search) {
+            const productsBySearch = productos.filter((row => row.nombre.toLowerCase().includes(search)))
+            setEditedProducts(productsBySearch)
         }
 
         // CATEGORIAS ----------------------------------------------
