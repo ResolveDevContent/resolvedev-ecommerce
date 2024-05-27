@@ -11,7 +11,6 @@ import { useData } from '../hook/useData'
 
 export const User = () => {
     const [profile, setProfile] = useState({})
-    const [dataProfile, setDataProfile] = useState({})
     const [error, setError] = useState('')
  
     const { auth, setAuth } = useContext(AuthContext)
@@ -75,7 +74,7 @@ export const User = () => {
                 <header>
                     <img src={UserImg} alt="" />
                     <div>
-                        <em>Nombre Usuario</em>
+                        <em>{profile.name}</em>
                         <button onClick={handleLogout}>
                             <Exit />
                         </button>
