@@ -18,6 +18,7 @@ export const Listado = ({isInHome}) => {
     const [ products, setProducts] = useState([])
     const [ editedProducts, setEditedProducts] = useState([])
     const [ selectValue, setSelectValue ] = useState("")
+    const [ search, setSearch ] = useState("")
     
     const { categoria } = useParams()
     const { getDatos, getDatosByCategoria, getFiltros } = useData()
@@ -52,7 +53,7 @@ export const Listado = ({isInHome}) => {
         const datos_categoria = await getCategoria()
 
         const url = new URL(window.location.href)
-        const search = url.searchParams.get("search")
+        setSearch(url.searchParams.get("search"))
 
         if(!categoria && !query && !selectValue && !search) {
             console.log("hola", categoria, productos)
@@ -76,6 +77,7 @@ export const Listado = ({isInHome}) => {
         if(search) {
             const productsBySearch = productos.filter((row => row.nombre.toLowerCase().includes(search)))
             setEditedProducts(productsBySearch)
+            console.log(productsBySearch, search, editedProducts)
         }
 
         // CATEGORIAS ----------------------------------------------
@@ -178,7 +180,7 @@ export const Listado = ({isInHome}) => {
 
     useEffect(() => {
         filters()
-    }, [categoria, query, selectValue])
+    }, [categoria, query, selectValue, search])
 
     const indexFin = currentPage * productsQty
     const indexIni = indexFin - productsQty
