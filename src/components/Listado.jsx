@@ -47,14 +47,6 @@ export const Listado = ({isInHome}) => {
         return datos
     }
 
-    const updateSearch = useCallback((productos) => {
-        if(searchParams.get("search")) {
-            
-            
-            return productsBySearch
-        }
-    }, [searchParams.get("search")])
-
     const filters = async () => {
         // TIENDA SIN FILTROS ---------------------------------------
 
