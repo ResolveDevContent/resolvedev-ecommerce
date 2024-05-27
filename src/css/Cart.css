@@ -303,10 +303,14 @@
 .cart-features .accordeon ul li {
     display: flex;
     gap: 0.5em;
+    border-radius: .5em;
+    padding: 1em;
+    box-shadow: 2px 2px 10px 0px #80808050;
 }
 
 .cart-features .accordeon ul li > input {
-    background-color: red;
+    accent-color: #B88E2F;
+    width: 1.25em;
 }
 
 .cart-features .accordeon .info-contacto {
@@ -316,6 +320,8 @@
 
 .cart-features .accordeon .info-contacto li {
     display: block;
+    border: none;
+    box-shadow: none;
 }
 
 @media screen and (max-width: 959px) {
