@@ -169,7 +169,7 @@ export const Product = () => {
                     <ul>
                         {data.filtros.map(item => {
                             return (
-                                <li>
+                                <li key={item._id}>
                                     <em>{item.fmt_filtro}</em>
                                     <ul>
                                         {item.fmt_opciones.map(row => {
