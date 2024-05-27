@@ -135,6 +135,7 @@ export const Filtros = ({setSelectValue}) => {
                         <select name="sort" id="sort" onChange={handleChange}>
                             <option value="">Por defecto</option>
                             <option value="nombre">Nombre</option>
+                            <option value="descuento">Descuento</option>
                             <option value="mayor">Mayor precio</option>
                             <option value="menor">Menor precio</option>
                         </select>

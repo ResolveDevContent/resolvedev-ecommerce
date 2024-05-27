@@ -156,6 +156,15 @@ export const Listado = ({isInHome}) => {
             return filterProducts
         }
 
+
+        if(selectValue == "descuento") {
+            const filterProducts = productos.filter((item) => item.descuento > 0);
+
+            if(filterProducts.length > 0) {
+                return filterProducts
+            }
+        }
+
     }
 
     useEffect(() => {
