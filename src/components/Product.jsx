@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom'
 import { useData } from '../hook/useData'
 import { EmptyState } from '../components/EmptyState'
 import { getData } from '../services/getData'
+import { Loading } from './Loading'
 
 export const Product = () => {
     const [ image, setImage ] = useState(Prod)
@@ -16,7 +17,7 @@ export const Product = () => {
     const [ data, setData ] = useState({})
     const [ relacionados, setRelacionados ] = useState([])
     
-    const { getOneDato, getDataRelacionados } = useData()
+    const { getOneDato, getDataRelacionados, loading } = useData()
     const input = useRef()
     const { id } = useParams();
     const { addToCart, removeFromCart, cart } = useCart()
@@ -88,7 +89,9 @@ export const Product = () => {
     }, [])
 
 
-    return data ? (
+    return loading ? (
+        <Loading />
+    ) : data ? (
         <>
             <header className="product-header filtros">
                 <span>Home <span style={{color: "black"}}>&gt;</span> Tienda<span style={{color: "black"}}> /</span><span className='nombre-product'>{data.nombre}</span></span>
@@ -203,6 +206,6 @@ export const Product = () => {
                 : null
             }
             <Features />
-        </>
+        </> 
     ) : null
 }

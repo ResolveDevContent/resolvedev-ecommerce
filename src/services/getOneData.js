@@ -1,6 +1,6 @@
 import { fmtImporte } from "../utils/site";
 
-export const getOneData = async (model, id) => {
+export const getOneData = async (model, id, setLoading) => {
     try {
         const response = await fetch(`http://localhost:3000/abm/${model}/listar/${id}`, {
             method: "GET"
@@ -22,6 +22,7 @@ export const getOneData = async (model, id) => {
 
         json.fmt_modified_price = modifiedPrice
 
+        setLoading(false)
         return json
     } catch (err){
         throw new Error('Error al obtener los datos')

@@ -5,10 +5,11 @@ import { NavLink } from 'react-router-dom'
 import { useData } from '../hook/useData'
 import { useEffect, useState } from 'react'
 import { useCart } from 'resolvedev-cart'
+import { Loading } from './Loading'
 
 export const Navbar = () => {
     const [ data, setData ] = useState([])
-    const { getDatos } = useData()
+    const { getDatos, loading } = useData()
     const navigate = useNavigate()
     const { cart } = useCart()
 
@@ -31,7 +32,9 @@ export const Navbar = () => {
         listarDatos()
     }, [])
 
-    return (
+    return loading ? (
+        <Loading />
+    ) : (
         <header>
             <nav className='navbar'>
                 <ul className='navbar-list'>

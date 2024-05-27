@@ -4,11 +4,12 @@ import { Arrows } from './Arrows'
 import { Link } from 'react-router-dom'
 import Cat from '../images/cat.jpg'
 import { useData } from '../hook/useData'
+import { Loading } from '../components/Loading'
 
 export const Categorias = () => {
     const [data, setData] = useState([])
     const scrollable = useRef();
-    const { getDatos } = useData()
+    const { getDatos, loading } = useData()
 
     const listarDatos = async () => {
         const datos = await getDatos('categorias')
@@ -19,7 +20,9 @@ export const Categorias = () => {
         listarDatos()
     }, [])
 
-    return (
+    return loading ? (
+        <Loading />
+    ) : (
         <>
             {data && data.length > 0 ? 
                 <section className="categorias">

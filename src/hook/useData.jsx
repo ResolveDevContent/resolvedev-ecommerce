@@ -1,11 +1,15 @@
+import { useState } from "react"
+
 import { getData } from "../services/getData"
 import { getDatosRelacionados } from "../services/getDatosRelacionados"
 import { getOneData } from "../services/getOneData"
 import { getUser, updateUser } from "../services/getUser"
 
 export function useData() {
+    const [ loading, setLoading ] = useState(true)
+
     const getDatos = async (model) => {
-        const doc = await getData(model)
+        const doc = await getData(model, setLoading)
         if (!doc) return null
 
         return doc
@@ -13,7 +17,7 @@ export function useData() {
 
     const getDataRelacionados = async (model, categoria) => {
         console.log(categoria)
-        const doc = await getDatosRelacionados(model, categoria)
+        const doc = await getDatosRelacionados(model, categoria, setLoading)
         console.log(doc)
         if (!doc) return null
 
@@ -23,7 +27,7 @@ export function useData() {
     const getDatosByCategoria = async (categoria) => {
         if(!categoria) return ('Categoria does not exist')
 
-        const categorias = await getData("categorias")
+        const categorias = await getData("categorias", setLoading)
         if(!categorias || categorias.length == 0) return null
         
         const prodCategoria = categorias.find((cat) => cat.nombre.toLowerCase() == categoria)
@@ -35,7 +39,7 @@ export function useData() {
     const getFiltros = async (filtros, opciones) => {
         if(filtros.length == 0) return ('Filtros does not exist')
 
-        const dbFiltros = await getData("filtros")
+        const dbFiltros = await getData("filtros", setLoading)
         if(!dbFiltros || dbFiltros.length == 0) return null
         
         const filters = []
@@ -59,7 +63,7 @@ export function useData() {
     }
 
     const getOneDato = async (model, id) => {
-        const doc = await getOneData(model, id)
+        const doc = await getOneData(model, id, setLoading)
         if (!doc) return null
 
         return doc
@@ -79,5 +83,5 @@ export function useData() {
         return doc
     }
 
-    return { getDatos, getDataRelacionados, getDatosByCategoria, getOneDato, getProfile, updateProfile, getFiltros }
+    return { getDatos, getDataRelacionados, getDatosByCategoria, getOneDato, getProfile, updateProfile, getFiltros, loading }
 } 

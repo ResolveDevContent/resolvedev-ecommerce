@@ -2,6 +2,7 @@ import './prod.css'
 import '../css/Filtros.css'
 
 import { ProductCard } from './ProductCard'
+import { Loading } from './Loading.jsx'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import { Features } from './Features'
 import { Breadcumb } from "./Breadcumb.jsx"
@@ -13,15 +14,15 @@ import { EmptyState } from './EmptyState.jsx'
 import { FilterContext } from '../context/Filter.jsx'
 
 export const Listado = ({isInHome}) => {
-    const [searchParams, setSearchParams] = useSearchParams();
-    const [ productsQty, setProductsQty ] = useState(20)
-    const [ currentPage, setCurrentPage] = useState(1)
-    const [ products, setProducts] = useState([])
-    const [ editedProducts, setEditedProducts] = useState([])
-    const [ selectValue, setSelectValue ] = useState("")
+    const [ searchParams, setSearchParams     ] = useSearchParams();
+    const [ productsQty, setProductsQty       ] = useState(20)
+    const [ currentPage, setCurrentPage       ] = useState(1)
+    const [ products, setProducts             ] = useState([])
+    const [ editedProducts, setEditedProducts ] = useState([])
+    const [ selectValue, setSelectValue       ] = useState("")
     
     const { categoria } = useParams()
-    const { getDatos, getDatosByCategoria, getFiltros } = useData()
+    const { getDatos, getDatosByCategoria, getFiltros, loading } = useData()
     const { query } = useContext(FilterContext)
 
     const listarDatos = async () => {
@@ -187,7 +188,9 @@ export const Listado = ({isInHome}) => {
     const nProducts = editedProducts.length > 0 ? editedProducts.slice(indexIni, indexFin) : []
     const nPages = editedProducts.length > 0 ? Math.ceil(editedProducts.length / productsQty) : 0
 
-    return (
+    return loading ? (
+        <Loading />
+    ) : (
         <>
             {!isInHome ? (
                 <>

@@ -3,10 +3,11 @@ import { useContext, useEffect, useState } from 'react'
 import { Filters, Close } from '../icons/Icons'
 import { FilterContext } from '../context/Filter'
 import { useData } from '../hook/useData'
+import { Loading } from './Loading'
 
 export const Filtros = ({setSelectValue}) => {
     const [ filtros, setFiltros] = useState([])
-    const { getDatos } = useData()
+    const { getDatos, loading } = useData()
     const [ filters, setFilters ] = useState({})
     const { setQuery } = useContext(FilterContext)
 
@@ -73,7 +74,9 @@ export const Filtros = ({setSelectValue}) => {
         listarDatos()
     }, [])
 
-    return (
+    return loading ? (
+        <Loading />
+    ) : (
         <section className="filtros">
             <div className="filter">
                 <ul>

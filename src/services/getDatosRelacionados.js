@@ -1,7 +1,6 @@
 import { fmtImporte } from "../utils/site"
 
-export const getDatosRelacionados = async (model, categoria) => {
-    console.log(categoria)
+export const getDatosRelacionados = async (model, categoria, setLoading) => {
     try {
         const response = await fetch(`http://localhost:3000/abm/${model}/listarRelacionados/${categoria}`, {
             method: "GET"
@@ -25,6 +24,7 @@ export const getDatosRelacionados = async (model, categoria) => {
             }
         });
 
+        setLoading(false)
         return json
     } catch (err){
         throw new Error('Error al obtener los datos')
