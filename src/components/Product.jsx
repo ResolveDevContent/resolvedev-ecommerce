@@ -17,7 +17,7 @@ export const Product = () => {
     const [ data, setData ] = useState({})
     const [ relacionados, setRelacionados ] = useState([])
     
-    const { getOneDato, getDataRelacionados, loading } = useData()
+    const { getDatos, getOneDato, getDataRelacionados, loading } = useData()
     const input = useRef()
     const { id } = useParams();
     const { addToCart, removeFromCart, cart } = useCart()
@@ -25,7 +25,7 @@ export const Product = () => {
     const listarDato = async () => {
         const dato = await getOneDato('productos', id)
         const listRelacionados = await getDataRelacionados('productos', dato.categorias)
-        const filtros = await getData('filtros')
+        const filtros = await getDatos('filtros')
 
         dato.filtros.forEach((row) => {
             row.fmt_opciones = []
@@ -101,8 +101,7 @@ export const Product = () => {
                     {data.imagenes && data.imagenes.length > 0 ? (
                         <>
                             <figure>
-                                    <img src={data?.imagenes[0]} alt="" />
-
+                                <img src={data?.imagenes[0]} alt="" />
                             </figure>
                             <ul>
                                 {data.imagenes.map((img, idx) => (

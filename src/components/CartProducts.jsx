@@ -1,5 +1,4 @@
 import { Plus, Minus, Trash } from "../icons/Icons"
-import Prod from '../images/prod.jpg'
 import { fmtImporte } from "../utils/site";
 import { useCart } from 'resolvedev-cart'
 
@@ -39,7 +38,7 @@ export const CartProducts = ({products}) => {
                 <>
                     <ul className='row' key={index}>
                         <li className='product-img'>
-                            <img src={row.imagenes[0]} alt='product-img' />
+                            <img src={row?.imagenes[0]} alt='product-img' />
                         </li>
                         <li>
                             <em>{row.nombre}</em>

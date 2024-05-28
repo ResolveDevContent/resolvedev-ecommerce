@@ -24,10 +24,12 @@ export const getData = async (model, setLoading) => {
             }
 
         });
-        
-        setLoading(false)
+
         return json
     } catch (err){
         throw new Error('Error al obtener los datos')
+    } finally {
+        setLoading(false)
     }
+
 }
