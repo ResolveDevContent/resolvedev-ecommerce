@@ -302,13 +302,22 @@
     transform: rotate(90deg);
 }
 
-.cart-features .accordeon ul {
+.cart-features .accordeon > ul {
     display: flex;
     flex-direction: column;
     gap: 1em;
 }
 
-.cart-features .accordeon ul li {
+.cart-features .accordeon > div {
+    padding: 2em 1em 0 1em;
+}
+
+.cart-features .accordeon > div > ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cart-features .accordeon > ul > li {
     display: flex;
     gap: 0.5em;
     border-radius: .5em;
@@ -319,6 +328,11 @@
 .cart-features .accordeon ul li > input {
     accent-color: #B88E2F;
     width: 1.25em;
+    cursor: pointer;
+}
+
+.cart-features .accordeon ul li > label {
+    cursor: pointer;
 }
 
 .cart-features .accordeon .info-contacto {

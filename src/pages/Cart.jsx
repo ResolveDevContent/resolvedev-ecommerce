@@ -6,6 +6,7 @@ import { CartFeatures } from '../components/CartFeatures'
 import { useEffect, useState } from 'react'
 import { EmptyState } from '../components/EmptyState'
 import { useCart } from 'resolvedev-cart'
+import { Link } from 'react-router-dom'
 
 export const Cart = () => {
     const { cart } = useCart()
@@ -34,6 +35,8 @@ export const Cart = () => {
         })
     }, [cart])
 
+    console.log(data)
+
     return (
         <>
             <Breadcumb titulo={"Carrito"} breadcumb={"Home > Carrito"}/>
@@ -53,22 +56,77 @@ export const Cart = () => {
                                         <label htmlFor="pay-mp">Mercado Pago</label>
                                     </li>
                                 </ul>
+                                {data.pay 
+                                    ? <div className='payMethod'>
+                                        {data.pay == "efectivo" 
+                                            ? <span>
+                                                Pago en sucursal en Av. los papa. Horario lunes a viernes de 8 a 12 y de 16.00 a 20.00
+                                            </span>
+                                            : <div className='btn-carrito'>
+                                                <Link>Mercado Pago</Link>
+                                            </div>
+                                        }
+                                    </div>
+                                    : null
+                                }
                             </CartFeatures>
                             <CartFeatures titulo={"Formas de envío"} id={"shipping"}>
                                 <ul>
                                     <li>
                                         <input type="radio" name="shipping" id="shipping-sucursal" value="sucursal:1000" onChange={handleChange}/>
-                                        <label htmlFor="shipping-sucursal">A sucursal</label>
+                                        <label htmlFor="shipping-sucursal">Sucursal</label>
                                     </li>
                                     <li>
                                         <input type="radio" name="shipping" id="shipping-domicilio" value="domicilio:2000" onChange={handleChange}/>
-                                        <label htmlFor="shipping-domicilio">A domicilio</label>
+                                        <label htmlFor="shipping-domicilio">Domicilio</label>
                                     </li>
                                     <li>
                                         <input type="radio" name="shipping" id="shipping-local" value="local:0" onChange={handleChange}/>
-                                        <label htmlFor="shipping-local">Retirar en local</label>
+                                        <label htmlFor="shipping-local">Chacabuco</label>
                                     </li>
                                 </ul>
+                                {data.shipping 
+                                    ? <div className='payMethod'>
+                                        {data.shipping == "sucursal:1000" 
+                                            ? <span>
+                                                Retiro en sucursal en Av. los papa. Horario lunes a viernes de 8 a 12 y de 16.00 a 20.00
+                                            </span>
+                                            : <ul>
+                                                <li>
+                                                    <div className='input'>
+                                                        <label>Calle</label>
+                                                        <input type="text" placeholder='Calle' name='calle' />
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div className='input'>
+                                                        <label>Numero</label>
+                                                        <input type="text" placeholder='Numero' name='numero' />
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div className='input'>
+                                                        <label>Departamento</label>
+                                                        <input type="text" placeholder='Depto. (opcional)' name='departamento' />
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div className='input'>
+                                                        <label>Codigo postal</label>
+                                                        <input type="text" placeholder='Codigo postal' name='codigo_postal'/>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div className='input'>
+                                                        <label>Telefono</label>
+                                                        <input type="text" placeholder='Telefono' name='telefono' />
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        }
+                                    </div>
+                                    : null
+                                }
                             </CartFeatures>
                             <CartFeatures titulo={"Información de contacto"} id={"info"}>
                                 <ul className='info-contacto'>
