@@ -13,9 +13,6 @@ export const Home = () => {
 
     const listarDatos = async () => {
         const datos = await getDatos('productos')
-        
-        console.log(datos)
-
         const filterData = datos.filter(row => row.descuento > 0)
 
         setData(filterData)

@@ -35,37 +35,37 @@ export const CartProducts = ({products}) => {
                     <span>Subtotal</span>
                 </li>
             </ul>
-            {rows.map((row, index) => (
+            {products.map((row, index) => (
                 <>
-                
                     <ul className='row' key={index}>
                         <li className='product-img'>
-                            <img src={Prod} alt='product-img' />
+                            <img src={row.imagenes[0]} alt='product-img' />
                         </li>
-                        {row.datos.map((product, idx) => (
-                            <li key={idx}>
-                                {row.datos[idx] == products[row.id].precio ? <em>$ {fmtImporte(product)}</em> : <span>{product}</span>}
-                            </li> 
-                        ))}
+                        <li>
+                            <em>{row.nombre}</em>
+                        </li>
+                        <li>
+                            <em>$ {fmtImporte(row.precio)}</em>
+                        </li>
                         <li>
                             <div className='input'>
-                                <button onClick={(e) => { updateQuantity(products[row.id], Number(products[row.id].piezas * -1), true)} }>
+                                <button onClick={(e) => { updateQuantity(row.id, Number(row.piezas * -1), true)} }>
                                     <Minus />
                                 </button>
-                                <input type="number" defaultValue={products[row.id].quantity} value={products[row.id].quantity}
-                                    onChange={(e) => { updateQuantity(products[row.id], e.target.value, false)} }
+                                <input type="number" defaultValue={row.quantity} value={row.quantity}
+                                    onChange={(e) => { updateQuantity(row.id, e.target.value, false)} }
                                 />
-                                <button onClick={(e) => { updateQuantity(products[row.id], Number(products[row.id].piezas), true)} }>
+                                <button onClick={(e) => { updateQuantity(row.id, Number(row.piezas), true)} }>
                                     <Plus />   
                                 </button>
                             </div>
                         </li>
                         <li>
-                            <span>$ {fmtImporte(products[row.id].precio * products[row.id].quantity)}</span>
+                            <span>$ {fmtImporte(row.precio * row.quantity)}</span>
                         </li>
                     </ul>
                     <div className="btn-carrito">
-                        <a href="#" onClick={(e) => { removeFromCart(products[row.id]) }}>
+                        <a href="#" onClick={(e) => { removeFromCart(row.id) }}>
                             <Trash />
                         </a>
                     </div>

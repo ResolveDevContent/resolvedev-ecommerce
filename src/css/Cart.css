@@ -68,6 +68,13 @@
 .table .row > li em {
     font-style: normal;
     font-weight: bolder;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    line-height: 1;
+    overflow-wrap: anywhere;
+    flex: 1;
 }
 
 .table .row > li input {
@@ -117,6 +124,7 @@
 .table .row .product-img > img {
     border-radius: .5em;
     width: 8em;
+    height: 8em;
 }
 
 .table > div > a {
