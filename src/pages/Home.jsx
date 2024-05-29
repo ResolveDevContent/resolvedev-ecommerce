@@ -9,10 +9,9 @@ import { Promociones } from "../components/Promociones.jsx"
 export const Home = () => {
     const [ data, setData ] = useState([])
     const [ tienda, setTienda ] = useState([])
+    const [ consulta, setConsulta ] = useState([])
     const { getDatos, getDatosTienda } = useData()
     const location = useLocation()
-
-    let dataConsulta = []
 
     const dataTienda = async () => {
         let datos = await getDatosTienda()
@@ -27,7 +26,8 @@ export const Home = () => {
         const filterData = datos.filter(row => row.descuento > 0 && row.carrito)
         setData(filterData)
 
-        dataConsulta = datos.filter(row => !row.carrito)
+        const dataConsulta = datos.filter(row => !row.carrito)
+        setConsulta(dataConsulta)
     }
 
     useEffect(() => {
@@ -37,7 +37,7 @@ export const Home = () => {
       listarDatos()
     }, [location])
 
-    console.log(tienda)
+    console.log(tienda, consulta)
 
     return (
         <>
@@ -46,8 +46,8 @@ export const Home = () => {
                 ? <Promociones titulo={tienda.titulo} list={data}/>
                 : null
             }
-            {dataConsulta.length > 0 
-                ? <Promociones titulo={"Prodcutos de consulta"} list={dataConsulta}/>
+            {consulta.length > 0 
+                ? <Promociones titulo={"Prodcutos de consulta"} list={consulta}/>
                 : null
             }
             <Categorias />
