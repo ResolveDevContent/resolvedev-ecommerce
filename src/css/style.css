@@ -76,6 +76,10 @@ textarea {
     border-radius: 50%;
 }
 
+[data-badge="0"]::before {
+    display: none;
+}
+
 /* BREADCUMBS ------------------------- */
 
 .breadcumbs {
@@ -175,7 +179,7 @@ textarea {
     transform: scale(1.125);
 }
 
-.carousel-item figure{
+.carousel-item figure {
     width: 20em;
     position: relative;
     overflow: hidden;
@@ -184,6 +188,8 @@ textarea {
 .carousel-item figure img {
     border-radius: .5em;
     transition: all 0.5s ease-in-out;
+    z-index: 2;
+    position: relative;
 }
 
 .carousel-item > a {
@@ -199,6 +205,7 @@ textarea {
     margin-bottom: 1em;
     background-color: #B88E2F80;
     padding: .75em 0;
+    z-index: 5;
 }
 
 .carousel-item figcaption > strong {
@@ -318,5 +325,14 @@ textarea {
     .input > input, 
     .input > textarea {
         font-size: 1em;
+    }
+
+    .carousel .producto {
+        min-width: 15em;
+        width: 15em;
+    }
+
+    .producto > article {
+        height: 12em;
     }
 }

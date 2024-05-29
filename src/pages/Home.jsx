@@ -11,11 +11,14 @@ export const Home = () => {
     const { getDatos } = useData()
     const location = useLocation()
 
+    const dataConsulta = []
+
     const listarDatos = async () => {
         const datos = await getDatos('productos')
-        const filterData = datos.filter(row => row.descuento > 0)
-
+        const filterData = datos.filter(row => row.descuento > 0 && row.carrito)
         setData(filterData)
+
+        dataConsulta = datos.filter(row => !row.carrito)
     }
 
     useEffect(() => {
@@ -30,6 +33,10 @@ export const Home = () => {
             <Banner />
             {data.length > 0 
                 ? <Promociones titulo={"Ofertas"} list={data}/>
+                : null
+            }
+            {dataConsulta.length > 0 
+                ? <Promociones titulo={"Prodcutos de consulta"} list={dataConsulta}/>
                 : null
             }
             <Categorias />

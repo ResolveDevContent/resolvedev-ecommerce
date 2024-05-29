@@ -101,12 +101,14 @@ export const Product = () => {
                     {data.imagenes && data.imagenes.length > 0 ? (
                         <>
                             <figure>
+                                <span className='loader'></span>
                                 <img src={data?.imagenes[0]} alt="" />
                             </figure>
                             <ul>
                                 {data.imagenes.map((img, idx) => (
                                     <li key={idx}>
                                         <figure>
+                                            <span className='loader'></span>
                                             <img src={img} alt="" onClick={(e) => changeImg(e, img)} />
                                         </figure>
                                     </li>

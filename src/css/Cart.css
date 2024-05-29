@@ -50,6 +50,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    position: relative;
 }
 
 .table .row > li span {
@@ -63,6 +65,10 @@
     height: 1em;
     overflow-wrap: anywhere;
     max-width: 16em;
+}
+
+.table .row > li .loader {
+    height: 3em;
 }
 
 .table .row > li em {
@@ -125,6 +131,8 @@
     border-radius: .5em;
     width: 8em;
     height: 8em;
+    z-index: 2;
+    position: relative;
 }
 
 .table > div > a {
@@ -309,12 +317,13 @@
 }
 
 .cart-features .accordeon > div {
-    padding: 2em 1em 0 1em;
+    padding: 2em 1em 1em 1em;
 }
 
 .cart-features .accordeon > div > ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
 }
 
 .cart-features .accordeon > ul > li {
@@ -427,5 +436,9 @@
         border-right: none;
         border-bottom: 1px solid black;
         padding: 0 0 1em 0;
+    }
+
+    .cart-features .accordeon > div > ul {
+        grid-template-columns: 1fr;
     }
 }

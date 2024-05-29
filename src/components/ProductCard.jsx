@@ -3,7 +3,7 @@ import { useCart } from 'resolvedev-cart'
 
 export const ProductCard = ({item}) => {
     const { addToCart, removeFromCart, cart } = useCart()
-    const { _id, imagenes, nombre, caracteristicas, fmt_modified_price, fmt_precio, descuento } = item
+    const { _id, imagenes, nombre, caracteristicas, fmt_modified_price, fmt_precio, descuento, carrito } = item
     const inCart = cart.some(prod => prod._id == item._id)
 
     return (
@@ -30,14 +30,17 @@ export const ProductCard = ({item}) => {
                 <div className='btn-carrito'>
                     <button className={inCart ? "in-cart" : null}
                         onClick={() => {
-                            console.log(item)
-                            inCart ? removeFromCart(item)
-                                : addToCart(item)
+                            carrito 
+                                ? inCart 
+                                    ? removeFromCart(item)
+                                    : addToCart(item)
+                                : console.log("consultar") 
                                 }}>
-                            { 
-                                inCart 
+                            {carrito 
+                                ? inCart 
                                     ? "Eliminar del carrito"
-                                    :  "Añadir al carrito" 
+                                    :  "Añadir al carrito"
+                                : "Consultar"
                             }
                     </button>
                 </div>

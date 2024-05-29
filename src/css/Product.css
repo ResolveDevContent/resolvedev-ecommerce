@@ -37,7 +37,7 @@
 .product-images,
 .product-details {
     padding-top: 2em;
-    width: 50%;
+    width: 55%;
 }
 
 .product-images {
@@ -46,19 +46,28 @@
     gap: 1em;
 }
 
-.product-images > figure {
-    width: 32em;
+.product-images > figure,
+.product-images > ul > li > figure {
+    position: relative;
+}
+
+.product-images > ul > li > figure .loader {
+    width: 1.5em;
+    height: 1.5em;
+    border: 4px solid #b88e2f;
 }
 
 .product-images img {
     border-radius: 0.5em;
     cursor: pointer;
+    position: relative;
+    z-index: 2;
 }
 
 .product-images > ul{
     display: flex;
     flex-direction: column;
-    width: 7em;
+    width: 15em;
     gap: 1em;
 }
 
@@ -264,6 +273,11 @@
 
     .product-images > ul {
         flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .product-images > ul > li {
+        width: 8em;
     }
 
     .product-details .product-actions {

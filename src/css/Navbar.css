@@ -121,11 +121,12 @@
 .navbar .search .input input {
     border-radius: 0em;
     margin-top: 0;
+    padding: 1.05em;
 }
 
 .navbar .search .input label {
     display: flex;
-    padding: 1.125em;
+    padding: .75em;
     background-color: #B88E2F;
     border-radius: 0.5em 0em 0em 0.5em;
     border: 1px solid #9F9F9F;
@@ -133,7 +134,7 @@
 
 .navbar .search .input button {
     display: flex;
-    padding: 1.34em;
+    padding: .9em;
     background-color: white;
     border-radius: 0em 0.5em 0.5em 0em;
     border: 1px solid darkgray;

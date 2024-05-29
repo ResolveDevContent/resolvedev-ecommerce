@@ -38,7 +38,8 @@ export const CartProducts = ({products}) => {
                 <>
                     <ul className='row' key={index}>
                         <li className='product-img'>
-                            <img src={row?.imagenes[0]} alt='product-img' />
+                            <span className='loader'></span>
+                            <img src={row?.imagenes[0]} alt='' />
                         </li>
                         <li>
                             <em>{row.nombre}</em>
