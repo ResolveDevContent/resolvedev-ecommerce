@@ -5,7 +5,7 @@ import { FilterContext } from '../context/Filter'
 import { useData } from '../hook/useData'
 import { Loading } from './Loading'
 
-export const Filtros = ({setSelectValue}) => {
+export const Filtros = ({setSelectValue, results}) => {
     const [ filtros, setFiltros] = useState([])
     const { getDatos, loading } = useData()
     const [ filters, setFilters ] = useState({})
@@ -126,7 +126,7 @@ export const Filtros = ({setSelectValue}) => {
                     </li>
                     <li>
                         <span>
-                            Mostrando 250 productos
+                            Mostrando {results} resultados
                         </span>
                     </li>
                 </ul>

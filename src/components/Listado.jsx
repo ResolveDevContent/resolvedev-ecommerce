@@ -195,7 +195,7 @@ export const Listado = ({isInHome}) => {
             {!isInHome ? (
                 <>
                     <Breadcumb titulo={"Tienda"} breadcumb={"Home > Tienda"}/>
-                    <Filtros setSelectValue={setSelectValue}/>
+                    <Filtros setSelectValue={setSelectValue} results={editedProducts.length}/>
                 </>
             ) : null}
             <section id="listado">
