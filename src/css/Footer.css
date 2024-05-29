@@ -129,9 +129,11 @@
 }
 
 .footer .footer-links .newsletter li > a {
-    padding: .4em .25em;
+    padding: 0 .25em;
     background-color: var(--muted-dark);
     border-radius: 0 .5em .5em 0;
+    height: 100%;
+    justify-content: center;
 }
 
 .footer .footer-links .newsletter li > a:hover {

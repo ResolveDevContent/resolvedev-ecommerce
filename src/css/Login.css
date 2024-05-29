@@ -177,6 +177,7 @@
 #login .loginForm > form > button {
     border: none;
     background-color: var(--muted-dark);
+    opacity: .8;
     border-radius: .5em;
     padding: .5em 2em;
     margin-top: 1em;
@@ -185,8 +186,7 @@
 
 #login .registerForm > form > button:hover,
 #login .loginForm > form > button:hover {
-    background-color: var(--muted-dark);
-    opacity: .7;
+    opacity: 1;
 }
 
 #login .registerForm > form > span,
@@ -229,6 +229,7 @@
 #login .overlay-container .overlay button {
     border: none;
     background-color: var(--muted-dark);
+    opacity: .8;
     padding: 1.5em 4.5em;
     cursor: pointer;
     font-weight: 600;
@@ -237,8 +238,7 @@
 }
 
 #login .overlay-container .overlay button:hover {
-    background-color: var(--muted-dark);
-    opacity: .7;
+    opacity: 1;
 }
 
 @keyframes show {

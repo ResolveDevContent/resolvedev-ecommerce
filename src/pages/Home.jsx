@@ -15,8 +15,10 @@ export const Home = () => {
     let dataConsulta = []
 
     const dataTienda = async () => {
-        const datos = await getDatosTienda()
+        let datos = await getDatosTienda()
+        datos = datos[0]
 
+        if(datos.promociones && !datos.titulo) datos.titulo = "Promociones"
         setTienda(datos)
     }
 
@@ -40,8 +42,8 @@ export const Home = () => {
     return (
         <>
             <Banner />
-            {data.length > 0 
-                ? <Promociones titulo={"Ofertas"} list={data}/>
+            {tienda.promociones && data.length > 0 
+                ? <Promociones titulo={tienda.titulo} list={data}/>
                 : null
             }
             {dataConsulta.length > 0 

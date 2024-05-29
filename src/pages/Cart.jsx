@@ -7,12 +7,21 @@ import { useEffect, useState } from 'react'
 import { EmptyState } from '../components/EmptyState'
 import { useCart } from 'resolvedev-cart'
 import { Link } from 'react-router-dom'
+import { useData } from '../hook/useData'
 
 export const Cart = () => {
     const { cart } = useCart()
+    const { getDatos } = useData()
     const [ data, setData ] = useState({
         products: cart
     })
+    const [ envios, setEnvios ] = useState([ ])
+
+    const listarDatos = async () => {
+        const datos = await getDatos('envios')
+
+        setEnvios(datos)
+    }
 
     const handleChange = e => {
         const { value, name } = e.target
@@ -29,13 +38,19 @@ export const Cart = () => {
     }
 
     useEffect(() => {
+        listarDatos()
         setData({
             ...data,
             products: cart
         })
     }, [cart])
 
-    console.log(data)
+    let shipping = {}
+    if(data.shipping) {
+        shipping = envios.find(row => row.titulo == data.shipping.split('-')[0])
+    }
+
+    console.log(data, envios, shipping)
 
     return (
         <>
@@ -72,26 +87,17 @@ export const Cart = () => {
                             </CartFeatures>
                             <CartFeatures titulo={"Formas de envío"} id={"shipping"}>
                                 <ul>
-                                    <li>
-                                        <input type="radio" name="shipping" id="shipping-sucursal" value="sucursal:1000" onChange={handleChange}/>
-                                        <label htmlFor="shipping-sucursal">Sucursal</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="shipping" id="shipping-domicilio" value="domicilio:2000" onChange={handleChange}/>
-                                        <label htmlFor="shipping-domicilio">Domicilio</label>
-                                    </li>
-                                    <li>
-                                        <input type="radio" name="shipping" id="shipping-local" value="local:0" onChange={handleChange}/>
-                                        <label htmlFor="shipping-local">Chacabuco</label>
-                                    </li>
+                                    {envios.map((row, idx) => (
+                                        <li key={idx}>
+                                            <input type="radio" name="shipping" id={`shipping-${row.titulo}`} value={`${row.titulo}-${row.precio}`} onChange={handleChange}/>
+                                            <label htmlFor={`shipping-${row.titulo}`}>{row.titulo}</label>
+                                        </li>
+                                    ))}
                                 </ul>
-                                {data.shipping 
+                                {shipping
                                     ? <div className='payMethod'>
-                                        {data.shipping == "sucursal:1000" 
-                                            ? <span>
-                                                Retiro en sucursal en Av. los papa. Horario lunes a viernes de 8 a 12 y de 16.00 a 20.00
-                                            </span>
-                                            : <ul>
+                                        {shipping.informacion == "Formulario" 
+                                            ? <ul>
                                                 <li>
                                                     <div className='input'>
                                                         <label>Calle</label>
@@ -123,6 +129,7 @@ export const Cart = () => {
                                                     </div>
                                                 </li>
                                             </ul>
+                                            : <span>{shipping.informacion}</span>
                                         }
                                     </div>
                                     : null
