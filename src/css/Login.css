@@ -69,8 +69,8 @@
 
 #login .container .overlay-container .overlay {
     background-color: var(--muted-dark);
-    background: -webkit-linear-gradient(to right, #FFF3E3, #ffcd7d);
-    background: linear-gradient(to right, #FFF3E3, #ffcd7d);
+    background: -webkit-linear-gradient(to right, var(--light), var(--muted-light));
+    background: linear-gradient(to right, var(--light), var(--muted-light));
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
@@ -185,7 +185,8 @@
 
 #login .registerForm > form > button:hover,
 #login .loginForm > form > button:hover {
-    background-color: #d4a536;
+    background-color: var(--muted-dark);
+    opacity: .7;
 }
 
 #login .registerForm > form > span,
@@ -236,7 +237,8 @@
 }
 
 #login .overlay-container .overlay button:hover {
-    background-color: #d4a536;
+    background-color: var(--muted-dark);
+    opacity: .7;
 }
 
 @keyframes show {

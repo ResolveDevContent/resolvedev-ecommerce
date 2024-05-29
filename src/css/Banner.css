@@ -17,7 +17,7 @@
 }
 
 .banners .home-text {
-    background-color: #FFF3E3;
+    background-color: var(--light);
     border-radius: .5em;
     padding: 3.75em 2.5em;
     width: 40em;
@@ -54,7 +54,8 @@
 }
 
 .banners .home-text > footer > button:hover {
-    background-color: #d4a536;
+    background-color: var(--muted-dark);
+    opacity: .7;
 }
 
 .banners .home-text > footer > button > a {

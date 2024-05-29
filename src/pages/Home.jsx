@@ -17,7 +17,7 @@ export const Home = () => {
     const dataTienda = async () => {
         const datos = await getDatosTienda()
 
-        setTienda(datos[0])
+        setTienda(datos)
     }
 
     const listarDatos = async () => {
