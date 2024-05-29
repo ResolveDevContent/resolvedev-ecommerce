@@ -20,6 +20,15 @@
     aspect-ratio: auto;
     height: 18em;
 }
+.producto .carousel-arrow {
+    display: none;
+}
+.producto >article:hover > a > .carousel-arrow {
+    display: flex;
+}
+.producto .carousel-arrow > button {
+    margin: .5em;
+}
 [data-discount]::after {
     content: attr(data-discount)'%';
     padding: .325em 1.5em;

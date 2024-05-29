@@ -223,7 +223,7 @@ textarea {
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    z-index: 1;
+    z-index: 5;
     width: 100%;
 }
 
@@ -232,11 +232,16 @@ textarea {
     border: none;
     border-radius: 50%;
     background-color: var(--muted-dark);
+    opacity: .7;
     padding: .25em .325em;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.carousel-arrow button:hover {
+    opacity: 1;
 }
 
 /* LINKS-HOVER-ANIMATION ----------------------- */
