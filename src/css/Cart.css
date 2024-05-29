@@ -342,6 +342,8 @@
 
 .cart-features .accordeon ul li > label {
     cursor: pointer;
+    width: 100%;
+    height: 100%;
 }
 
 .cart-features .accordeon .info-contacto {
