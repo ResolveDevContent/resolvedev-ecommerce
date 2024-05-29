@@ -18,9 +18,12 @@ import { Page404 } from './components/Page404'
 import { Login } from './components/Login'
 import { FilterProvider } from './context/Filter'
 import AuthContext from './context/Auth'
+import { useData } from "./hook/useData.jsx"
 
 function App() {
   const [auth, setAuth] = useState(false);
+  const [tienda, setTienda] = useState([ ]);
+  const { getDatosTienda } = useData()
 
   const readCookie = () => {
     const user = Cookies.get("token-tienda");
@@ -29,17 +32,25 @@ function App() {
     }
   }
 
+  const dataTienda = async () => {
+    const datos = await getDatosTienda()
+
+    setTienda(datos[0])
+  }
+
   useEffect(() => {
-    readCookie();
+    readCookie()
+    dataTienda()
   }, [])
 
   const root = `
     :root {
-      --light: red;
-      --dark: black;
-      --muted-dark: blue;
-      --muted-light: white;
-      --muted: green;
+      --font: ${tienda.font};
+      --light: ${tienda.light};
+      --dark: ${tienda.dark};
+      --muted-dark: ${tienda.mutedDark};
+      --muted-light: ${tienda.mutedLight};
+      --muted: ${tienda.muted};
     }
   `
 

@@ -127,7 +127,7 @@
 .navbar .search .input label {
     display: flex;
     padding: .75em;
-    background-color: #B88E2F;
+    background-color: var(--muted-dark);
     border-radius: 0.5em 0em 0em 0.5em;
     border: 1px solid #9F9F9F;
 }
@@ -333,7 +333,7 @@
     .navbar .navbar-responsive .menu-close em {
         font-weight: bolder;
         font-style: normal;
-        color: #B88E2F;
+        color: var(--muted-dark);
     }
     
     .navbar .navbar-responsive .menu-close label{
@@ -343,11 +343,11 @@
     }
 
     .navbar .navbar-responsive .menu-close label svg {
-        fill: #B88E2F;
+        fill: var(--muted-dark);
     }
     
     .navbar .navbar-responsive .popup ul li svg {
-        fill: #B88E2F;
+        fill: var(--muted-dark);
     }
 
     .navbar .navbar-responsive .popup ul li a span{

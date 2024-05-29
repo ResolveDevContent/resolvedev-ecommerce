@@ -1,6 +1,6 @@
 #features {
     padding: 6.25em 3.325em;
-    background-color: #ffa91e45;
+    background-color: var(--light);
 }
 #features > ul {
     display: flex;

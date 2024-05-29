@@ -8,10 +8,17 @@ import { Promociones } from "../components/Promociones.jsx"
 
 export const Home = () => {
     const [ data, setData ] = useState([])
-    const { getDatos } = useData()
+    const [ tienda, setTienda ] = useState([])
+    const { getDatos, getDatosTienda } = useData()
     const location = useLocation()
 
-    const dataConsulta = []
+    let dataConsulta = []
+
+    const dataTienda = async () => {
+        const datos = await getDatosTienda()
+
+        setTienda(datos[0])
+    }
 
     const listarDatos = async () => {
         const datos = await getDatos('productos')
@@ -24,9 +31,11 @@ export const Home = () => {
     useEffect(() => {
       scrollTo(0,0)
 
+      dataTienda()
       listarDatos()
     }, [location])
-  
+
+    console.log(tienda)
 
     return (
         <>

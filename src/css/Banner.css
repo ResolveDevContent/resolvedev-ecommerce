@@ -33,7 +33,7 @@
 .banners .home-text > div > em {
     font-weight: 700;
     font-size: 3.25em;
-    color: #B88E2F;
+    color: var(--muted-dark);
     line-height: 1.125em;
 }
 
@@ -47,7 +47,7 @@
 
 .banners .home-text > footer > button {
     border: none;
-    background-color: #B88E2F;
+    background-color: var(--muted-dark);
     padding: 1.5em 4.5em;
     cursor: pointer;
     border-radius: 0.5em;

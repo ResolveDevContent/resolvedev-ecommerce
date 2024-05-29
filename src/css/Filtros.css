@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #ffa91e45;
+    background-color: var(--light);
 }
 
 .filtros .filter ul {
@@ -26,7 +26,7 @@
 }
 
 .filtros .filter .filtros-container > label:hover {
-    background-color: #ffa91e45;
+    background-color: var(--light);
 }
 
 .filtros .filter span {
@@ -87,7 +87,7 @@
     cursor: pointer;
     flex-direction: column;
     text-align: center;
-    color: #B88E2F;
+    color: var(--muted-dark);
     padding: 0.5em 1em;
 }
 

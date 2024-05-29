@@ -32,7 +32,7 @@
     width: 6em;
     height: 6em;
     border-radius: 50%;
-    border: 2px solid #B88E2F;
+    border: 2px solid var(--muted-dark);
 }
 
 #user > aside > header em {

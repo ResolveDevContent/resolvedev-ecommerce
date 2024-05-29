@@ -3,7 +3,7 @@
     margin: 0;
     scroll-behavior: smooth;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: var(--font), sans-serif;
 }
 
 ul {
@@ -68,7 +68,7 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #B88E2F;
+    background-color: var(--muted-dark);
     color: white;
     width: 1.5em;
     height: 1.5em;
@@ -95,24 +95,25 @@ textarea {
 .btn-carrito > button,
 .btn-carrito > a {
     border: none;
-    color: #B88E2F;
+    color: var(--muted-dark);
     font-weight: 600;
     padding: 1em 2em;
-    background-color: #eee7d6;
+    background-color: var(--muted-light);
     cursor: pointer;
     border-radius: .5em;
 }
 .btn-carrito > button:hover,
 .btn-carrito > a:hover {
-    background-color: #ffa91e;
+    background-color: var(--muted);
     color: black;
 }
 .btn-carrito .in-cart {
-    background-color: #353535;
+    background-color: var(--dark);
 }
 .btn-carrito .in-cart:hover {
-    background-color: #555555;
-    color: #B88E2F;
+    background-color: var(--dark);
+    color: var(--muted-dark);
+    opacity: .7;
 }
 
 /* INPUTS ------------------------- */
@@ -203,7 +204,8 @@ textarea {
     right: 0;
     left: 0;
     margin-bottom: 1em;
-    background-color: #B88E2F80;
+    background-color: var(--muted-dark);
+    opacity: .8;
     padding: .75em 0;
     z-index: 5;
 }
@@ -229,7 +231,7 @@ textarea {
     margin: -3em;
     border: none;
     border-radius: 50%;
-    background-color: #B88E2F;
+    background-color: var(--muted-dark);
     padding: .25em .325em;
     cursor: pointer;
     display: flex;
@@ -260,8 +262,13 @@ textarea {
     content: "";
     width: 1.5em;
     height: 0.125em;
-    background-color: #B88E2F;
+    background-color: var(--muted-dark);
     display: block;
+}
+
+.footer .footer-links .newsletter li a::after,
+.footer .footer-links .newsletter li a:hover::after {
+    display: none;
 }
 
 /* IMG-LOADER ----------------------- */

@@ -68,7 +68,7 @@
 }
 
 #login .container .overlay-container .overlay {
-    background-color: #B88E2F;
+    background-color: var(--muted-dark);
     background: -webkit-linear-gradient(to right, #FFF3E3, #ffcd7d);
     background: linear-gradient(to right, #FFF3E3, #ffcd7d);
     background-repeat: no-repeat;
@@ -176,7 +176,7 @@
 #login .registerForm > form > button,
 #login .loginForm > form > button {
     border: none;
-    background-color: #B88E2F;
+    background-color: var(--muted-dark);
     border-radius: .5em;
     padding: .5em 2em;
     margin-top: 1em;
@@ -212,7 +212,7 @@
     font-size: 3em;
     font-weight: 700;
     font-style: normal;
-    color: #B88E2F;
+    color: var(--muted-dark);
     line-height: 1em;
 }
 
@@ -227,7 +227,7 @@
 
 #login .overlay-container .overlay button {
     border: none;
-    background-color: #B88E2F;
+    background-color: var(--muted-dark);
     padding: 1.5em 4.5em;
     cursor: pointer;
     font-weight: 600;

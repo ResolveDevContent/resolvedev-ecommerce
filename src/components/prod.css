@@ -23,7 +23,7 @@
 [data-discount]::after {
     content: attr(data-discount)'%';
     padding: .325em 1.5em;
-    background-color: #B88E2F;
+    background-color: var(--muted-dark);
     color: black;
     position: absolute;
     top: .75em;

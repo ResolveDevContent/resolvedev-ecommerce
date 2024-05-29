@@ -54,7 +54,7 @@
 .product-images > ul > li > figure .loader {
     width: 1.5em;
     height: 1.5em;
-    border: 4px solid #b88e2f;
+    border: 4px solid var(--muted-dark);
 }
 
 .product-images img {
@@ -185,7 +185,7 @@
     margin: 2em auto;
     padding: 2em;
     border-radius: .5em;
-    background-color: #eee7d6;
+    background-color: var(--muted-light);
 }
 
 .ficha-tecnica > em {

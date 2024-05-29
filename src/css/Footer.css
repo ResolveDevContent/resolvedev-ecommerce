@@ -64,7 +64,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #eee7d6;
+    background-color: var(--muted-light);
 }
 
 .footer > section {
@@ -103,7 +103,7 @@
 .footer .footer-links > em{
     font-weight: bolder;
     font-size: 1.25em;
-    color: #B88E2F;
+    color: var(--muted-dark);
 }
 
 .footer .footer-links a,
@@ -129,13 +129,13 @@
 }
 
 .footer .footer-links .newsletter li > a {
-    padding: .5em .25em;
-    background-color: #B88E2F;
+    padding: .4em .25em;
+    background-color: var(--muted-dark);
     border-radius: 0 .5em .5em 0;
 }
 
 .footer .footer-links .newsletter li > a:hover {
-    background-color: #ffa91e;
+    background-color: var(--muted);
 }
 
 .footer .footer-links .newsletter li > input {

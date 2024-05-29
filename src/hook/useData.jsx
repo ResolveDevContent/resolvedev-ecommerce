@@ -4,9 +4,17 @@ import { getData } from "../services/getData"
 import { getDatosRelacionados } from "../services/getDatosRelacionados"
 import { getOneData } from "../services/getOneData"
 import { getUser, updateUser } from "../services/getUser"
+import { getDataTienda } from "../services/getDataTienda"
 
 export function useData() {
     const [ loading, setLoading ] = useState(true)
+
+    const getDatosTienda = async () => {
+        const doc = await getDataTienda(setLoading)
+        if (!doc) return null
+
+        return doc
+    }
 
     const getDatos = async (model) => {
         const doc = await getData(model, setLoading)
@@ -83,5 +91,5 @@ export function useData() {
         return doc
     }
 
-    return { getDatos, getDataRelacionados, getDatosByCategoria, getOneDato, getProfile, updateProfile, getFiltros, loading }
+    return { getDatosTienda, getDatos, getDataRelacionados, getDatosByCategoria, getOneDato, getProfile, updateProfile, getFiltros, loading }
 } 
