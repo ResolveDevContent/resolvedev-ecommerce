@@ -329,6 +329,12 @@ textarea {
     }
 }
 
+@media screen and (min-width: 960px) {
+    .btn-carrito > a {
+        font-size: .875em;
+    }
+}
+
 @media screen and (max-width: 959px) {
     body {
         font-size: 3.5vw;

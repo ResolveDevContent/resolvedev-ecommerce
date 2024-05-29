@@ -32,21 +32,22 @@ export const ProductCard = ({item}) => {
                     <em>${fmt_precio}</em>
                 </div>
                 <div className='btn-carrito'>
-                    <button className={inCart ? "in-cart" : null}
-                        onClick={() => {
-                            carrito 
-                                ? inCart 
+                    {carrito 
+                        ? <button className={inCart ? "in-cart" : null}
+                            onClick={() => {
+                                inCart 
                                     ? removeFromCart(item)
                                     : addToCart(item)
-                                : console.log("consultar") 
-                                }}>
-                            {carrito 
-                                ? inCart 
-                                    ? "Eliminar del carrito"
-                                    :  "Añadir al carrito"
-                                : "Consultar"
-                            }
-                    </button>
+                                    }}> 
+                                    {inCart 
+                                        ? "Eliminar del carrito"
+                                        :  "Añadir al carrito"
+                                    }
+                        </button>
+                        : <Link to={`/producto/${_id}`}>
+                            Consultar
+                        </Link>
+                    }
                 </div>
             </footer>
         </li>

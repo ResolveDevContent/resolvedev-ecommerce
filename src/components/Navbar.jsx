@@ -6,6 +6,7 @@ import { useData } from '../hook/useData'
 import { useEffect, useState } from 'react'
 import { useCart } from 'resolvedev-cart'
 import { Loading } from './Loading'
+import ResolveImg from '../images/resolvedevverde.png'
 
 export const Navbar = () => {
     const [ data, setData ] = useState([])
@@ -39,7 +40,9 @@ export const Navbar = () => {
             <nav className='navbar'>
                 <ul className='navbar-list'>
                     <div className='logo'>
-                        <Link to="/">Logo</Link>
+                        <Link to="/">
+                            <img src={ResolveImg} alt="" />
+                        </Link>
                     </div>
                     <ul className='navbar-items'>
                         <li>
@@ -60,15 +63,6 @@ export const Navbar = () => {
                                                         <Link to={`/tienda/${cat.nombre.toLowerCase()}`}>
                                                             {cat.nombre}
                                                         </Link>
-                                                        <ul>
-                                                            {cat.subcategorias.map((subcat, idx) => (
-                                                                <li key={idx}>
-                                                                    <Link to={`/tienda/${subcat.toLowerCase()}`}>
-                                                                        {subcat}
-                                                                    </Link>
-                                                                </li>
-                                                            ))}
-                                                        </ul>
                                                     </li>
                                                 ))}
                                             </ul> 

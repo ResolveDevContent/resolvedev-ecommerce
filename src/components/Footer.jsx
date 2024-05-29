@@ -1,5 +1,6 @@
 import '../css/Footer.css'
 import { ArrowRight, WhatsApp } from '../icons/Icons'
+import ResolveDev from '../images/resolvedevverde.png'
 
 export const Footer = () => {
     return (
@@ -17,7 +18,7 @@ export const Footer = () => {
             <footer className="footer">
                 <section>
                     <aside className="footer-brand">
-                        <img src="./images/Mesa de trabajo 3@4x.png" alt="Logo" />
+                        <img src={ResolveDev} alt="Logo" />
                         <span>
                             Resolve Dev. Desarrollo web, innovacíon, soluciones tecnológicas.    
                         </span>

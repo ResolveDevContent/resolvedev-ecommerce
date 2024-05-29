@@ -17,10 +17,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5em 5em;
+    padding: 1em 4em;
     width: 100%;
 
     position: relative;
+}
+
+.navbar-list .logo {
+    width: 6em;
 }
 
 .navbar-items,
@@ -63,8 +67,8 @@
     align-items: start;
     justify-content: start;
     gap: 1em;
-    max-width: 20em;
-    overflow: auto;
+    max-width: 24em;
+    flex-wrap: wrap;
 }
 
 .navbar-items .navbar-categorias label > ul > li > a{
