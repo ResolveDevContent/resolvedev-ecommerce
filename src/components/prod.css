@@ -76,6 +76,7 @@
     overflow: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
+    height: 100%;
 }
 .producto .imagenes > li {
     scroll-snap-align: center;

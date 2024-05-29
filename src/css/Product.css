@@ -289,6 +289,14 @@
         margin: 0;
     }
 
+    .product-details .caracteristicas > ul {
+        font-size: 1.25em;
+    }
+
+    .product-details .product-actions li .input button {
+        padding: .5em 1.5em;
+    }
+
     .ficha-tecnica {
         margin: 2em;
     }    
