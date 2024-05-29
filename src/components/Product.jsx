@@ -129,7 +129,7 @@ export const Product = () => {
                                     <ul>
                                         {data.caracteristicas.map((carac, idx) => (
                                             <li key={idx}>
-                                                {carac}
+                                                {carac.nombre}
                                             </li>
                                         ))}
                                     </ul>
