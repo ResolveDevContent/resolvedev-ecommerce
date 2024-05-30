@@ -12,8 +12,8 @@ import { Loading } from './Loading'
 
 export const Product = () => {
     const [ image, setImage ] = useState(Prod)
-    const [ inputState, setInputState ] = useState(0)
     const [ data, setData ] = useState({})
+    const [ inputState, setInputState ] = useState(data.piezas || 1)
     const [ relacionados, setRelacionados ] = useState([])
     
     const { getDatos, getOneDato, getDataRelacionados, loading } = useData()
@@ -182,7 +182,7 @@ export const Product = () => {
                                     <button onClick={() => handleClick(Number(data.piezas) * -1)}>
                                         <Minus />
                                     </button>
-                                    <input type="number" defaultValue={Number(data.piezas)} 
+                                    <input type="number"
                                         value={inputState} ref={input}
                                         onChange={e => handleChange(e.target.value)}
                                         />
