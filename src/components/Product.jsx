@@ -143,8 +143,40 @@ export const Product = () => {
                             ) : null}
                         </div>
                     </header>
-                    {data.carrito && data.stock > 0
-                        ? <ul className='product-actions'>
+                    {!data.carrito || data.stock == 0
+                        ? <div>
+                            <em>Consultar</em>
+                            <form>
+                                <ul>
+                                    <li>
+                                        <div className='input'>
+                                            <label>Nombre</label>
+                                            <input type="text" placeholder='Nombre' name='nombre'/>
+                                        </div>    
+                                    </li>
+                                    <li>
+                                        <div className='input'>
+                                            <label>Email</label>
+                                            <input type="text" placeholder='abc@email.com' name='email'/>
+                                        </div>    
+                                    </li>
+                                    <li>
+                                        <div className='input'>
+                                            <label>Mensaje</label>
+                                            <textarea placeholder='¡Hola!, quisiera saber...' name='mensaje'/>
+                                        </div>    
+                                    </li>
+                                </ul>
+                                <input type="hidden" name='producto' value={data._id}/>
+                                <div className='btn-carrito'>
+                                    <button onClick={handleSubmit}>
+                                        Enviar
+                                        <Send />
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        : <ul className='product-actions'>
                             <li>
                                 <div className='input'>
                                     <button onClick={() => handleClick(-data.piezas)}>
@@ -177,38 +209,6 @@ export const Product = () => {
                                 </button>
                             </li>
                         </ul>
-                        : <div>
-                            <em>Consultar</em>
-                            <form>
-                                <ul>
-                                    <li>
-                                        <div className='input'>
-                                            <label>Nombre</label>
-                                            <input type="text" placeholder='Nombre' name='nombre'/>
-                                        </div>    
-                                    </li>
-                                    <li>
-                                        <div className='input'>
-                                            <label>Email</label>
-                                            <input type="text" placeholder='abc@email.com' name='email'/>
-                                        </div>    
-                                    </li>
-                                    <li>
-                                        <div className='input'>
-                                            <label>Mensaje</label>
-                                            <textarea placeholder='¡Hola!, quisiera saber...' name='mensaje'/>
-                                        </div>    
-                                    </li>
-                                </ul>
-                                <input type="hidden" name='producto' value={data._id}/>
-                                <div className='btn-carrito'>
-                                    <button onClick={handleSubmit}>
-                                        Enviar
-                                        <Send />
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
                     }
                 </article>
             </section>
