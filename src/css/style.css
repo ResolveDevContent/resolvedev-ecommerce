@@ -96,7 +96,7 @@ textarea {
 .btn-carrito > a {
     border: none;
     color: var(--muted-dark);
-    font-weight: 600;
+    font-weight: 700;
     padding: 1em 2em;
     background-color: var(--muted-light);
     cursor: pointer;
@@ -357,5 +357,9 @@ textarea {
 
     .producto > article {
         height: 12em;
+    }
+
+    [data-discount]::after {
+        font-size: 1.5em;
     }
 }
