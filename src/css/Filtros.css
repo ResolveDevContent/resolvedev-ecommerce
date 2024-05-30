@@ -153,6 +153,10 @@
         font-size: .75em;
     }
 
+    .filtros .filter span {
+        font-size: 1em;
+    }
+
     .filtros .filter .filtros-container > label > svg {
         width: 1.5em;
         height: 1.5em;

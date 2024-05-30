@@ -5,7 +5,7 @@ import { useRef } from 'react'
 
 export const ProductCard = ({item}) => {
     const { addToCart, removeFromCart, cart } = useCart()
-    const { _id, imagenes, nombre, caracteristicas, fmt_modified_price, fmt_precio, descuento, carrito } = item
+    const { _id, imagenes, nombre, caracteristicas, fmt_modified_price, fmt_precio, descuento, carrito, stock } = item
     const inCart = cart.some(prod => prod._id == item._id)
     const scrollable = useRef();
     console.log(item)
@@ -32,7 +32,7 @@ export const ProductCard = ({item}) => {
                     <em>${fmt_precio}</em>
                 </div>
                 <div className='btn-carrito'>
-                    {carrito 
+                    {carrito && stock > 0
                         ? <button className={inCart ? "in-cart" : null}
                             onClick={() => {
                                 inCart 

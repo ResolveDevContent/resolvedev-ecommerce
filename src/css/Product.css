@@ -82,6 +82,39 @@
     flex-direction: column;
 }
 
+.product-details > div {
+    padding: 1em;
+    border-radius: .5em;
+    background-color: var(--dark);
+    color: white;
+}
+
+.product-details > div > em {
+    font-size: 1.5em;
+    font-style: normal;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.product-details > div > form > ul > li {
+    margin-top: .5em;
+}
+
+.product-details > div > form .btn-carrito {
+    margin-top: 1em;
+}
+
+.product-details > div > form .btn-carrito > button {
+    display: flex;
+    align-items: center;
+}
+
+.product-details > div > form .btn-carrito > button svg {
+    fill: var(--muted-dark);
+}
+
 .product-details header strong {
     font-size: 2em;
 }
@@ -244,12 +277,26 @@
 }
 
 @media screen and (min-width: 960px) {
+    .product-images > figure {
+        width: 80%;
+        min-width: 80%;
+    }
+
     .ficha-tecnica {
         width: 70%;
     }
 }
 
 @media screen and (max-width: 959px) {
+    .product-images > figure {
+        height: 30em;
+        min-height: 30em;
+    }
+
+    .product-images > ul > li > figure {
+        height: 100%;
+    }
+
     .product-page {
         flex-direction: column;
         padding: 1em;
@@ -278,6 +325,15 @@
 
     .product-images > ul > li {
         width: 8em;
+        height: 8em;
+    }
+
+    .product-details header del {
+        font-size: 1.5em;
+    }
+
+    .product-details header em {
+        font-size: 2.5em;
     }
 
     .product-details .product-actions {
@@ -290,7 +346,7 @@
     }
 
     .product-details .caracteristicas > ul {
-        font-size: 1.25em;
+        font-size: 1.325em;
     }
 
     .product-details .product-actions li .input button {

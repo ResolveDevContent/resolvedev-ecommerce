@@ -1,5 +1,5 @@
 import '../css/Product.css'
-import { Plus, Minus, Share } from '../icons/Icons'
+import { Plus, Minus, Share, Send } from '../icons/Icons'
 import Prod from '../images/prod.jpg'
 import { Promociones } from './Promociones'
 import { Features } from './Features'
@@ -8,7 +8,6 @@ import { useCart } from 'resolvedev-cart'
 import { useParams } from 'react-router-dom'
 import { useData } from '../hook/useData'
 import { EmptyState } from '../components/EmptyState'
-import { getData } from '../services/getData'
 import { Loading } from './Loading'
 
 export const Product = () => {
@@ -82,6 +81,13 @@ export const Product = () => {
                : addToCart(data)                                    
     }
 
+    const handleSubmit = e => {
+        const form = e.target
+        const formData = new FormData(form)
+
+        console.log(formData)
+    }
+
     useEffect(() => {
         scrollTo(0,0)
         
@@ -137,39 +143,73 @@ export const Product = () => {
                             ) : null}
                         </div>
                     </header>
-                    <ul className='product-actions'>
-                        <li>
-                            <div className='input'>
-                                <button onClick={() => handleClick(-data.piezas)}>
-                                    <Minus />
+                    {data.carrito && data.stock > 0
+                        ? <ul className='product-actions'>
+                            <li>
+                                <div className='input'>
+                                    <button onClick={() => handleClick(-data.piezas)}>
+                                        <Minus />
+                                    </button>
+                                    <input type="number" defaultValue={data.piezas} 
+                                        value={inputState} ref={input}
+                                        onChange={e => handleChange(e.target.value)}
+                                        />
+                                    <button onClick={() => handleClick(data.piezas)}>
+                                        <Plus />  
+                                    </button>
+                                </div>
+                            </li>
+                            <li>
+                                <div className='btn-carrito'>
+                                    <button className={inCart ? "in-cart" : null} 
+                                        onClick={handleChangeCarrito}>
+                                            { 
+                                                inCart 
+                                                    ? "Eliminar del carrito"
+                                                    :  "Añadir al carrito" 
+                                            }
+                                    </button>
+                                </div>
+                            </li>
+                            <li>
+                                <button className='btn-share'>
+                                    <Share />
                                 </button>
-                                <input type="number" defaultValue={data.piezas} 
-                                    value={inputState} ref={input}
-                                    onChange={e => handleChange(e.target.value)}
-                                    />
-                                <button onClick={() => handleClick(data.piezas)}>
-                                    <Plus />  
-                                </button>
-                            </div>
-                        </li>
-                        <li>
-                            <div className='btn-carrito'>
-                                <button className={inCart ? "in-cart" : null} 
-                                    onClick={handleChangeCarrito}>
-                                        { 
-                                            inCart 
-                                                ? "Eliminar del carrito"
-                                                :  "Añadir al carrito" 
-                                        }
-                                </button>
-                            </div>
-                        </li>
-                        <li>
-                            <button className='btn-share'>
-                                <Share />
-                            </button>
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                        : <div>
+                            <em>Consultar</em>
+                            <form>
+                                <ul>
+                                    <li>
+                                        <div className='input'>
+                                            <label>Nombre</label>
+                                            <input type="text" placeholder='Nombre' name='nombre'/>
+                                        </div>    
+                                    </li>
+                                    <li>
+                                        <div className='input'>
+                                            <label>Email</label>
+                                            <input type="text" placeholder='abc@email.com' name='email'/>
+                                        </div>    
+                                    </li>
+                                    <li>
+                                        <div className='input'>
+                                            <label>Mensaje</label>
+                                            <textarea placeholder='¡Hola!, quisiera saber...' name='mensaje'/>
+                                        </div>    
+                                    </li>
+                                </ul>
+                                <input type="hidden" name='producto' value={data._id}/>
+                                <div className='btn-carrito'>
+                                    <button onClick={handleSubmit}>
+                                        Enviar
+                                        <Send />
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    }
                 </article>
             </section>
             <div className='ficha-tecnica'>

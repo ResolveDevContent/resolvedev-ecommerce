@@ -132,4 +132,13 @@
     #listado {
         margin: 2em;
     }
+    .producto > footer > span {
+        font-size: 1.325em;
+    }
+    .producto .price > em {
+        font-size: 2em;
+    }
+    .producto .price > del {
+        font-size: 1.125em;
+    }
 }

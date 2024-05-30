@@ -44,4 +44,8 @@
     #features > ul > li {
         width: 100%;
     }
+
+    #features > ul > li > div > span {
+        font-size: 1em;
+    }
 }
