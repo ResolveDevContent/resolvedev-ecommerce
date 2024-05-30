@@ -49,13 +49,13 @@ export const CartProducts = ({products}) => {
                         </li>
                         <li>
                             <div className='input'>
-                                <button onClick={(e) => {updateQuantity(row.id, Number(row.piezas * -1), true)} }>
+                                <button onClick={(e) => {updateQuantity(row, Number(row.piezas * -1), true)} }>
                                     <Minus />
                                 </button>
                                 <input type="number" defaultValue={row.quantity} value={row.quantity}
-                                    onChange={(e) => { updateQuantity(row.id, e.target.value, false)} }
+                                    onChange={(e) => { updateQuantity(row, e.target.value, false)} }
                                 />
-                                <button onClick={(e) => { updateQuantity(row.id, Number(row.piezas), true)} }>
+                                <button onClick={(e) => { updateQuantity(row, Number(row.piezas), true)} }>
                                     <Plus />   
                                 </button>
                             </div>
@@ -67,7 +67,7 @@ export const CartProducts = ({products}) => {
                     <div className="btn-carrito">
                         <a href="#" onClick={(e) => { 
                             e.preventDefault()
-                            removeFromCart(row.id) 
+                            removeFromCart(row) 
                             }}>
                             <Trash />
                         </a>
