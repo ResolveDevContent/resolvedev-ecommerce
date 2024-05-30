@@ -1,6 +1,8 @@
+import { URL } from '../utils/consts.js'
+
 export const getDataTienda = async (setLoading) => {
     try {
-        const response = await fetch(`http://localhost:3000/abm/tienda/listar`, {
+        const response = await fetch(`${URL}/abm/tienda/listar`, {
             method: "GET"
         })
         const json = await response.json()

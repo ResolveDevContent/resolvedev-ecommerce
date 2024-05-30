@@ -1,8 +1,9 @@
 import { fmtImporte } from "../utils/site";
+import { URL } from '../utils/consts.js'
 
 export const getData = async (model, setLoading) => {
     try {
-        const response = await fetch(`http://localhost:3000/abm/${model}/listar`, {
+        const response = await fetch(`${URL}/abm/${model}/listar`, {
             method: "GET"
         })
         const json = await response.json()

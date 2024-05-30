@@ -1,11 +1,12 @@
 import Cookies from 'js-cookie'
+import { URL } from '../utils/consts.js'
 
 export const getUser = async () => {
     const token = Cookies.get("token-tienda");
     console.log(token)
 
     try {
-        const response = await fetch(`http://localhost:3000/auth/tienda/perfil`, {
+        const response = await fetch(`${URL}/auth/tienda/perfil`, {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${token}`,
@@ -23,7 +24,7 @@ export const updateUser = async (id, body) => {
     const token = Cookies.get("token-tienda")
     
     try {
-        const response = await fetch(`http://localhost:3000/auth/tienda/perfil/modificar/${id}`, {
+        const response = await fetch(`${URL}/auth/tienda/perfil/modificar/${id}`, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json',

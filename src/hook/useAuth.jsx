@@ -1,8 +1,9 @@
 import Cookies from "js-cookie"
+import { URL } from "../utils/consts";
 
 export const RegisterAuth = async (credentials, setAuth, setError) => {
     try {
-        const response = await fetch('http://localhost:3000/auth/tienda/register', {
+        const response = await fetch(URL + '/auth/tienda/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -29,7 +30,7 @@ export const RegisterAuth = async (credentials, setAuth, setError) => {
 
 export const LoginAuth = async (credentials, setAuth, setError) => {
     try {
-        const response = await fetch('http://localhost:3000/auth/tienda/login', {
+        const response = await fetch(URL + '/auth/tienda/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -56,7 +57,7 @@ export const LoginAuth = async (credentials, setAuth, setError) => {
 
 export const LogoutAuth = async (setAuth, setError) => {
     try {
-        const response = await fetch('http://localhost:3000/auth/logout', {
+        const response = await fetch(URL + '/auth/logout', {
             method: 'GET',
         });
 
