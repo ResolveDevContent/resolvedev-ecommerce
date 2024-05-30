@@ -179,14 +179,14 @@ export const Product = () => {
                         : <ul className='product-actions'>
                             <li>
                                 <div className='input'>
-                                    <button onClick={() => handleClick(-data.piezas)}>
+                                    <button onClick={() => handleClick(Number(data.piezas) * -1)}>
                                         <Minus />
                                     </button>
-                                    <input type="number" defaultValue={data.piezas} 
+                                    <input type="number" defaultValue={Number(data.piezas)} 
                                         value={inputState} ref={input}
                                         onChange={e => handleChange(e.target.value)}
                                         />
-                                    <button onClick={() => handleClick(data.piezas)}>
+                                    <button onClick={() => handleClick(Number(data.piezas))}>
                                         <Plus />  
                                     </button>
                                 </div>
