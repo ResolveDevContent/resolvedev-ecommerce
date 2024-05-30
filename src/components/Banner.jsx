@@ -11,17 +11,17 @@ export const Banner = () => {
                         <img src={Home} alt="logo" /> 
                         <figcaption>
                             <article className="home-text">
-                                <span>New Arrival</span>
+                                <span>Novedades</span>
                                 <div>
-                                    <em>Discover Our New Collection</em>
+                                    <em>Descubrí nuestras nuevas colecciones</em>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
+                                    Estamos emocionados de presentarte nuestras nuevas colecciones, diseñadas con pasión y dedicación para ofrecerte lo mejor en muebleria. Este año, hemos llevado nuestra creatividad a nuevos horizontes, fusionando tendencias contemporáneas con un toque de elegancia clásica.
                                     </p>
                                 </div>
                                 <footer>
                                     <button>
                                         <Link to={'/listado'}>
-                                            Buy now
+                                            Compra ahora
                                         </Link>    
                                     </button>
                                 </footer>

@@ -74,9 +74,7 @@ export const Filtros = ({setSelectValue, results}) => {
         listarDatos()
     }, [])
 
-    return loading ? (
-        <Loading />
-    ) : (
+    return (
         <section className="filtros">
             <div className="filter">
                 <ul>

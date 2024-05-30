@@ -180,6 +180,7 @@ export const Listado = ({isInHome}) => {
 
     useEffect(() => {
         filters()
+        scrollTo(0,0)
     }, [categoria, query, selectValue, searchParams.get("search")])
 
     const indexFin = currentPage * productsQty
