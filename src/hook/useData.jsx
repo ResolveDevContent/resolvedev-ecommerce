@@ -9,8 +9,9 @@ import { getDataTienda } from "../services/getDataTienda"
 export function useData() {
     const [ loading, setLoading ] = useState(true)
 
-    const getDatosTienda = async () => {
-        const doc = await getDataTienda(setLoading)
+    const getDatosTienda = async (model) => {
+        console.log(model)
+        const doc = await getDataTienda(model, setLoading)
         if (!doc) return null
 
         return doc

@@ -14,9 +14,9 @@ export const Home = () => {
     const location = useLocation()
 
     const dataTienda = async () => {
-        let datos = await getDatosTienda()
+        let datos = await getDatosTienda("tienda")
         datos = datos[0]
-
+        console.log(datos)
         if(datos.promociones && !datos.titulo) datos.titulo = "Promociones"
         setTienda(datos)
     }

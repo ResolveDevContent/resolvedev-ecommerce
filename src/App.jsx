@@ -33,7 +33,7 @@ function App() {
   }
 
   const dataTienda = async () => {
-    const datos = await getDatosTienda()
+    const datos = await getDatosTienda("tienda")
 
     setTienda(datos[0])
   }

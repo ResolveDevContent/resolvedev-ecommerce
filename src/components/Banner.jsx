@@ -1,9 +1,27 @@
 import '../css/Banner.css'
 import Home from '../images/home.jpg'
 import { Link } from 'react-router-dom'
+import { useData } from '../hook/useData'
+import { useEffect, useState } from 'react'
+import { Loading } from './Loading'
 
 export const Banner = () => {
-    return (
+    const [ banners, setBanners ] = useState([])
+    const { loading, getDatosTienda } = useData()
+
+    const dataTienda = async () => {
+        const datos = await getDatosTienda("banners")
+        console.log(datos, loading)
+        setBanners(datos[0])
+    }
+
+    useEffect(() => {
+        dataTienda()
+    }, [])
+
+    return loading ? (
+        <Loading />
+    ) : banners ? (
         <section className="banners">
             <ul>
                 <li>
@@ -11,17 +29,17 @@ export const Banner = () => {
                         <img src={Home} alt="logo" /> 
                         <figcaption>
                             <article className="home-text">
-                                <span>Novedades</span>
+                                <span>{banners.subtitulo}</span>
                                 <div>
-                                    <em>Descubrí nuestras nuevas colecciones</em>
+                                    <em>{banners.titulo}</em>
                                     <p>
-                                    Estamos emocionados de presentarte nuestras nuevas colecciones, diseñadas con pasión y dedicación para ofrecerte lo mejor en muebleria. Este año, hemos llevado nuestra creatividad a nuevos horizontes, fusionando tendencias contemporáneas con un toque de elegancia clásica.
+                                        {banners.descripcion}
                                     </p>
                                 </div>
                                 <footer>
                                     <button>
                                         <Link to={'/listado'}>
-                                            Compra ahora
+                                            {banners.textoBoton}
                                         </Link>    
                                     </button>
                                 </footer>
@@ -31,5 +49,5 @@ export const Banner = () => {
                 </li>
             </ul>
         </section>
-    )
+    ) : null
 }
