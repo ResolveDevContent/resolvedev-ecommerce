@@ -29,14 +29,14 @@ export const ProductCard = ({item}) => {
                 <span>{caracteristicas[0].nombre}</span>
                 <div className='price'>
                     <del>{fmt_modified_price}</del>
-                    <em>${fmt_precio}</em>
+                    <em>{fmt_precio}</em>
                 </div>
                 <div className='btn-carrito'>
                     {carrito && stock > 0
                         ? <button className={inCart ? "in-cart" : null}
                             onClick={() => {
                                 inCart 
-                                    ? removeFromCart(item)
+                                    ? removeFromCart(item.id)
                                     : addToCart(item)
                                     }}> 
                                     {inCart 

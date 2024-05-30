@@ -9,7 +9,7 @@ export const CartDetails = ({datos, children}) => {
         subTotal += Number(row.precio) * Number(row.quantity)
     })
 
-    subTotal = datos.shipping ? subTotal + Number(datos.shipping.split(":")[1]) : subTotal
+    subTotal = datos.shipping ? subTotal + Number(datos.shipping.split("-")[1]) : subTotal
 
     return (
         <div className='cart-details'>
@@ -25,7 +25,7 @@ export const CartDetails = ({datos, children}) => {
                     {datos.products.map((prod) => (
                         <li key={prod._id}>
                             <span>{prod.nombre}<strong>{" x" + prod.quantity}</strong></span>
-                            <em>$ {fmtImporte(prod.precio * prod.quantity)}</em>
+                            <em>{fmtImporte(prod.precio * prod.quantity)}</em>
                         </li>
                     ))}
                     <li>
@@ -34,11 +34,13 @@ export const CartDetails = ({datos, children}) => {
                     </li>
                     <li>
                         <span>Envio</span>
-                        <em>{datos.shipping ? datos.shipping.split(":")[0] + " " + "$ " + fmtImporte(Number(datos.shipping.split(":")[1])) : "-"}</em>
+                        <em>
+                            {datos.shipping ? (Number(datos.shipping.split("-")[1]) == 0 ? "Gratis" : datos.shipping.split("-")[0] + " " + fmtImporte(Number(datos.shipping.split("-")[1]))) : "-"}
+                        </em>
                     </li>
                     <li>
                         <span>Subtotal</span>
-                        <em>${fmtImporte(subTotal)}</em>
+                        <em>{fmtImporte(subTotal)}</em>
                     </li>
                 </ul>
                 <div>
@@ -50,7 +52,7 @@ export const CartDetails = ({datos, children}) => {
                         <ul>
                             <li>
                                 <span>Total</span>
-                                <em>${fmtImporte(subTotal)}</em>
+                                <em>{fmtImporte(subTotal)}</em>
                             </li>
                         </ul>
                         <div className='btn-carrito disabled'>

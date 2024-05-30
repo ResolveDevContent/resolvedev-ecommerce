@@ -17,7 +17,7 @@ export const getOneData = async (model, id, setLoading) => {
         if(json.descuento > 0) {
             price = Number(json.precio) + Number((Number(json.precio) * (Number(json.descuento) / 100)).toFixed(2))
             modifiedPrice = fmtImporte(price)
-            modifiedPrice = '$ ' + modifiedPrice
+            modifiedPrice = modifiedPrice
         }
 
         json.fmt_modified_price = modifiedPrice

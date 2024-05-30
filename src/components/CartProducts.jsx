@@ -34,9 +34,9 @@ export const CartProducts = ({products}) => {
                     <span>Subtotal</span>
                 </li>
             </ul>
-            {products.map((row, index) => (
+            {products.map((row) => (
                 <>
-                    <ul className='row' key={index}>
+                    <ul className='row' key={row._id}>
                         <li className='product-img'>
                             <span className='loader'></span>
                             <img src={row?.imagenes[0]} alt='' />
@@ -45,11 +45,11 @@ export const CartProducts = ({products}) => {
                             <em>{row.nombre}</em>
                         </li>
                         <li>
-                            <em>$ {fmtImporte(row.precio)}</em>
+                            <em>{fmtImporte(row.precio)}</em>
                         </li>
                         <li>
                             <div className='input'>
-                                <button onClick={(e) => { updateQuantity(row.id, Number(row.piezas * -1), true)} }>
+                                <button onClick={(e) => {updateQuantity(row.id, Number(row.piezas * -1), true)} }>
                                     <Minus />
                                 </button>
                                 <input type="number" defaultValue={row.quantity} value={row.quantity}
@@ -61,11 +61,14 @@ export const CartProducts = ({products}) => {
                             </div>
                         </li>
                         <li>
-                            <span>$ {fmtImporte(row.precio * row.quantity)}</span>
+                            <span>{fmtImporte(row.precio * row.quantity)}</span>
                         </li>
                     </ul>
                     <div className="btn-carrito">
-                        <a href="#" onClick={(e) => { removeFromCart(row.id) }}>
+                        <a href="#" onClick={(e) => { 
+                            e.preventDefault()
+                            removeFromCart(row.id) 
+                            }}>
                             <Trash />
                         </a>
                     </div>

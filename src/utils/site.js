@@ -10,5 +10,5 @@ export const fmtImporte = function (nro, def) {
     var p = Number(nro).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.").split('.'),
       d = p.pop();
   
-    return p.join('.') + ',' + d;
+    return "$" + p.join('.') + ',' + d;
 }
