@@ -61,14 +61,10 @@
 .navbar-items .navbar-categorias label > ul {
     position: fixed;
     top: 3em;
-    padding: 2em;
+    padding: 1em;
     background-color: white;
     border-radius: 0.5em;
-    align-items: start;
-    justify-content: start;
-    gap: 1em;
-    max-width: 24em;
-    flex-wrap: wrap;
+    margin-top: 0.5em;
 }
 
 .navbar-items .navbar-categorias label > ul > li > a{
@@ -76,9 +72,9 @@
     color: black;
 }
 
-.navbar-items .navbar-categorias label > ul > li > a:hover,
-.navbar-items .navbar-subcategorias > ul li a:hover {
-    border-bottom: 1px solid #000;
+.navbar-items .navbar-categorias label > ul > li > a:hover {
+    background-color: var(--muted-light);
+    border-radius: 0.5em;
 }
 
 .navbar-items .navbar-subcategorias > ul {
@@ -95,7 +91,21 @@
 }
 
 .navbar-items .navbar-categorias label:hover > ul{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5em;
+}
+
+.navbar-items .navbar-categorias .navbar-subcategorias a{
     display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.navbar-items .navbar-categorias .navbar-subcategorias a img {
+    width: 3em;
+    height: 3em;
+    border-radius: 0.5em;
 }
 
 .navbar .buttons ul > li > svg {
