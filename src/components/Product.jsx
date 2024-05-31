@@ -11,7 +11,7 @@ import { EmptyState } from '../components/EmptyState'
 import { Loading } from './Loading'
 
 export const Product = () => {
-    const [ image, setImage ] = useState(Prod)
+    const [ mainImage, setMainImage ] = useState("")
     const [ data, setData ] = useState({})
     const [ inputState, setInputState ] = useState(data.piezas || 1)
     const [ relacionados, setRelacionados ] = useState([])
@@ -43,6 +43,7 @@ export const Product = () => {
             }
         })
 
+        setMainImage(dato.imagenes[0])
         setData(dato)
 
         const newRelacionados = listRelacionados.filter(item => item._id != dato._id)
@@ -56,12 +57,6 @@ export const Product = () => {
     
     if(data) {
         inCart = cart.some(prod => prod._id == data.id)
-    }
-
-    const changeImg = (e, img) => {
-        e.preventDefault()
-
-        setImage(img)
     }
 
     const handleClick = (value) => {
@@ -88,6 +83,13 @@ export const Product = () => {
         console.log(formData)
     }
 
+    const handleMouseOver = (img) => {
+        console.log("mouseover", img)
+        if(img) {
+            setMainImage(img)
+        }
+    }
+
     useEffect(() => {
         scrollTo(0,0)
         
@@ -108,14 +110,14 @@ export const Product = () => {
                         <>
                             <figure>
                                 <span className='loader'></span>
-                                <img src={data?.imagenes[0]} alt="" />
+                                <img src={mainImage} alt="" />
                             </figure>
                             <ul>
                                 {data.imagenes.map((img, idx) => (
-                                    <li key={idx}>
+                                    <li key={idx} onMouseOver={() => handleMouseOver(img)}>
                                         <figure>
                                             <span className='loader'></span>
-                                            <img src={img} alt="" onClick={(e) => changeImg(e, img)} />
+                                            <img src={img} alt=""/>
                                         </figure>
                                     </li>
                                 ))}
