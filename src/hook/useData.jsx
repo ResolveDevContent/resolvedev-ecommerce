@@ -92,5 +92,15 @@ export function useData() {
         return doc
     }
 
-    return { getDatosTienda, getDatos, getDataRelacionados, getDatosByCategoria, getOneDato, getProfile, updateProfile, getFiltros, loading }
+    return { 
+        getDatosTienda, 
+        getDatos, 
+        getDataRelacionados, 
+        getDatosByCategoria, 
+        getOneDato, 
+        getProfile, 
+        updateProfile, 
+        getFiltros, 
+        loading
+    }
 } 
