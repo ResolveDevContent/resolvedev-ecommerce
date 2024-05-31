@@ -305,7 +305,8 @@ textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 8em;
+    padding: 6em;
+    text-align: center;
 }
 
 #notFound > h1 {

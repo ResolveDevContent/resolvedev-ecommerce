@@ -62,7 +62,9 @@ export const Navbar = () => {
                                                     <li key={cat._id} className='navbar-subcategorias'>
                                                         <Link to={`/tienda/${cat.nombre.toLowerCase()}`}>
                                                             <img src={cat.imagen} alt="categoria-img" />
-                                                            {cat.nombre}
+                                                            <span>
+                                                                {cat.nombre}
+                                                            </span>
                                                         </Link>
                                                     </li>
                                                 ))}

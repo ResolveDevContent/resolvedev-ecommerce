@@ -100,12 +100,28 @@
     display: flex;
     align-items: center;
     gap: 0.5em;
+    padding-right: 3em;
+    border: 1px solid #d5d5d5;
+    border-radius: .5em;
+    box-shadow: 6px 6px 8px -6px #00000050;
+    max-width: 15em;
 }
 
 .navbar-items .navbar-categorias .navbar-subcategorias a img {
     width: 3em;
     height: 3em;
+    min-height: 3em;
     border-radius: 0.5em;
+    min-width: 3em;
+}
+
+.navbar-items .navbar-categorias .navbar-subcategorias a span {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    line-height: 1;
+    overflow-wrap: anywhere;
 }
 
 .navbar .buttons ul > li > svg {
