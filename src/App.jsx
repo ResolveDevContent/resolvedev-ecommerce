@@ -21,7 +21,7 @@ import AuthContext from './context/Auth'
 import { useData } from "./hook/useData.jsx"
 
 function App() {
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(false)
   const [tienda, setTienda] = useState([ ]);
   const { getDatosTienda } = useData()
 

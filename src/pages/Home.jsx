@@ -5,12 +5,13 @@ import { useLocation } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { useData } from "../hook/useData.jsx"
 import { Promociones } from "../components/Promociones.jsx"
+import { Loading } from "../components/Loading.jsx"
 
 export const Home = () => {
     const [ data, setData ] = useState([])
     const [ tienda, setTienda ] = useState([])
     const [ consulta, setConsulta ] = useState([])
-    const { getDatos, getDatosTienda } = useData()
+    const { loading, getDatos, getDatosTienda } = useData()
     const location = useLocation()
 
     const dataTienda = async () => {
@@ -40,18 +41,20 @@ export const Home = () => {
     console.log(tienda, consulta)
 
     return (
-        <>
-            <Banner />
-            {tienda.promociones && data.length > 0 
-                ? <Promociones titulo={tienda.titulo} list={data}/>
-                : null
-            }
-            {consulta.length > 0 
-                ? <Promociones titulo={"Prodcutos de consulta"} list={consulta}/>
-                : null
-            }
-            <Categorias />
-            <Listado isInHome={true} />
-        </>
+        loading 
+            ? <Loading />
+            : <>
+                <Banner />
+                {tienda.promociones && data.length > 0 
+                    ? <Promociones titulo={tienda.titulo} list={data}/>
+                    : null
+                }
+                {consulta.length > 0 
+                    ? <Promociones titulo={"Prodcutos de consulta"} list={consulta}/>
+                    : null
+                }
+                <Categorias />
+                <Listado isInHome={true} />
+            </>
     )
 }
