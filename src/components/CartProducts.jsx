@@ -67,7 +67,7 @@ export const CartProducts = ({products}) => {
                     <div className="btn-carrito">
                         <a href="#" onClick={(e) => { 
                             e.preventDefault()
-                            removeFromCart(row.id) 
+                            removeFromCart(row) 
                             }}>
                             <Trash />
                         </a>

@@ -143,73 +143,54 @@ export const Product = () => {
                             ) : null}
                         </div>
                     </header>
-                    {!data.carrito || data.stock == 0
-                        ? <div>
-                            <em>Consultar</em>
-                            <form>
-                                <ul>
+                    <ul className='product-actions'>
+                        {
+                            data.carito && data.stock > 0 
+                                ? <>
                                     <li>
                                         <div className='input'>
-                                            <label>Nombre</label>
-                                            <input type="text" placeholder='Nombre' name='nombre'/>
-                                        </div>    
+                                            <button onClick={() => handleClick(Number(data.piezas) * -1)}>
+                                                <Minus />
+                                            </button>
+                                            <input type="number"
+                                                value={inputState} ref={input}
+                                                onChange={e => handleChange(e.target.value)}
+                                                />
+                                            <button onClick={() => handleClick(Number(data.piezas))}>
+                                                <Plus />  
+                                            </button>
+                                        </div>
                                     </li>
                                     <li>
-                                        <div className='input'>
-                                            <label>Email</label>
-                                            <input type="text" placeholder='abc@email.com' name='email'/>
-                                        </div>    
+                                        <div className='btn-carrito'>
+                                            <button className={inCart ? "in-cart" : null} 
+                                                onClick={handleChangeCarrito}>
+                                                    { 
+                                                        inCart 
+                                                            ? "Eliminar del carrito"
+                                                            :  "Añadir al carrito" 
+                                                    }
+                                            </button>
+                                        </div>
                                     </li>
-                                    <li>
-                                        <div className='input'>
-                                            <label>Mensaje</label>
-                                            <textarea placeholder='¡Hola!, quisiera saber...' name='mensaje'/>
-                                        </div>    
-                                    </li>
-                                </ul>
-                                <input type="hidden" name='producto' value={data._id}/>
-                                <div className='btn-carrito'>
-                                    <button onClick={handleSubmit}>
-                                        Enviar
-                                        <Send />
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        : <ul className='product-actions'>
-                            <li>
-                                <div className='input'>
-                                    <button onClick={() => handleClick(Number(data.piezas) * -1)}>
-                                        <Minus />
-                                    </button>
-                                    <input type="number"
-                                        value={inputState} ref={input}
-                                        onChange={e => handleChange(e.target.value)}
-                                        />
-                                    <button onClick={() => handleClick(Number(data.piezas))}>
-                                        <Plus />  
-                                    </button>
-                                </div>
-                            </li>
-                            <li>
-                                <div className='btn-carrito'>
-                                    <button className={inCart ? "in-cart" : null} 
-                                        onClick={handleChangeCarrito}>
-                                            { 
-                                                inCart 
-                                                    ? "Eliminar del carrito"
-                                                    :  "Añadir al carrito" 
-                                            }
-                                    </button>
-                                </div>
-                            </li>
-                            <li>
-                                <button className='btn-share'>
-                                    <Share />
-                                </button>
-                            </li>
-                        </ul>
-                    }
+                                </>
+                                : null
+                        }
+                        {
+                            !data.carito || data.stock == 0 
+                                ? <li>
+                                    <div className='btn-carrito'>
+                                        <button popovertarget="consulta-popover">Consultar</button>
+                                    </div>
+                                </li>
+                                : null
+                        }
+                        <li>
+                            <button className='btn-share'>
+                                <Share />
+                            </button>
+                        </li>
+                    </ul>   
                 </article>
             </section>
             <div className='ficha-tecnica'>
@@ -247,6 +228,38 @@ export const Product = () => {
                 : null
             }
             <Features />
+            <div className='consulta' popover="true" id="consulta-popover">
+                <em>Consultar</em>
+                <form>
+                    <ul>
+                        <li>
+                            <div className='input'>
+                                <label>Nombre</label>
+                                <input type="text" placeholder='Nombre' name='nombre'/>
+                            </div>    
+                        </li>
+                        <li>
+                            <div className='input'>
+                                <label>Email</label>
+                                <input type="text" placeholder='abc@email.com' name='email'/>
+                            </div>    
+                        </li>
+                        <li>
+                            <div className='input'>
+                                <label>Mensaje</label>
+                                <textarea placeholder='¡Hola!, quisiera saber...' name='mensaje'/>
+                            </div>    
+                        </li>
+                    </ul>
+                    <input type="hidden" name='producto' value={data._id}/>
+                    <div className='btn-carrito'>
+                        <button onClick={handleSubmit}>
+                            Enviar
+                            <Send />
+                        </button>
+                    </div>
+                </form>
+            </div>
         </> 
     ) : null
 }

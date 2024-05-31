@@ -82,14 +82,14 @@
     flex-direction: column;
 }
 
-.product-details > div {
+.product-details .consulta {
     padding: 1em;
     border-radius: .5em;
     background-color: var(--dark);
     color: white;
 }
 
-.product-details > div > em {
+.product-details .consulta > em {
     font-size: 1.5em;
     font-style: normal;
     font-weight: 600;
@@ -98,20 +98,20 @@
     display: block;
 }
 
-.product-details > div > form > ul > li {
+.product-details .consulta form > ul > li {
     margin-top: .5em;
 }
 
-.product-details > div > form .btn-carrito {
+.product-details .consulta form .btn-carrito {
     margin-top: 1em;
 }
 
-.product-details > div > form .btn-carrito > button {
+.product-details .consulta form .btn-carrito > button {
     display: flex;
     align-items: center;
 }
 
-.product-details > div > form .btn-carrito > button svg {
+.product-details .consulta form .btn-carrito > button svg {
     fill: var(--muted-dark);
 }
 
@@ -280,6 +280,7 @@
     .product-images > figure {
         width: 80%;
         min-width: 80%;
+        aspect-ratio: auto;
     }
 
     .ficha-tecnica {
